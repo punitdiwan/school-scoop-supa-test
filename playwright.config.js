@@ -33,6 +33,8 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    //----1
+    // { name: 'setup', testMatch: /.*\.setup\.ts/ },
     // {
     //   name: 'chromium',
     //   use: { ...devices['Desktop Chrome'] },
@@ -65,7 +67,12 @@ module.exports = defineConfig({
     // },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      use: { ...devices['Desktop Chrome'], channel: 'chrome'
+        //----1
+        // ,storageState: 'playwright/.auth/user.json',
+       },
+       //--1
+      // dependencies: ['setup']
     },
   ],
 
