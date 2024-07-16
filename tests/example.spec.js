@@ -725,3 +725,45 @@
 
 
 // });
+
+////------16jul
+
+// import { test, expect } from '@playwright/test';
+
+// test('test', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'View All Student' }).click();
+//   await page.getByLabel('Select a Class').click();
+// //   await page.getByLabel('kg1', { exact: true }).click();
+//   await page.getByLabel('Select a Section').click();
+//   await page.getByLabel('Section List').nth(2).click();
+//   await page.getByLabel('kg1,').click();
+//   await page.getByLabel('nursery', { exact: true }).click();
+//   await page.getByLabel(',', { exact: true }).click();
+//   await page.getByLabel('Section List').nth(2).click();
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.dismiss().catch(() => {});
+//   });
+//   await page.getByRole('gridcell', { name: 'View profile Delete' }).first().click();
+//   await page.getByRole('link', { name: 'View profile' }).first().click();
+//   await page.getByRole('link', { name: 'View All Student' }).click();
+//   await page.getByLabel('Select a Class').click();
+//   await page.getByLabel('nursery', { exact: true }).click();
+//   await page.getByLabel('Select a Section').click();
+//   await page.getByLabel('Section List').nth(2).click();
+//   await page.getByRole('gridcell', { name: 'Mk' }).click();
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.dismiss().catch(() => {});
+//   });
+//   await page.getByRole('link', { name: 'Delete' }).first().click();
+//   await page.getByText('HomeMenuSearchtestschooladminMy ProfileLog Out').click();
+// });
+

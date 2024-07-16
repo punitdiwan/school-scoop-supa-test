@@ -1,27 +1,26 @@
 import { test, expect } from '@playwright/test';
 // test for student addmission     
 test.describe('test for student addmission ', () => {
-  // test('test for printing id card', async ({ page }) => {
-  //   await page.goto('https://testschool.launchmysite.in/');
-  //   await page.getByPlaceholder('Enter your Email').click();
-  //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  //   await page.getByPlaceholder('Enter your password').click();
-  //   await page.getByPlaceholder('Enter your password').fill('test@123');
-  //   await page.getByRole('button', { name: 'Sign In' }).click();
-  //   await page.getByRole('link', { name: 'Students' }).first().click();
-  //   await page.getByRole('link', { name: 'Student Identity Card' }).click();
-  //   // await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1st$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-  //   // await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
-  //   await page.getByLabel('Select Student(s)').click();
-  //   await page.getByLabel('Test3', { exact: true }).click();
-  //   await page.getByLabel('Select Colour').click();
-  //   await page.getByLabel('Select Colour').click();
-  //   // await page.getByLabel('Wine', { exact: true }).click();
-  //   await page.getByRole('button', { name: 'Submit Report' }).click();
-  //   const page1Promise = page.waitForEvent('popup');
-  //   await page.getByRole('button', { name: 'Print' }).click();
-  //   const page1 = await page1Promise;
-  // });
+  test('test for id card', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Students' }).first().click();
+    await page.getByRole('link', { name: 'Student Identity Card' }).click();
+    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2nd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
+    await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
+    await page.getByLabel('Select Student(s)').click();
+    await page.getByLabel('All Students', { exact: true }).click();
+    await page.getByLabel('Select Colour').click();
+    await page.getByLabel('Select Colour').click();
+    await page.getByRole('button', { name: 'Submit Report' }).click();
+    const page1Promise = page.waitForEvent('popup');
+    await page.getByRole('button', { name: 'Print' }).click();
+    const page1 = await page1Promise;
+  });
   
 
 
@@ -42,62 +41,6 @@ test('test for academic year creation', async ({ page }) => {
   await page.getByText('Academic Year Created').click();
   await page.getByRole('columnheader', { name: 'Active' }).click();
   await page.getByRole('link', { name: 'Dashboard' }).click();
-});
-
-
-
-
-// test('test for marksheet printing', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.in');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('button').click();
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(6)').first().click();
-//   await page.getByRole('link', { name: 'Exam Report Before Publish' }).click();
-//   // await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1st$/ }).getByRole('combobox').selectOption('x3sih05fuiX0,kg1');
-//   // await page.locator('div').filter({ hasText: /^Selectkg1-A-2025$/ }).getByRole('combobox').selectOption('mhlx8oQk7oUT,kg1-A-2025');
-//   await page.locator('div').filter({ hasText: /^Group \* Selectfinal$/ }).getByRole('combobox').selectOption('9pbfLIZXITM4-undefined');
-//   await page.getByRole('link', { name: 'Manage Exam' }).click();
-//   await page.getByRole('link', { name: 'Exam Report For School' }).click();
-//   await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1st$/ }).getByRole('combobox').selectOption('x3sih05fuiX0,Kg1');
-//   await page.locator('div').filter({ hasText: /^SelectKg1-A-2025$/ }).getByRole('combobox').selectOption('mhlx8oQk7oUT,Kg1-A-2025,');
-//   await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('9pbfLIZXITM4-Final');
-//   await page.locator('div').filter({ hasText: /^Student \* SelectRishuTest$/ }).getByRole('combobox').selectOption('EK66476lqMPO-Rishu');
-//   const page1Promise = page.waitForEvent('popup');
-//   await page.getByRole('button', { name: 'Print' }).click();
-//   const page1 = await page1Promise;
-// });
-
-
-
-
-test('test for creating a class', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-  await page.getByRole('link', { name: 'Create Class And Section' }).click();
-  await page.locator('input[name="class-1stChecked"]').check();
-  await page.locator('div').filter({ hasText: /^class-1stABCD$/ }).getByRole('checkbox').nth(1).check();
-  await page.locator('div').filter({ hasText: /^class-1stABCD$/ }).getByRole('checkbox').nth(2).check();
-  await page.locator('div:nth-child(4) > div:nth-child(2) > div > div > div:nth-child(3) > div > div').first().click();
-  await page.locator('div').filter({ hasText: /^class-1stABCD$/ }).getByRole('checkbox').nth(4).check();
-  await page.locator('#startdate').fill('2024-05-01');
-  await page.getByLabel('Select Academic Year').click();
-  await page.getByLabel('AY-2024-2025', { exact: true }).click();
-  // await page.getByLabel('Select Medium').click();
-  // await page.getByLabel('English', { exact: true }).click();
-  await page.getByRole('button', { name: 'Save' }).click();
-  // await page.getByRole('main').locator('div').filter({ hasText: /^class-1st & Sections Created Successfully!$/ }).nth(2).click();
 });
 
 
@@ -176,7 +119,6 @@ test('test for student admission', async ({ page }) => {
   await page.getByPlaceholder('Enter your Full name').click();
   await page.getByPlaceholder('Enter your Full name').fill('test3');
   await page.locator('div').filter({ hasText: /^D\.O\.B\.\*$/ }).locator('div').nth(3).click();
-    // await page.locator('[id="react-aria3819978554-\\:ru\\:"]').fill('2000-01-01');
   await page.getByText('Categorycommoncommon1CategorySelect Category').click();
   await page.getByLabel('common', { exact: true }).click();
   await page.getByText('CasteGeneralOBCSCSTCasteSelect Caste').click();
@@ -187,6 +129,8 @@ test('test for student admission', async ({ page }) => {
   // await page.getByLabel('nursery-A-2024', { exact: true }).click();
   await page.getByRole('button', { name: 'Submit' }).click();
 });
+
+
 
 
 });
