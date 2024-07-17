@@ -32,5 +32,31 @@ test('test for creating a route and assigning vehicle', async ({ page }) => {
 });
 
 
+test('test for creating Transport Fees Collection', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Transport Fees Collection' }).click();
+  await page.getByLabel('Select Period of Collection').click();
+  await page.getByLabel('HALF YEARLY', { exact: true }).click();
+  await page.locator('label').filter({ hasText: 'Select All' }).locator('span').first().click();
+  await page.locator('.h-full > .relative > .inline-flex').first().click();
+  await page.getByLabel('1', { exact: true }).getByPlaceholder('Enter Fee Collection Name').fill('first');
+  await page.locator('td:nth-child(3) > .group > div > .relative').first().click();
+  await page.locator('#startDate-1').fill('2024-01-01');
+  await page.locator('td:nth-child(4) > .group > div > .relative').first().click();
+  await page.locator('#endDate-1').fill('2024-06-30');
+  await page.getByLabel('2', { exact: true }).getByPlaceholder('Enter Fee Collection Name').click();
+  await page.getByLabel('2', { exact: true }).getByPlaceholder('Enter Fee Collection Name').fill('second');
+  await page.locator('#startDate-2').fill('2024-07-01');
+  await page.locator('#endDate-2').fill('2024-12-31');
+  await page.getByRole('button', { name: 'Create Fee Collection' }).click();
+  await page.getByRole('main').locator('div').filter({ hasText: /^Collection Created Successfully$/ });
+});
+
 
 });

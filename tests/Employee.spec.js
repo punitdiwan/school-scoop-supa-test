@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 // test for employee addmission and category creation     
-test.describe('test for student addmission ', () => {
+test.describe('test for employee addmission ', () => {
 
 
 
@@ -78,5 +78,45 @@ test.describe('test for student addmission ', () => {
     });
   await page.getByRole('link', { name: 'Delete' }).nth(1).click();
   });
-      
+});      
+
+
+test.describe('test for event creation ', () => {
+
+test('test for creating events', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
+  await page.getByPlaceholder('Enter Title').click();
+  await page.getByPlaceholder('Enter Title').fill('holiday');
+  await page.getByPlaceholder('Enter your description').click();
+  await page.getByPlaceholder('Enter your description').fill('holiday');
+//   await page.locator('[id="react-aria8624273455-\\:rk\\:"]').fill('2024-07-01');
+//   await page.locator('[id="react-aria8624273455-\\:ru\\:"]').fill('2024-07-03');
+  await page.locator('label').filter({ hasText: 'This event is Holiday' }).locator('svg').click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+});
+
+
+
+test('test for deleting events', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
+  await page.getByRole('button', { name: 'Delete' }).click();
+  await page.getByRole('button', { name: 'Yes' }).click();
+  await page.locator('div').filter({ hasText: 'Successfully Delete Event' });
+});
+
+
+
+
 });    
