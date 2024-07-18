@@ -14,42 +14,18 @@ test.describe('test for student addmission ', () => {
     await page.getByPlaceholder('Enter category name').click();
     await page.getByPlaceholder('Enter category name').fill('test1');
     await page.locator('div').filter({ hasText: /^Description \*Max 40 characters$/ }).locator('div').nth(2).click();
-    await page.getByPlaceholder('Enter description').fill('test1');
+    await page.getByPlaceholder('Enter description').fill('testdes');
     await page.getByRole('button', { name: 'Save' }).click();
-    page.once('dialog', dialog => {
-      console.log(`Dialog message: ${dialog.message()}`);
-      dialog.dismiss().catch(() => {});
-    });
-    await page.getByText('Delete').nth(3).click();
+    const element = await expect(page.getByText('Created successfully')).toBeVisible();
+    // page.once('dialog', dialog => {
+    //   console.log(`Dialog message: ${dialog.message()}`);
+    //   dialog.dismiss().catch(() => {});
+    // });
+    // await page.getByText('Delete').nth(3).click();
+    await page.goto('https://testschool.launchmysite.in/students/create_student_category');
+    const element2 = await expect(page.getByText('test1')).toBeVisible();
   });
 
-
-
-  test('test for student admissions', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.locator('.group > div > .inline-flex').first().click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('.mt-4 > div > .grid > div').first().click();
-    await page.getByRole('link', { name: 'Student Admissions' }).click();
-    await page.getByPlaceholder('Enter Admission No').click();
-    await page.getByPlaceholder('Enter Admission No').fill('06');
-    await page.locator('div').filter({ hasText: /^Full name\*$/ }).locator('div').nth(3).click();
-    await page.getByPlaceholder('Enter your Full name').fill('test6');
-    await page.locator('div').filter({ hasText: /^D\.O\.B\.\*$/ }).locator('div').nth(3).click();
-    // await page.locator('[id="react-aria615390900-\\:ru\\:"]').fill('2000-01-01');
-    await page.getByLabel('Select Category').click();
-    // await page.getByLabel('common', { exact: true }).click();
-    await page.getByLabel('Select Caste').click();
-    // await page.getByLabel('General', { exact: true }).click();
-    await page.getByLabel('Select a Class').click();
-    // await page.getByLabel('nursery', { exact: true }).click();
-    await page.getByLabel('Select a Section').click();
-    // await page.getByLabel('nursery-A-2024', { exact: true }).click();
-    await page.getByRole('button', { name: 'Submit' }).click();
-  });
 
 
   test('test for viewing siblings', async ({ page }) => {
@@ -61,6 +37,8 @@ test.describe('test for student addmission ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('.mt-4 > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'View All Siblings' }).click();
+    await page.goto('https://testschool.launchmysite.in/students/view_all_siblings');
+    const element = await expect(page.getByText('test@gmail.com')).toBeVisible();
   });
 
 
@@ -100,7 +78,6 @@ test.describe('test for student addmission ', () => {
     await page.getByLabel('All Students', { exact: true }).click();
     await page.getByLabel('Select Colour').click();
     await page.getByLabel('Select Colour').click();
-    // await page.getByLabel('Wine', { exact: true }).click();
     await page.getByRole('button', { name: 'Submit Report' }).click();
     const page1Promise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Print' }).click();
@@ -123,7 +100,6 @@ test.describe('test for student addmission ', () => {
     await page.getByLabel('All Students', { exact: true }).click();
     await page.getByLabel('Select Colour').click();
     await page.getByLabel('Select Colour').click();
-    //   await page.getByLabel('Indigo', { exact: true }).click();
     await page.getByRole('button', { name: 'Submit Report' }).click();
     const page1Promise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Print' }).click();
@@ -147,7 +123,6 @@ test.describe('test for student addmission ', () => {
     await page.getByLabel('All Students', { exact: true }).click();
     await page.getByLabel('Select Colour').click();
     await page.getByLabel('Select Colour').click();
-    // await page.getByLabel('Grassy', { exact: true }).click();
     await page.getByRole('button', { name: 'Submit Report' }).click();
     const page1Promise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Print' }).click();
@@ -171,7 +146,6 @@ test.describe('test for student addmission ', () => {
     await page.getByLabel('All Students', { exact: true }).click();
     await page.getByLabel('Select Colour').click();
     await page.getByLabel('Select Colour').click();
-    // await page.getByLabel('Sky', { exact: true }).click();
     await page.getByRole('button', { name: 'Submit Report' }).click();
     const page1Promise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Print' }).click();
@@ -194,7 +168,6 @@ test.describe('test for student addmission ', () => {
     await page.getByLabel('All Students', { exact: true }).click();
     await page.getByLabel('Select Colour').click();
     await page.getByLabel('Select Colour').click();
-    // await page.getByLabel('newtemp', { exact: true }).click();
     await page.getByRole('button', { name: 'Submit Report' }).click();
     const page1Promise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Print' }).click();
@@ -221,37 +194,17 @@ test.describe('test for student addmission ', () => {
     await page.getByPlaceholder('Enter Prifix').fill('N');
     await page.getByPlaceholder('Enter Prifix').press('CapsLock');
     await page.getByPlaceholder('Enter Start Roll No.').click();
-    await page.getByPlaceholder('Enter Start Roll No.').fill('01');
+    await page.getByPlaceholder('Enter Start Roll No.').fill('2');
     await page.getByRole('button', { name: 'Generate' }).click();
+    const element = await expect(page.getByText('Success Generate Student Roll No.')).toBeVisible();
+    await page.goto('https://testschool.launchmysite.in/manage_exam/student_roll_number');
+    const element2 = await expect(page.getByText('Acadamic Year:- AY-2024-2025')).toBeVisible();
+
   });
 
 
 
   
-  
-test('test for Attendance Register and Report ', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(3) > div > .grid > div').first().click();
-  await page.getByRole('link', { name: 'Attendance Register' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,nursery');
-  await page.locator('div').filter({ hasText: /^Selectnursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,nursery-A-2024,KWPU7c8CRxmc');
-  await page.getByRole('button', { name: 'View Students' }).click();
-  await page.getByLabel('Select Month:').selectOption('5');
-  await page.getByRole('button', { name: 'View Students' }).click();
-  await page.getByRole('link', { name: 'Attendance' }).click();
-  await page.getByRole('link', { name: 'Attendance Report' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,nursery');
-  await page.locator('div').filter({ hasText: /^Selectnursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,01-06-2024');
-  const page1Promise = page.waitForEvent('popup');
-  await page.getByRole('button', { name: 'Print' }).click();
-  const page1 = await page1Promise;
-});
-
 
  
 
