@@ -3,35 +3,30 @@ import { test, expect } from '@playwright/test';
 
 test.describe('test for managing subjects ', () => {
 
-// test('test for creating major subjects', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(3) > div > .grid > div:nth-child(2)').click();
-//   await page.getByRole('link', { name: 'Manage Major Subject' }).click();
-//   await page.getByRole('button', { name: 'Copy Subjects From Another' }).click();
-//   await page.locator('div').filter({ hasText: /^Select Academic YearAY-2025-2026AY-2025-2026AY-2025-2026AY-2024-2025$/ }).getByRole('combobox').selectOption('vl6k9EGIAbQD');
-//   await page.locator('select[name="from_section"]').selectOption('a6B10jzAviVR');
-//   await page.getByLabel('You can select multiple sections', { exact: true }).click();
-//   await page.getByLabel('class-1st-A-2024', { exact: true }).click();
-//   await page.locator('div').filter({ hasText: 'FROM:Academic Year *Select' }).nth(2).click();
-//   await page.getByRole('button', { name: 'Copy' }).click();
-//   await page.getByRole('main').locator('div').filter({ hasText: /^Subjects Copied Successfully!!!$/ }).nth(2).click();
-//   await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
-//   await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
-//   await page.getByRole('button', { name: '+ ADD SUBJECT' }).click();
-//   await page.getByPlaceholder('Enter Subject Name').click();
-//   await page.getByPlaceholder('Enter Subject Name').fill('hindi');
-//   await page.getByPlaceholder('Enter Subject Code').click();
-//   await page.getByPlaceholder('Enter Subject Code').fill('03');
-//   await page.getByPlaceholder('Enter Days Per Week').click();
-//   await page.getByPlaceholder('Enter Days Per Week').fill('5');
-//   await page.getByRole('button', { name: 'Submit' }).click();
-//   await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Added Subject$/ }).nth(2).click();
-// });
+  test('test for creating major subjects', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(3) > div > .grid > div:nth-child(2)').click();
+    await page.getByRole('link', { name: 'Manage Major Subject' }).click();
+    await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+    await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
+    await page.getByRole('button', { name: '+ ADD SUBJECT' }).click();
+    await page.getByPlaceholder('Enter Subject Name').click();
+    await page.getByPlaceholder('Enter Subject Name').fill('maths1');
+    await page.getByPlaceholder('Enter Subject Code').click();
+    await page.getByPlaceholder('Enter Subject Code').fill('03');
+    await page.getByPlaceholder('Enter Days Per Week').click();
+    await page.getByPlaceholder('Enter Days Per Week').fill('05');
+    await page.getByRole('button', { name: 'Submit' }).click();
+       await page.goto('https://testschool.launchmysite.in/manage_subject/major_subject');
+       await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+       await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
+       const element2 = await expect(page.getByText('english')).toBeVisible();
+  });
 
 
 

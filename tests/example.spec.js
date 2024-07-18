@@ -95,3 +95,32 @@ import { test, expect } from '@playwright/test';
 // });
 
 
+
+
+
+test('test for student admissions1', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.locator('.group > div > .inline-flex').first().click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('.mt-4 > div > .grid > div').first().click();
+    await page.getByRole('link', { name: 'Student Admissions' }).click();
+    await page.getByPlaceholder('Enter Admission No').click();
+    await page.getByPlaceholder('Enter Admission No').fill('06');
+    await page.locator('div').filter({ hasText: /^Full name\*$/ }).locator('div').nth(3).click();
+    await page.getByPlaceholder('Enter your Full name').fill('test6');
+    await page.locator('div').filter({ hasText: /^D\.O\.B\.\*$/ }).locator('div').nth(3).click();
+    // await page.locator('[id="react-aria615390900-\\:ru\\:"]').fill('2000-01-01');
+    await page.getByLabel('Select Category').click();
+    // await page.getByLabel('common', { exact: true }).click();  
+    await page.getByLabel('Select Caste').click();
+    // await page.getByLabel('General', { exact: true }).click();
+    await page.getByLabel('Select a Class').click();
+    // await page.getByLabel('nursery', { exact: true }).click();
+    await page.getByLabel('Select a Section').click();
+    // await page.getByLabel('nursery-A-2024', { exact: true }).click();
+    await page.getByRole('button', { name: 'Submit' }).click();
+    // const element = await expect(page.getByText('Student Created!')).toBeVisible();
+  });
