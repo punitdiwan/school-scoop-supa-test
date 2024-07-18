@@ -64,7 +64,26 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Submit Marks' }).click();
   });
 
-
+  test('test for editing assign marks', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(6)').first().click();
+    await page.getByRole('link', { name: 'Assign Marks' }).click();
+    await page.locator('div').filter({ hasText: /^Class \* Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+    await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
+    await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('ZapTyc60mQMC,Final');
+    await page.getByRole('button', { name: 'Edit' }).first().click();
+    await page.getByRole('gridcell', { name: '80' }).locator('div').nth(2).click();
+  //   await page.locator('[id="react-aria4631255684-\\:rq\\:"]').fill('80');
+    await page.getByRole('gridcell', { name: '70' }).locator('div').nth(2).click();
+  //   await page.locator('[id="react-aria4631255684-\\:r15\\:"]').fill('70');
+    await page.getByRole('button', { name: 'Submit Marks' }).click();
+    await page.locator('div:nth-child(2) > div > .go2072408551');
+  });
 
 
   test('test for Exam Report Before Publish and publish result', async ({ page }) => {
@@ -110,37 +129,92 @@ test.describe('test for manage exam ', () => {
   // });
 
 
-    
 
-  test('test for Publish Weightage Report and View Weightage Report', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('div:nth-child(6)').first().click();
-    await page.getByRole('link', { name: 'Assign Weightage' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-    await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
-    await page.getByRole('button', { name: 'Submit' }).click();
-    await page.getByLabel('Final').locator('div').nth(2).click();
-    // await page.locator('[id="react-aria1950005730-\\:rh\\:"]').fill('100');
-    await page.getByRole('button', { name: 'Submit' }).click();
-    await page.getByRole('link', { name: 'Manage Exam' }).click();
-    await page.getByRole('link', { name: 'Publish Weightage Report' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-    await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
-    await page.getByRole('button', { name: 'Publish Report' }).click();
-    await page.getByRole('link', { name: 'Manage Exam' }).click();
-    await page.getByRole('link', { name: 'View Weightage Report' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-    await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024,');
-    await page.locator('div').filter({ hasText: /^Student \* SelectRishuTest4Test6$/ }).getByRole('combobox').selectOption('EK66476lqMPO-Rishu');
-    const page1Promise = page.waitForEvent('popup');
-    await page.getByRole('button', { name: 'Print' }).click();
-    const page1 = await page1Promise;
-  });
+test('test to Assign Weightage', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(6)').first().click();
+  await page.getByRole('link', { name: 'Assign Weightage' }).click();
+  await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+  await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
+  await page.getByLabel('Final').locator('div').nth(2).click();
+//   await page.locator('[id="react-aria5640697573-\\:rh\\:"]').fill('100');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Assign Weightage$/ });
+});
+
+
+
+
+test('test for Publish Weightage Report', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(6)').first().click();
+  await page.getByRole('link', { name: 'Publish Weightage Report' }).click();
+  await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+  await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
+  await page.getByRole('button', { name: 'Publish Report' }).click();
+  await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Published Report$/ }).nth(2).click();
+});
+
+
+
+
+
+test('test for View Weightage Report', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(6)').first().click();
+  await page.getByRole('link', { name: 'View Weightage Report' }).click();
+  await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+  await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024,');
+  await page.locator('div').filter({ hasText: /^Student \* SelectTest7$/ }).getByRole('combobox').selectOption('73KuMgNdwjPF-Test7');
+  const page1Promise = page.waitForEvent('popup');
+  await page.getByRole('button', { name: 'Print' }).click();
+  const page1 = await page1Promise;
+}); 
+
+  // test('test for Publish Weightage Report and View Weightage Report', async ({ page }) => {
+  //   await page.goto('https://testschool.launchmysite.in/');
+  //   await page.getByPlaceholder('Enter your Email').click();
+  //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  //   await page.getByPlaceholder('Enter your password').click();
+  //   await page.getByPlaceholder('Enter your password').fill('test@123');
+  //   await page.getByRole('button', { name: 'Sign In' }).click();
+  //   await page.locator('div:nth-child(6)').first().click();
+  //   await page.getByRole('link', { name: 'Assign Weightage' }).click();
+  //   await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
+  //   await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
+  //   await page.getByRole('button', { name: 'Submit' }).click();
+  //   await page.getByLabel('Final').locator('div').nth(2).click();
+  //   // await page.locator('[id="react-aria1950005730-\\:rh\\:"]').fill('100');
+  //   await page.getByRole('button', { name: 'Submit' }).click();
+  //   await page.getByRole('link', { name: 'Manage Exam' }).click();
+  //   await page.getByRole('link', { name: 'Publish Weightage Report' }).click();
+  //   await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
+  //   await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
+  //   await page.getByRole('button', { name: 'Publish Report' }).click();
+  //   await page.getByRole('link', { name: 'Manage Exam' }).click();
+  //   await page.getByRole('link', { name: 'View Weightage Report' }).click();
+  //   await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
+  //   await page.locator('div').filter({ hasText: /^SelectNursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024,');
+  //   await page.locator('div').filter({ hasText: /^Student \* SelectRishuTest4Test6$/ }).getByRole('combobox').selectOption('EK66476lqMPO-Rishu');
+  //   const page1Promise = page.waitForEvent('popup');
+  //   await page.getByRole('button', { name: 'Print' }).click();
+  //   const page1 = await page1Promise;
+  // });
   
   
     test('test for generating admit cards', async ({ page }) => {
