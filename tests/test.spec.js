@@ -510,3 +510,34 @@ import { test, expect } from '@playwright/test';
 
 
 
+// test('test to pay Transport Fees ', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(7)').first().click();
+//   await page.getByRole('link', { name: 'Transport Fees', exact: true }).click();
+//   await page.getByLabel('Select a Class', { exact: true }).click();
+//   await page.getByLabel('nursery-A-2024', { exact: true }).click();
+//   await page.getByLabel('1', { exact: true }).getByRole('link', { name: 'Pay Fees' }).click();
+//   await page.getByRole('button', { name: 'Select a Collection' }).click();
+//   await page.getByLabel('first', { exact: true }).click();
+//   await page.getByLabel('Select Payment Mode', { exact: true }).click();
+//   await page.getByLabel('Cash', { exact: true }).click();
+//   await page.locator('div').filter({ hasText: /^AmountEnter Amount$/ }).locator('div').nth(4).click();
+//   await page.getByLabel('Enter Amount').fill('100');
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.dismiss().catch(() => {});
+//   });
+//   await page.getByRole('button', { name: 'Pay Fees' }).click();
+//   await page.locator('div').filter({ hasText: 'Fees paid successfully' });
+// });
+
+
+
+// const element = await expect(page.getByText('english')).toBeVisible();
+
+
