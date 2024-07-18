@@ -32,6 +32,27 @@ test('test for creating a route and assigning vehicle', async ({ page }) => {
 });
 
 
+test('test', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.locator('.group > div > .inline-flex').first().click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.locator('.mb-6 > div > .group > div > .inline-flex').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByPlaceholder('Enter your password').press('Enter');
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Route', exact: true }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+//   await page.getByRole('button', { name: 'Delete' }).click();
+  await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Delete Route$/ });
+});
+
+
+
+
+
 test('test for creating Transport Fees Collection', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
