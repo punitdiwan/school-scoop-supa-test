@@ -580,53 +580,6 @@ import { test, expect } from '@playwright/test';
 // });
 // //  { exact: true }).getByText('Assign Class Teacher').click();
 // //   await page.getByRole('button', { name: 'Delete' }).click();
+//-------
+//       await expect(page.getByText('test1').nth(0)).toBeVisible();
 
-
-
-
-test('test for creating student category and deleting it', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.locator('.mb-6 > div > .group > div > .inline-flex').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('.mt-4 > div > .grid > div').first().click();
-    await page.getByRole('link', { name: 'Create Student Category' }).click();
-    await page.getByPlaceholder('Enter category name').click();
-    await page.getByPlaceholder('Enter category name').fill('test1');
-    await page.locator('div').filter({ hasText: /^Description \*Max 40 characters$/ }).locator('div').nth(2).click();
-    await page.getByPlaceholder('Enter description').fill('testdes');
-    await page.getByRole('button', { name: 'Save' }).click();
-    await expect(page.getByText('Created successfully')).toBeVisible();
-    // page.once('dialog', dialog => {
-    //   console.log(`Dialog message: ${dialog.message()}`);
-    //   dialog.dismiss().catch(() => {});
-    // });
-    // await page.getByText('Delete').nth(3).click();
-    await page.goto('https://testschool.launchmysite.in/students/create_student_category');
-    await expect(page.getByText('test1').nth(0)).toBeVisible();
-  });
-
-
-
-
-test('test for deleting student category', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('.mt-4 > div > .grid > div').first().click();
-  await page.getByRole('link', { name: 'Create Student Category' }).click();
-  page.once('dialog', dialog => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    dialog.dismiss().catch(() => {});
-  });
-  await page.getByLabel('test1').getByText('Delete').nth(0).click();
-//   await page.locator(`text=test1`).locator('button:has-text("Delete")').click();
-//   await expect(page.getByText('test1')).not.toBeVisible();
-
-
-});

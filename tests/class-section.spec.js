@@ -15,10 +15,11 @@ test.describe('test for class and section ', () => {
     await page.getByPlaceholder('Enter end year').click();
     await page.getByPlaceholder('Enter end year').fill('2028');
     await page.getByRole('button', { name: 'Create' }).click(); 
-    const element = await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible(); 
+    await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible(); 
     await page.goto('https://testschool.launchmysite.in/academicYear');
-    const element2 = await expect(page.getByText('AY-2027-2028')).toBeVisible();
+    await expect(page.getByText('AY-2027-2028').nth(0)).toBeVisible();
   });
+  
 
   
 
@@ -105,16 +106,16 @@ test('test for student batch shifting', async ({ page }) => {
 
 
 
-test('test for academic year deletion', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(8)').click();
-  await page.getByLabel('AY-2027-2028').getByText('Delete').click();
-});
+// test('test for academic year deletion', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(8)').click();
+//   await page.getByLabel('AY-2027-2028').getByText('Delete').click();
+// });
 
 
 

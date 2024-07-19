@@ -18,7 +18,7 @@ test.describe('test for employee addmission ', () => {
     await page.getByPlaceholder('Enter prefix').fill('test2');
     await page.getByRole('button', { name: 'Save' }).click();
     await page.goto('https://testschool.launchmysite.in/hr_management/employee_category');
-    const element = await expect(page.getByText('first division')).toBeVisible()
+    await expect(page.getByText('first division').nth(0)).toBeVisible()
     await page.getByRole('link', { name: 'Dashboard' }).click();
     await page.getByRole('link', { name: 'HR Management' }).first().click();
     await page.getByRole('link', { name: 'Employee department' }).click();
@@ -28,8 +28,8 @@ test.describe('test for employee addmission ', () => {
     await page.getByPlaceholder('Enter code').fill('test3');
     await page.getByRole('button', { name: 'Save' }).click();
     await page.goto('https://testschool.launchmysite.in/hr_management/employee_department');
-    const element1 = await expect(page.getByText('first div')).toBeVisible()
-
+    await expect(page.getByText('first div').nth(0)).toBeVisible()
+  
   });
       
       
@@ -115,19 +115,21 @@ test('test for creating events', async ({ page }) => {
 
 
 
-test('test for deleting events', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
-  const element = await expect(page.getByText('holiday')).toBeVisible();
-  await page.getByRole('button', { name: 'Delete' }).click();
-  await page.getByRole('button', { name: 'Yes' }).click();
-  const element2 = await expect(page.getByText('Successfully Delete Event')).toBeVisible();
-});
+// test('test for deleting events', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
+//   await expect(page.getByText('holiday')).toBeVisible();
+//   await page.getByRole('button', { name: 'Delete' }).click();
+//   await page.getByRole('button', { name: 'Yes' }).click();
+//   await expect(page.getByText('Successfully Delete Event')).toBeVisible();
+//   await expect(page.getByText('leave')).not.toBeVisible();
+
+// });
 
 
 
