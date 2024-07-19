@@ -63,6 +63,23 @@ test('test for creating class & section', async ({ page }) => {
   });
 
 
+  test('test for assign class teacher2', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+    await page.getByRole('link', { name: 'Classs Teacher' }).click();
+    await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,nursery');
+    await page.locator('div').filter({ hasText: /^Selectnursery-A-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,nursery-A-2024');
+    await page.getByRole('combobox').nth(2).selectOption('O9W9TBEI4Cqr');
+    await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
+    await page.getByLabel('test3', { exact: true }).getByText('Assign Class Teacher').click();
+        const element1 = await expect(page.getByText('Successfully assignd teacher')).toBeVisible()
+  });
+
 
   
 test('test for student batch shifting', async ({ page }) => {

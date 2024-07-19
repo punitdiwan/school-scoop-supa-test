@@ -540,4 +540,92 @@ import { test, expect } from '@playwright/test';
 
 // const element = await expect(page.getByText('english')).toBeVisible();
 
+//// delete test
 
+//     await page.getByLabel('test', { exact: true }).getByText('Assign Class Teacher').click();
+
+
+
+// test('test for academic year creation', async ({ page }) => {
+//     await page.goto('https://testschool.launchmysite.in/');
+//     await page.getByPlaceholder('Enter your Email').click();
+//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your password').click();
+//     await page.getByPlaceholder('Enter your password').fill('test@123');
+//     await page.getByRole('button', { name: 'Sign In' }).click();
+//     await page.getByRole('link', { name: 'Academic Year' }).first().click();
+//     await page.locator('div').filter({ hasText: /^Start Year\*$/ }).locator('div').nth(3).click();
+//     await page.getByPlaceholder('Enter start year').fill('2027');
+//     await page.getByPlaceholder('Enter end year').click();
+//     await page.getByPlaceholder('Enter end year').fill('2028');
+//     await page.getByRole('button', { name: 'Create' }).click(); 
+//     const element = await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible(); 
+//     await page.goto('https://testschool.launchmysite.in/academicYear');
+//     const element2 = await expect(page.getByText('AY-2027-2028')).toBeVisible();
+//   });
+
+
+
+
+// test('test for academic year deletion', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(8)').click();
+// //   const element2 = await expect(page.getByText('AY-2027-2028')).toBeVisible();
+//   await page.getByLabel('AY-2027-2028').getByText('Delete').click();
+// });
+// //  { exact: true }).getByText('Assign Class Teacher').click();
+// //   await page.getByRole('button', { name: 'Delete' }).click();
+
+
+
+
+// test('test for creating student category and deleting it', async ({ page }) => {
+//     await page.goto('https://testschool.launchmysite.in/');
+//     await page.getByPlaceholder('Enter your Email').click();
+//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.locator('.mb-6 > div > .group > div > .inline-flex').click();
+//     await page.getByPlaceholder('Enter your password').fill('test@123');
+//     await page.getByRole('button', { name: 'Sign In' }).click();
+//     await page.locator('.mt-4 > div > .grid > div').first().click();
+//     await page.getByRole('link', { name: 'Create Student Category' }).click();
+//     await page.getByPlaceholder('Enter category name').click();
+//     await page.getByPlaceholder('Enter category name').fill('test1');
+//     await page.locator('div').filter({ hasText: /^Description \*Max 40 characters$/ }).locator('div').nth(2).click();
+//     await page.getByPlaceholder('Enter description').fill('testdes');
+//     await page.getByRole('button', { name: 'Save' }).click();
+//     const element = await expect(page.getByText('Created successfully')).toBeVisible();
+//     // page.once('dialog', dialog => {
+//     //   console.log(`Dialog message: ${dialog.message()}`);
+//     //   dialog.dismiss().catch(() => {});
+//     // });
+//     // await page.getByText('Delete').nth(3).click();
+//     await page.goto('https://testschool.launchmysite.in/students/create_student_category');
+//     const element2 = await expect(page.getByText('test1')).toBeVisible();
+//   });
+
+
+
+
+// test('test', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('.mt-4 > div > .grid > div').first().click();
+//   await page.getByRole('link', { name: 'Create Student Category' }).click();
+//       const element2 = await expect(page.getByText('test1')).toBeVisible();
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.dismiss().catch(() => {});
+//   });
+//   await page.getByLabel('test1').getByText('Delete').click();
+// //   await page.locator('div').filter({ hasText: 'Deleted Successfully!' });
+// //   const element2 = await expect(page.getByText('Deleted Successfully!')).toBeVisible();
+// });
