@@ -16,15 +16,11 @@ test.describe('test for student addmission ', () => {
     await page.locator('div').filter({ hasText: /^Description \*Max 40 characters$/ }).locator('div').nth(2).click();
     await page.getByPlaceholder('Enter description').fill('testdes');
     await page.getByRole('button', { name: 'Save' }).click();
-    const element = await expect(page.getByText('Created successfully')).toBeVisible();
-    // page.once('dialog', dialog => {
-    //   console.log(`Dialog message: ${dialog.message()}`);
-    //   dialog.dismiss().catch(() => {});
-    // });
-    // await page.getByText('Delete').nth(3).click();
+    await expect(page.getByText('Created successfully')).toBeVisible();
     await page.goto('https://testschool.launchmysite.in/students/create_student_category');
-    const element2 = await expect(page.getByText('test1')).toBeVisible();
+    await expect(page.getByText('test1').nth(0)).toBeVisible();
   });
+
 
 
 
@@ -202,6 +198,26 @@ test.describe('test for student addmission ', () => {
 
   });
 
+
+  
+  test('test for deleting student category', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('.mt-4 > div > .grid > div').first().click();
+    await page.getByRole('link', { name: 'Create Student Category' }).click();
+    page.once('dialog', dialog => {
+      console.log(`Dialog message: ${dialog.message()}`);
+      dialog.dismiss().catch(() => {});
+    });
+    await page.getByLabel('test1').getByText('Delete').nth(0).click();
+  
+  
+  });
+  
 
 
   

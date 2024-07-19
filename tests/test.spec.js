@@ -510,3 +510,76 @@ import { test, expect } from '@playwright/test';
 
 
 
+// test('test to pay Transport Fees ', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(7)').first().click();
+//   await page.getByRole('link', { name: 'Transport Fees', exact: true }).click();
+//   await page.getByLabel('Select a Class', { exact: true }).click();
+//   await page.getByLabel('nursery-A-2024', { exact: true }).click();
+//   await page.getByLabel('1', { exact: true }).getByRole('link', { name: 'Pay Fees' }).click();
+//   await page.getByRole('button', { name: 'Select a Collection' }).click();
+//   await page.getByLabel('first', { exact: true }).click();
+//   await page.getByLabel('Select Payment Mode', { exact: true }).click();
+//   await page.getByLabel('Cash', { exact: true }).click();
+//   await page.locator('div').filter({ hasText: /^AmountEnter Amount$/ }).locator('div').nth(4).click();
+//   await page.getByLabel('Enter Amount').fill('100');
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.dismiss().catch(() => {});
+//   });
+//   await page.getByRole('button', { name: 'Pay Fees' }).click();
+//   await page.locator('div').filter({ hasText: 'Fees paid successfully' });
+// });
+
+
+
+// const element = await expect(page.getByText('english')).toBeVisible();
+
+//// delete test
+
+//     await page.getByLabel('test', { exact: true }).getByText('Assign Class Teacher').click();
+
+
+
+// test('test for academic year creation', async ({ page }) => {
+//     await page.goto('https://testschool.launchmysite.in/');
+//     await page.getByPlaceholder('Enter your Email').click();
+//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your password').click();
+//     await page.getByPlaceholder('Enter your password').fill('test@123');
+//     await page.getByRole('button', { name: 'Sign In' }).click();
+//     await page.getByRole('link', { name: 'Academic Year' }).first().click();
+//     await page.locator('div').filter({ hasText: /^Start Year\*$/ }).locator('div').nth(3).click();
+//     await page.getByPlaceholder('Enter start year').fill('2027');
+//     await page.getByPlaceholder('Enter end year').click();
+//     await page.getByPlaceholder('Enter end year').fill('2028');
+//     await page.getByRole('button', { name: 'Create' }).click(); 
+//     const element = await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible(); 
+//     await page.goto('https://testschool.launchmysite.in/academicYear');
+//     const element2 = await expect(page.getByText('AY-2027-2028')).toBeVisible();
+//   });
+
+
+
+
+// test('test for academic year deletion', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(8)').click();
+// //   const element2 = await expect(page.getByText('AY-2027-2028')).toBeVisible();
+//   await page.getByLabel('AY-2027-2028').getByText('Delete').click();
+// });
+// //  { exact: true }).getByText('Assign Class Teacher').click();
+// //   await page.getByRole('button', { name: 'Delete' }).click();
+//-------
+//       await expect(page.getByText('test1').nth(0)).toBeVisible();
+
