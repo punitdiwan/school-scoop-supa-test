@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('test for employee addmission ', () => {
 
 
-  test('test for creating employee category and department ', async ({ page }) => {
+  test('test for creating employee category ', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -18,19 +18,31 @@ test.describe('test for employee addmission ', () => {
     await page.getByPlaceholder('Enter prefix').fill('test2');
     await page.getByRole('button', { name: 'Save' }).click();
     await page.goto('https://testschool.launchmysite.in/hr_management/employee_category');
-    await expect(page.getByText('first division').nth(0)).toBeVisible()
-    await page.getByRole('link', { name: 'Dashboard' }).click();
+    await expect(page.getByText('test').nth(0)).toBeVisible()
+  });
+
+
+
+  test('test for creating employee department ', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
     await page.getByRole('link', { name: 'HR Management' }).first().click();
     await page.getByRole('link', { name: 'Employee department' }).click();
     await page.locator('div').filter({ hasText: /^Name \*$/ }).locator('div').nth(2).click();
-    await page.getByPlaceholder('Enter name').fill('second div');
+    await page.getByPlaceholder('Enter name').fill('eeee');
     await page.locator('div').filter({ hasText: /^Code \*Max 5 characters$/ }).locator('div').nth(2).click();
-    await page.getByPlaceholder('Enter code').fill('test3');
+    await page.getByPlaceholder('Enter code').fill('yyy');
     await page.getByRole('button', { name: 'Save' }).click();
     await page.goto('https://testschool.launchmysite.in/hr_management/employee_department');
     await expect(page.getByText('first div').nth(0)).toBeVisible()
-  
+
   });
+
+
       
       
       
@@ -80,16 +92,49 @@ test.describe('test for employee addmission ', () => {
     await page.getByRole('link', { name: 'Edit' }).nth(1).click();
     await page.getByRole('link', { name: 'Employee' }).click();
     await page.getByRole('link', { name: 'View All Employees' }).click();
-    const element = await expect(page.getByText('test')).toBeVisible();
-  //   page.once('dialog', dialog => {
-  //   console.log(`Dialog message: ${dialog.message()}`);
-  //   dialog.dismiss().catch(() => {});
-  //   });
-  // await page.getByRole('link', { name: 'Delete' }).nth(1).click();
+    await expect(page.getByText('test')).toBeVisible();
 
 
 
   });
+
+
+  test('test for deleting employee category ', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByText('Password', { exact: true }).click();
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(2) > div:nth-child(4)').first().click();
+  await page.getByRole('link', { name: 'Manage Employee Category' }).click();
+  await page.getByRole('cell', { name: 'second division' }).nth(0).click();
+  await page.getByText('test2').nth(0).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByRole('button',{name: 'Delete'}).nth(1).click();
+  });
+
+  // test('test for deleting employee department', async ({ page }) => {
+  //   await page.goto('https://testschool.launchmysite.in/');
+  //   await page.locator('.group > div > .inline-flex').first().click();
+  //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  //   await page.getByPlaceholder('Enter your password').click();
+  //   await page.getByPlaceholder('Enter your password').fill('test@123');
+  //   await page.getByRole('button', { name: 'Sign In' }).click();
+  //   await page.locator('div:nth-child(2) > div:nth-child(4)').first().click();
+  //   await page.getByRole('link', { name: 'Employee department' }).click();
+  //   await page.getByRole('cell', { name: 'eeee',exact: true  }).click();
+  //   await page.getByRole('heading', { name: 'eeee', exact: true  }).click();
+  //   await page.getByRole('row', { name: 'eeee yyy Edit Delete' }).locator('span').click();
+  //   await page.getByRole('button', { name: 'Delete' }).nth(1).click();
+  // });
+
+
+
 });      
 
 
