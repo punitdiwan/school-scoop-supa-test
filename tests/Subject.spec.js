@@ -25,7 +25,7 @@ test.describe('test for managing subjects ', () => {
        await page.goto('https://testschool.launchmysite.in/manage_subject/major_subject');
        await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
        await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
-       const element2 = await expect(page.getByText('english')).toBeVisible();
+       await expect(page.getByText('english')).toBeVisible();
   });
 
 
