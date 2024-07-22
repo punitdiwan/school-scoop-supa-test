@@ -8,8 +8,8 @@ jobs:
   test:
     # if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     timeout-minutes: 60
-    # runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    # runs-on: self-hosted
     name: Test setup
     steps:
       - uses: actions/checkout@v4
