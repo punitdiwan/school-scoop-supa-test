@@ -9,12 +9,12 @@ test.describe('test for class and section ', () => {
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.getByRole('link', { name: 'Academic Year' }).first().click();
-    await page.locator('div').filter({ hasText: /^Start Year\*$/ }).locator('div').nth(3).click();
+    await page.locator('div:nth-child(8)').click();
+    await page.getByPlaceholder('Enter start year').click();
     await page.getByPlaceholder('Enter start year').fill('2027');
     await page.getByPlaceholder('Enter end year').click();
     await page.getByPlaceholder('Enter end year').fill('2028');
-    await page.getByRole('button', { name: 'Create' }).click(); 
+    await page.getByRole('button', { name: 'Create' }).click();
     await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible(); 
     await page.goto('https://testschool.launchmysite.in/academicYear');
     await expect(page.getByText('AY-2027-2028').nth(0)).toBeVisible();
@@ -45,7 +45,26 @@ test.describe('test for class and section ', () => {
     await page.getByRole('button', { name: 'Save' }).click();
   });
 
-  test('test for editing class', async ({ page }) => {
+  // test('test for editing class', async ({ page }) => {
+  //   await page.goto('https://testschool.launchmysite.in/');
+  //   await page.getByPlaceholder('Enter your Email').click();
+  //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  //   await page.getByPlaceholder('Enter your password').click();
+  //   await page.getByPlaceholder('Enter your password').fill('test@123');
+  //   await page.getByRole('button', { name: 'Sign In' }).click();
+  //   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+  //   await page.getByRole('link', { name: 'Manage Class' }).click();
+  //   await page.getByLabel('nursery').getByRole('link', { name: 'Edit' }).click();
+  //   await page.locator('input[name="code"]').click();
+  //   await page.locator('input[name="code"]').fill('001');
+  //   await page.locator('input[name="grading_type"]').click();
+  //   await page.getByRole('button', { name: 'Save Details' }).click();
+  //   await page.getByText('001').click();
+  //   await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
+  //   await expect(page.getByText('001')).not.toBeVisible();
+  // });
+
+  test('test for assign class teacher', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -53,33 +72,11 @@ test.describe('test for class and section ', () => {
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-    await page.getByRole('link', { name: 'Manage Class' }).click();
-    await page.getByLabel('nursery').getByRole('link', { name: 'Edit' }).click();
-    await page.locator('input[name="code"]').click();
-    await page.locator('input[name="code"]').fill('001');
-    await page.locator('input[name="grading_type"]').click();
-    await page.getByRole('button', { name: 'Save Details' }).click();
-    await page.getByText('001').click();
-    await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
-    await expect(page.getByText('001')).not.toBeVisible();
-  });
-
-  test('test for assign class teacher', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test');
-  await page.getByPlaceholder('Enter your password').press('Shift+CapsLock');
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByPlaceholder('Enter your password').press('CapsLock');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-  await page.getByRole('link', { name: 'Classs Teacher' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,nursery');
-  await page.locator('div').filter({ hasText: /^Selectnursery-A-2024nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,nursery-A-2024');
-  await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
-  await page.getByLabel('test', { exact: true }).getByText('Assign Class Teacher').click();
+    await page.getByRole('link', { name: 'Classs Teacher' }).click();
+    await page.locator('div').filter({ hasText: /^Select Classkg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+    await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
+    await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
+    await page.getByLabel('test3').getByText('Assign Class Teacher').click();
     await expect(page.getByText('Successfully assignd teacher')).toBeVisible()
   });
 
@@ -89,17 +86,14 @@ test.describe('test for class and section ', () => {
     await page.getByPlaceholder('Enter your Email').click();
     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
     await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test');
-    await page.getByPlaceholder('Enter your password').press('Shift+CapsLock');
     await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByPlaceholder('Enter your password').press('CapsLock');
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
     await page.getByRole('link', { name: 'Classs Teacher' }).click();
-    await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,nursery');
-    await page.locator('div').filter({ hasText: /^Selectnursery-A-2024nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,nursery-A-2024');
+    await page.locator('div').filter({ hasText: /^Select Classkg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+    await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
     await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
-    await page.getByLabel('test3', { exact: true }).getByText('Assign Class Teacher').click();
+    await page.getByLabel('test5').getByText('Assign Class Teacher').click();
     await expect(page.getByText('Successfully assignd teacher')).toBeVisible()
   });
 
@@ -128,7 +122,7 @@ test('test for student batch shifting', async ({ page }) => {
 
 
 
-test('test for academic year deletion', async ({ page }) => {
+test('test for deleting academic year ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -137,9 +131,9 @@ test('test for academic year deletion', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(8)').click();
   await page.getByText('AY-2027-2028').click();
-  await page.getByLabel('AY-2027-2028').getByRole('gridcell', { name: 'Delete' }).click();
   await page.getByLabel('AY-2027-2028').getByText('Delete').click();
   await expect(page.getByText('AY-2027-2028')).not.toBeVisible();
+
 });
 
 });

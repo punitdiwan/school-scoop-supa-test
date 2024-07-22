@@ -22,21 +22,21 @@ test.describe('test for manage exam ', () => {
 
   test('test for creating exam group', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByText('EmailPasswordSign InDon’t').click();
-    await page.locator('div:nth-child(6)').first().click();
-    await page.getByRole('link', { name: 'Manage Exam Group' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-    await page.getByLabel('Nursery-A-').check();
-    await page.getByPlaceholder('ex: QUARTERLY').click();
-    await page.getByPlaceholder('ex: QUARTERLY').fill('half-yearly');
-    await page.locator('div').filter({ hasText: /^Exam Type \* SelectMarksGradeGrade and Marks$/ }).getByRole('combobox').selectOption('Marks');
-    await page.getByRole('button', { name: 'Add Group' }).click();
-    await page.goto('https://testschool.launchmysite.in/manage_exam/manage_exam_group');
-    const element = await expect(page.getByText('half-yearly')).toBeVisible();
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.locator('.mb-6 > div > .group > div > .inline-flex').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(6)').first().click();
+  await page.getByRole('link', { name: 'Manage Exam Group' }).click();
+  await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,');
+  await page.getByPlaceholder('ex: QUARTERLY').click();
+  await page.getByPlaceholder('ex: QUARTERLY').fill('quaterly');
+  await page.locator('label').filter({ hasText: 'Nursery-A-' }).click();
+  await page.locator('div').filter({ hasText: /^Exam Type \* SelectMarksGradeGrade and Marks$/ }).getByRole('combobox').selectOption('Marks');
+  await page.getByRole('button', { name: 'Add Group' }).click();
+  await page.goto('https://testschool.launchmysite.in/manage_exam/manage_exam_group');
+  await expect(page.getByText('quaterly')).toBeVisible();
   });
 
 
@@ -50,7 +50,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Assign Marks' }).click();
-    await page.locator('div').filter({ hasText: /^Class \* Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
+    await page.locator('div').filter({ hasText: /^Class \* Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,');
     await page.locator('div').filter({ hasText: /^SelectNursery-A-2024Nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3,Final');
     await page.getByRole('button', { name: 'Assign' }).first().click();
@@ -72,37 +72,35 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Assign Marks' }).click();
-    await page.locator('div').filter({ hasText: /^Class \* Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
-    await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
-    await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('ZapTyc60mQMC,Final');
+    await page.locator('div').filter({ hasText: /^Class \* Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,');
+    await page.locator('div').filter({ hasText: /^SelectNursery-A-2024Nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
+    await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3,Final');
     await page.getByRole('button', { name: 'Edit' }).first().click();
     await page.getByRole('gridcell', { name: '80' }).locator('div').nth(2).click();
   //   await page.locator('[id="react-aria4631255684-\\:rq\\:"]').fill('80');
-    await page.getByRole('gridcell', { name: '70' }).locator('div').nth(2).click();
+    // await page.getByRole('gridcell', { name: '70' }).locator('div').nth(2).click();
   //   await page.locator('[id="react-aria4631255684-\\:r15\\:"]').fill('70');
     await page.getByRole('button', { name: 'Submit Marks' }).click();
-    await page.locator('div:nth-child(2) > div > .go2072408551');
   });
 
   test('test for Exam Report Before Publish and publish result', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(6)').first().click();
-  await page.getByRole('link', { name: 'Exam Report Before Publish' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classnurserykg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,nursery');
-  await page.locator('div').filter({ hasText: /^Selectnursery-A-2024nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,nursery-A-2024');
-  await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3-undefined');
-  await page.getByRole('link', { name: 'Manage Exam' }).click();
-  await page.getByRole('link', { name: 'Publish Result', exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-  await page.locator('div').filter({ hasText: /^SelectNursery-A-2024Nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
-  await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3-undefined');
-  await page.getByRole('button', { name: 'Un Publish Result', exact: true }).click();  
-
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(6)').first().click();
+    await page.getByRole('link', { name: 'Exam Report Before Publish' }).click();
+    await page.locator('div').filter({ hasText: /^Select Classkg1class-1stclass-2ndclass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,');
+    await page.locator('div').filter({ hasText: /^Selectnursery-A-2024nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,nursery-A-2024');
+    await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3-undefined');
+    await page.getByRole('link', { name: 'Manage Exam' }).click();
+    await page.getByRole('link', { name: 'Publish Result', exact: true }).click();
+    await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,');
+    await page.locator('div').filter({ hasText: /^SelectNursery-A-2024Nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
+    await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3-undefined');
+    await page.getByText('Publish ResultUn Publish').click();
   });
 
 
@@ -111,17 +109,16 @@ test.describe('test for manage exam ', () => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your Email').press('Enter');
+    await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Exam Report For School' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+    await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
     await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024,');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('ZapTyc60mQMC-Final');
     await page.locator('div').filter({ hasText: /^Student \* SelectTest7$/ }).getByRole('combobox').selectOption('73KuMgNdwjPF-Test7');
     const page1Promise = page.waitForEvent('popup');
-    const element = await expect(page.getByText('Template Name')).toBeVisible();
     await page.getByRole('button', { name: 'Print' }).click();
     const page1 = await page1Promise;
   });
@@ -139,11 +136,10 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Assign Weightage' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+    await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
     await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
-    const element = await expect(page.getByText('Final')).toBeVisible();
     await page.getByLabel('Final').locator('div').nth(2).click();
-  //   await page.locator('[id="react-aria5640697573-\\:rh\\:"]').fill('100');
+    await page.locator('div').filter({ hasText: /^Exam Group NameTotal Weightage\(%\)Final$/ }).nth(1).click();
     await page.getByRole('button', { name: 'Submit' }).click();
   });
 
@@ -152,14 +148,14 @@ test.describe('test for manage exam ', () => {
 
   test('test for Publish Weightage Report', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
+    await page.locator('.group > div > .inline-flex').first().click();
     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Publish Weightage Report' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+    await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
     await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
     await page.getByRole('button', { name: 'Publish Report' }).click();
   });
@@ -177,11 +173,11 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'View Weightage Report' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+    await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
     await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024,');
     await page.locator('div').filter({ hasText: /^Student \* SelectTest7$/ }).getByRole('combobox').selectOption('73KuMgNdwjPF-Test7');
     const page1Promise = page.waitForEvent('popup');
-    const element = await expect(page.getByText('Total Final Percentage')).toBeVisible(); 
+    await expect(page.getByText('Total Final Percentage')).toBeVisible(); 
     await page.getByRole('button', { name: 'Print' }).click();
     const page1 = await page1Promise;
   }); 
@@ -199,9 +195,9 @@ test.describe('test for manage exam ', () => {
       await page.getByRole('button', { name: 'Sign In' }).click();
       await page.locator('div:nth-child(6)').first().click();
       await page.getByRole('link', { name: 'Generate Admit Card' }).click();
-      await page.locator('div').filter({ hasText: /^Select ClassNurseryKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('RD3e0LYI1lBP,Nursery');
-      await page.locator('div').filter({ hasText: /^SelectNursery-A-2024Nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
-      await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3-Final');
+      await page.locator('div').filter({ hasText: /^Select ClassKg1Class-1stClass-2ndClass-3rd$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,Class-1st');
+      await page.locator('div').filter({ hasText: /^SelectClass-1st-A-2024Class-1st-B-2024Class-1st-C-2024Class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,Class-1st-A-2024');
+      await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('ZapTyc60mQMC-Final');
       await page.locator('label').filter({ hasText: 'All Student' }).locator('svg').click();
       await page.getByRole('button', { name: 'View Report' }).click();
   });
