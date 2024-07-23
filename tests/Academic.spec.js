@@ -51,7 +51,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
         await page.getByPlaceholder('Enter your password').fill('test@123');
         await page.getByRole('button', { name: 'Sign In' }).click();
         await page.locator('div:nth-child(8)').click();
-        await page.getByText('AY-2027-2028').click();
+        await page.getByText('AY-2027-2028').first().click();
         await page.getByLabel('AY-2027-2028').getByText('Delete').click();
         await expect(page.getByText('AY-2027-2028')).not.toBeVisible();
       

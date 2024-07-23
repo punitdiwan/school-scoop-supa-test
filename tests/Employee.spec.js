@@ -77,6 +77,43 @@ test.describe('test for employee addmission ', () => {
     // await expect(page.getByText('test')).toBeVisible();
 
   });
+  
+
+  test('test for employee admission2', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    
+    
+    await page.locator('.mt-4 > div > .grid > div:nth-child(2)').first().click();
+    await page.getByRole('link', { name: 'Employee Admission' }).click();
+    
+    
+    await page.locator('input[name="employee_number"]').click();
+    await page.locator('input[name="employee_number"]').fill('08');
+    await page.getByPlaceholder('Enter your first name').click();
+    await page.getByPlaceholder('Enter your first name').fill('testdfg');
+    await page.locator('input[name="dob"]').fill('2000-01-01');
+    await page.getByPlaceholder('example@gmail.com').click();
+    await page.getByPlaceholder('example@gmail.com').fill('testfvh@gmail.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@sg');
+    await page.locator('select[name="employee_department"]').selectOption('rUCfBpXTlyxU');
+    await page.locator('select[name="employeecategories"]').selectOption('NBVTvQS6CItk');
+    await page.getByPlaceholder('please enter 10 digit mobile').click();
+    await page.getByPlaceholder('please enter 10 digit mobile').fill('4445484444');
+    await page.getByLabel('Select Role').click();
+    await page.getByLabel('Fee Creator', { exact: true }).click();
+    
+  
+    await page.getByText('Submit').click();
+    const employeeExists = await page.locator('text=test4').isVisible();
+  });
+
+  
 
       
 
@@ -99,23 +136,21 @@ test.describe('test for employee addmission ', () => {
   });
 
 
-  test('test for deleting employee category ', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByText('Password', { exact: true }).click();
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(2) > div:nth-child(4)').first().click();
-  await page.getByRole('link', { name: 'Manage Employee Category' }).click();
-  await page.getByRole('cell', { name: 'second division' }).nth(0).click();
-  await page.getByText('test2').nth(0).click();
-  page.once('dialog', dialog => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    dialog.accept().catch(() => {});
-  });
-  await page.getByRole('button',{name: 'Delete'}).nth(1).click();
+  test('test for deleting employee category', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(2) > div:nth-child(4)').first().click();
+    await page.getByRole('link', { name: 'Manage Employee Category' }).click();
+    await page.getByRole('heading', { name: 'second division' }).first().click();
+    page.once('dialog', dialog => {
+      console.log(`Dialog message: ${dialog.message()}`);
+      dialog.accept().catch(() => {});
+    });
+    await page.getByRole('button', { name: 'Delete' }).first().click();
   });
 
   // test('test for deleting employee department', async ({ page }) => {
@@ -138,44 +173,55 @@ test.describe('test for employee addmission ', () => {
 });      
 
 
-test.describe('test for event creation ', () => {
-
-test('test for creating events', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
-  await page.getByPlaceholder('Enter Title').click();
-  await page.getByPlaceholder('Enter Title').fill('holiday');
-  await page.getByPlaceholder('Enter your description').click();
-  await page.getByPlaceholder('Enter your description').fill('holiday');
-//   await page.locator('[id="react-aria8624273455-\\:rk\\:"]').fill('2024-07-01');
-//   await page.locator('[id="react-aria8624273455-\\:ru\\:"]').fill('2024-07-03');
-  await page.locator('label').filter({ hasText: 'This event is Holiday' }).locator('svg').click();
-  await page.getByRole('button', { name: 'Submit' }).click();
-});
+test.describe.serial('test for event creation ', () => {
 
 
+  test('test for creating events', async ({ page }) => {
 
-// test('test for deleting events', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
-//   await expect(page.getByText('holiday')).toBeVisible();
-//   await page.getByRole('button', { name: 'Delete' }).click();
-//   await page.getByRole('button', { name: 'Yes' }).click();
-//   await expect(page.getByText('Successfully Delete Event')).toBeVisible();
-//   await expect(page.getByText('leave')).not.toBeVisible();
-
-// });
-
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
+    await page.getByPlaceholder('Enter Title').click();
+    await page.getByPlaceholder('Enter Title').fill('holiday');
+    await page.getByPlaceholder('Enter your description').click();
+    await page.getByPlaceholder('Enter your description').fill('leave');
+    await page.getByTestId('start-date').fill('2024-01-01');
+    await page.getByTestId('end-date').fill('2024-01-01');
+  
+  
+    const startDateValue = await page.getByTestId('start-date').inputValue();
+    // console.log('Start Date:', startDateValue);
+  
+    const endDateValue = await page.getByTestId('end-date').inputValue();
+    // console.log('End Date:', endDateValue); 
+  
+    await page.getByRole('button', { name: 'Submit' }).click();
+      await expect(page.getByText('Successfully Added Events')).toBeVisible();
+      
+    const eventExists = await page.locator('text=holiday2').isVisible();
+  });
+  
+  
+  
+  test('test for deleting events', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.locator('div:nth-child(3) > div > .grid > div:nth-child(3)').click();
+    await expect(page.getByText('holiday')).toBeVisible();
+    await page.getByRole('button', { name: 'Delete' }).click();
+    await page.getByRole('button', { name: 'Yes' }).click();
+    await expect(page.getByText('Successfully Delete Event')).toBeVisible();
+    await expect(page.getByText('leave')).not.toBeVisible();
+  });
+  
 
 
 
