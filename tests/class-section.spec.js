@@ -68,7 +68,7 @@ test.describe.serial('test for creating class and section and deleting it ', () 
     await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
     await page.getByRole('link', { name: 'Manage Class' }).click();
     await page.getByText('class-4th').click();
-    await page.getByLabel('class-4th').getByRole('link', { name: 'View Section (2)' }).click();
+    await page.getByLabel('class-4th').getByRole('link', { name: 'View Section (1)' }).click();
     await page.getByRole('cell', { name: 'B-' }).click();
     await page.getByRole('row', { name: 'Row Actions B-2024 01-01-2024' }).getByLabel('Row Actions').click();
     page.once('dialog', dialog => {
