@@ -76,7 +76,7 @@ test.describe('test for manage exam ', () => {
     await page.locator('div').filter({ hasText: /^SelectNursery-A-2024Nursery-B-2024$/ }).getByRole('combobox').selectOption('a6B10jzAviVR,Nursery-A-2024');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('j0g3rP1EzIK3,Final');
     await page.getByRole('button', { name: 'Edit' }).first().click();
-    await page.getByRole('gridcell', { name: '80' }).locator('div').nth(2).click();
+    // await page.getByRole('gridcell', { name: '80' }).locator('div').nth(2).click();
   //   await page.locator('[id="react-aria4631255684-\\:rq\\:"]').fill('80');
     // await page.getByRole('gridcell', { name: '70' }).locator('div').nth(2).click();
   //   await page.locator('[id="react-aria4631255684-\\:r15\\:"]').fill('70');
