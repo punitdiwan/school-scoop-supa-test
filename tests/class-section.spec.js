@@ -53,8 +53,8 @@ test.describe.serial('test for creating class and section and deleting it ', () 
     await page.getByLabel('AY-2025-2026', { exact: true }).press('ArrowDown');
     await page.getByLabel('AY-2024-2025', { exact: true }).press('Enter');
     await page.getByRole('button', { name: 'Add' }).click();
-    await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class/view-section/Pg1M57neFKBx')
-    await expect(page.getByText('B-2024')).toBeVisible();
+    await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class')
+    await expect(page.getByText('View Section (1)')).toBeVisible();
   });
   
   
@@ -80,8 +80,8 @@ test('test for deleting a section (4-b)', async ({ page }) => {
     dialog.accept().catch(() => {});
   });
   await page.getByRole('menuitem', { name: 'Delete' }).click();
-    await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class/view-section/Pg1M57neFKBx')
-  await expect(page.getByText('B-2024')).not.toBeVisible();
+  await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class')
+  await expect(page.getByText('View Section (0)')).toBeVisible();
 });
   
   test('test for editing class', async ({ page }) => {
