@@ -385,3 +385,121 @@ import { test, expect } from '@playwright/test';
 // });
 
 
+
+
+// test.describe.serial('test for class and section ', () => {
+
+//   test('test for assign class teacher', async ({ page }) => {
+//     await page.goto('https://testschool.launchmysite.in/');
+//     await page.getByPlaceholder('Enter your Email').click();
+//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your password').click();
+//     await page.getByPlaceholder('Enter your password').fill('test@123');
+//     await page.getByRole('button', { name: 'Sign In' }).click();
+//     await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+//     await page.getByRole('link', { name: 'Classs Teacher' }).click();
+//     await page.locator('div').filter({ hasText: /^Select Classkg1class-1stclass-2ndclass-3rdclass-4th$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+//   await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
+//     await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
+//     await page.getByLabel('test3').getByText('Assign Class Teacher').click();
+//     await expect(page.getByText('Successfully assignd teacher')).toBeVisible()
+//   });
+
+
+//   test('test for assign class teacher2', async ({ page }) => {
+//     await page.goto('https://testschool.launchmysite.in/');
+//     await page.getByPlaceholder('Enter your Email').click();
+//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your password').click();
+//     await page.getByPlaceholder('Enter your password').fill('test@123');
+//     await page.getByRole('button', { name: 'Sign In' }).click();
+//     await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+//     await page.getByRole('link', { name: 'Classs Teacher' }).click();
+//     await page.locator('div').filter({ hasText: /^Select Classkg1class-1stclass-2ndclass-3rdclass-4th$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+//     await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
+//     await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
+//     await page.getByLabel('test5').getByText('Assign Class Teacher').click();
+//     await expect(page.getByText('Successfully assignd teacher')).toBeVisible()
+//   });
+
+// });
+
+
+
+
+
+
+
+// test('test', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByText('EmailPasswordSign InDon’t').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+//   await page.getByRole('link', { name: 'Classs Teacher' }).click();
+//   await page.locator('div').filter({ hasText: /^Select Classkg1class-1stclass-2ndclass-3rdclass-4th$/ }).getByRole('combobox').selectOption('J3oaGAN0A1C6,class-1st');
+//   await page.locator('div').filter({ hasText: /^Selectclass-1st-A-2024class-1st-B-2024class-1st-C-2024class-1st-D-2024$/ }).getByRole('combobox').selectOption('U9r6SauQFP91,class-1st-A-2024');
+//   await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
+//   await page.getByLabel('test5').getByText('test5').click();
+//   await page.getByLabel('test5').getByText('Assign Class Teacher').click();
+//   await page.getByRole('rowheader', { name: 'test3' }).click();
+// });
+
+
+
+
+
+
+
+
+
+
+// test('test', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+//   await page.getByRole('link', { name: 'Create Class And Section' }).click();
+//   await page.locator('input[name="class-5thChecked"]').check();
+//   await page.getByText('class-5th').click();
+//   await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
+//   await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(2).check();
+//   await page.getByTestId('start-date').fill('2024-05-01');
+//   await page.getByLabel('Select Academic Year').click();
+//   await page.getByLabel('AY-2025-2026', { exact: true }).press('ArrowDown');
+//   await page.getByLabel('AY-2024-2025', { exact: true }).press('Enter');
+//   await page.getByLabel('Select Medium').click();
+//   await page.locator('select[name="medium"]').selectOption({ label: 'English' });
+//   await page.getByRole('button', { name: 'Save' }).click();
+// });
+
+ 
+
+test('test for creating class and section', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+  await page.getByRole('link', { name: 'Create Class And Section' }).click();
+  // await page.goto('https://testschool.launchmysite.in/class_and_section/create-class-and-section');
+  await page.getByText('class-5th').click();
+  await page.locator('input[name="class-5thChecked"]').check();
+  await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
+  await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).
+  getByRole('checkbox').nth(2).check();
+  await page.getByTestId('start-date').fill('2024-05-01');
+  await page.getByLabel('Select Academic Year').click();
+  await page.getByLabel('AY-2025-2026', { exact: true }).press('ArrowDown');
+  await page.getByLabel('AY-2024-2025', { exact: true }).press('Enter');
+  await page.getByLabel('Select Medium').click();
+  await page.locator('select[name="medium"]').selectOption({ label: 'English' });
+  await page.getByRole('button', { name: 'Save' }).click();
+});
