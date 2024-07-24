@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 // test for class and section 
 
 
-test.describe('test for creating class and section and deleting it ', () => {
+test.describe.serial('test for creating class and section and deleting it ', () => {
  
   test('test for class creation', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
