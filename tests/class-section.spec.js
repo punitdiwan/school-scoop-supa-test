@@ -126,11 +126,10 @@ test.describe('test for creating class and section and deleting it ', () => {
   await expect(page.getByText('View Section (0)')).toBeVisible();
   });
   
+
   
-  
-  
-  
-  
+  });
+
   test('test for deleting a class ', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
@@ -149,9 +148,6 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
     await expect(page.getByText('nursery')).not.toBeVisible();
   });
-  
-  });
-
 
 
 
