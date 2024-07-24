@@ -193,16 +193,16 @@ test.describe.serial('test for event creation ', () => {
     await page.getByTestId('end-date').fill('2024-01-01');
   
   
-    const startDateValue = await page.getByTestId('start-date').inputValue();
+    await page.getByTestId('start-date').inputValue();
     // console.log('Start Date:', startDateValue);
   
-    const endDateValue = await page.getByTestId('end-date').inputValue();
+    await page.getByTestId('end-date').inputValue();
     // console.log('End Date:', endDateValue); 
   
     await page.getByRole('button', { name: 'Submit' }).click();
       await expect(page.getByText('Successfully Added Events')).toBeVisible();
       
-    const eventExists = await page.locator('text=holiday2').isVisible();
+    await page.locator('text=holiday2').isVisible();
   });
   
   
