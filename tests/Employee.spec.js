@@ -118,22 +118,16 @@ test.describe('test for employee addmission ', () => {
       
 
     test('test for View All Employees', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('.mt-4 > div > .grid > div:nth-child(2)').first().click();
-    await page.getByRole('link', { name: 'View All Employees' }).click();
-    await page.getByRole('link', { name: 'Edit' }).nth(1).click();
-    await page.getByRole('link', { name: 'Employee' }).click();
-    await page.getByRole('link', { name: 'View All Employees' }).click();
-        await page.goto('https://testschool.launchmysite.in/employee/view_all_employee');
-        // await expect(page.getByText('test')).toBeVisible();
-
-
-  });
+      await page.goto('https://testschool.launchmysite.in/');
+      await page.locator('.group > div > .inline-flex').first().click();
+      await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+      await page.getByPlaceholder('Enter your password').click();
+      await page.getByPlaceholder('Enter your password').fill('test@123');
+      await page.getByPlaceholder('Enter your password').press('Enter');
+      await page.locator('.mt-4 > div > .grid > div:nth-child(2)').first().click();
+      await page.getByRole('link', { name: 'View All Employees' }).click();
+      await expect(page.getByText('test')).toBeVisible();
+      });
 
 
   test('test for deleting employee category', async ({ page }) => {

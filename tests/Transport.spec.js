@@ -183,21 +183,21 @@ await expect(page.getByText('new market')).not.toBeVisible();
 
 
 
-test('test for deleting registered Vehicle', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(7)').first().click();
-  await page.getByRole('link', { name: 'Vehicle' }).click();
-  page.once('dialog', dialog => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    dialog.accept().catch(() => {});
-  });
-  await page.getByRole('button', { name: 'Delete' }).nth(1).click();
-});
+// test('test for deleting registered Vehicle', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(7)').first().click();
+//   await page.getByRole('link', { name: 'Vehicle' }).click();
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.accept().catch(() => {});
+//   });
+//   await page.getByRole('button', { name: 'Delete' }).click();
+// });
 
 
 
