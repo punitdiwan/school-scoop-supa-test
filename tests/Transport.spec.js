@@ -66,13 +66,15 @@ test('test for deleting a route', async ({ page }) => {
   await page.getByPlaceholder('Enter your password').press('Enter');
   await page.locator('div:nth-child(7)').first().click();
   await page.getByRole('link', { name: 'Route', exact: true }).click();
-  // page.once('dialog', dialog => {
-  //   console.log(`Dialog message: ${dialog.message()}`);
-  //   dialog.dismiss().catch(() => {});
-  // });
-// //   await page.getByRole('button', { name: 'Delete' }).click();
-//   await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Delete Route$/ });
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Delete' }).click();
+  await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Delete Route$/ });
 });
+
+
 
 test('test for Registration of Vehicle', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
@@ -121,6 +123,10 @@ test('test for creating Transport Fees Collection', async ({ page }) => {
   await page.getByRole('button', { name: 'Create Fee Collection' }).click();
   await page.getByRole('main').locator('div').filter({ hasText: /^Collection Created Successfully$/ });
 });
+
+
+
+
 
 test('test for View All Collection', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');

@@ -144,7 +144,7 @@ test.describe('test for employee addmission ', () => {
       console.log(`Dialog message: ${dialog.message()}`);
       dialog.accept().catch(() => {});
     });
-    await page.getByRole('button', { name: 'Delete' }).first().click();
+    await page.getByRole('button', { name: 'Delete' }).nth(1).click();
   });
 
   // test('test for deleting employee department', async ({ page }) => {
