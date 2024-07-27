@@ -18,17 +18,34 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.getByRole('link', { name: 'Create Class And Section' }).click();
     await page.locator('input[name="class-5thChecked"]').check();
     await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
-    // await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(2).check();
     await page.getByTestId('start-date').fill('2024-01-01');
     await page.locator("[name='academic_year']").selectOption('AY-2024-2025');
     await page.locator("[name='medium']").selectOption('English');
       
     await page.getByRole('button', { name: 'Save' }).click();
-    await page.waitForTimeout(2000); //Wait for 2 Seconds
+    await page.waitForTimeout(2000);
     await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
     await expect(page.getByText('class-5th')).toBeVisible();
 
   });
+
+
+  test('test for editing class', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByPlaceholder('Enter your password').press('Enter');
+    await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+    await page.getByRole('link', { name: 'Manage Class' }).click();
+    await page.getByLabel('class-5th').getByRole('link', { name: 'Edit' }).click();
+    await page.locator('input[name="code"]').click();
+    await page.locator('input[name="code"]').fill('001');
+    await page.getByRole('button', { name: 'Save Details' }).click();
+  });
+
+
 
   // test('test for creating class section(4th-B)', async ({ page }) => {
   //   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
@@ -82,15 +99,6 @@ test.describe('test for creating class and section and deleting it ', () => {
     await expect(page.getByText('View Section (0)')).toBeVisible();
   });
 
-  // test('test for editing class', async ({ page }) => {
-  //   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-  //   await page.getByRole('link', { name: 'Manage Class' }).click();
-  //   await page.getByText('class-4th').click();
-  //   await page.getByLabel('class-4th').getByRole('link', { name: 'Edit' }).click();
-  //   await page.locator('input[name="code"]').click();
-  //   await page.locator('input[name="code"]').fill('001');
-  //   await page.getByRole('button', { name: 'Save Details' }).click();
-  // });
 
 
 
