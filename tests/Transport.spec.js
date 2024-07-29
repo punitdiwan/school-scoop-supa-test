@@ -22,56 +22,38 @@ test.describe('test for transportation ', () => {
   });
 
 
-
-test('test for assigning vehicle', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(7)').first().click();
-  await page.getByRole('link', { name: 'Vehicle' }).click();
-  await page.locator('div').filter({ hasText: /^Vehicle No\*Vehicle No$/ }).locator('div').nth(4).click();
-  await page.getByLabel('Vehicle No').fill('mp05hk5210');
-  await page.locator('div').filter({ hasText: /^No of Seats \* No of Seats$/ }).locator('div').nth(4).click();
-  await page.getByLabel('No of Seats').fill('50');
-  // await page.getByLabel('Route', { exact: true }).click();
-  // await page.getByLabel('lalghati', { exact: true }).click();
-  await page.getByRole('button', { name: 'Submit' }).click();
-});
-
-
 test('test for Route Wise Report', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
+  await page.locator('.group > div > .inline-flex').first().click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByPlaceholder('Enter your password').press('Enter');
   await page.locator('div:nth-child(7)').first().click();
   await page.getByRole('link', { name: 'Route Wise Report' }).click();
-//   await page.getByLabel('Select Route', { exact: true }).click();
-//   await page.locator('[id="react-aria9435319578-\\:rg\\:-option-yqPvUjmR8jOx"]').click();
+  await page.getByText('Route*Select').click();
+  await page.locator('div').filter({ hasText: /^Select RoutelalghatiSelect Route$/ }).first().click();
+  await page.getByLabel('lalghati', { exact: true }).click();
+  await expect(page.getByText('test')).toBeVisible();
 });
 
 
 
 test('test for deleting a route', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
-  await page.locator('.group > div > .inline-flex').first().click();
+  await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.locator('.mb-6 > div > .group > div > .inline-flex').click();
+  await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByPlaceholder('Enter your password').press('Enter');
+  await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(7)').first().click();
   await page.getByRole('link', { name: 'Route', exact: true }).click();
+  await page.getByText('new market').click();
   page.once('dialog', dialog => {
     console.log(`Dialog message: ${dialog.message()}`);
     dialog.accept().catch(() => {});
   });
-  await page.getByRole('button', { name: 'Delete' }).click();
-  await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Delete Route$/ });
+    await page.getByLabel('new market').getByRole('button', { name: 'Delete' }).click();
 });
 
 
@@ -85,16 +67,36 @@ test('test for Registration of Vehicle', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(7)').first().click();
   await page.getByRole('link', { name: 'Vehicle' }).click();
-  await page.locator('div').filter({ hasText: /^Vehicle No\*Vehicle No$/ }).locator('div').nth(4).click();
-  await page.getByText('Vehicle No', { exact: true }).click();
-  await page.getByLabel('Vehicle No').fill('mp06kk2020');
-  await page.locator('div').filter({ hasText: /^No of Seats \* No of Seats$/ }).locator('div').nth(4).click();
-  await page.getByLabel('No of Seats').fill('100');
-  await page.getByLabel('Route', { exact: true }).click();
-  await page.getByLabel('lalghati').nth(2).click();
+  await page.getByLabel('Vehicle No').click();
+  await page.getByLabel('Vehicle No').fill('mp01mp2024');
+  await page.getByLabel('No of Seats').click();
+  await page.getByLabel('No of Seats').fill('200');
+  await page.locator('div').filter({ hasText: /^Routelalghatinew marketRoute$/ }).first().click();
+  await page.getByLabel('lalghati', { exact: true }).click();
   await page.getByRole('button', { name: 'Submit' }).click();
-  await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Added Route$/ });
+  await expect(page.getByText('mp01mp2024')).toBeVisible();
 });
+
+
+test('test for deleting Registration of Vehicle', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Vehicle' }).click();
+  await page.getByText('mp01mp2024').click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByLabel('mp01mp2024').getByRole('button', { name: 'Delete' }).click();
+  await expect(page.getByText('mp01mp2024')).not.toBeVisible();
+});
+
+
 
 
 
@@ -124,6 +126,55 @@ test('test for creating Transport Fees Collection', async ({ page }) => {
   await page.getByRole('main').locator('div').filter({ hasText: /^Collection Created Successfully$/ });
 });
 
+
+
+
+test('test for transport fee payment', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Transport Fees', exact: true }).click();
+  await page.locator('form div').filter({ hasText: 'Select a Class class-4th-A-' }).nth(1).click();
+  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+  await page.getByText('test', { exact: true }).click();
+  await page.getByRole('link', { name: 'Pay Fees' }).click();
+  await page.locator('div').filter({ hasText: /^Select a CollectionfirstSelect a Collection$/ }).first().click();
+  await page.getByLabel('first', { exact: true }).click();
+  await page.getByText('test', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^Select Payment ModeCashUPIOnlineDDChequeSelect Payment Mode$/ }).first().click();
+  // await page.getByLabel('Cash', { exact: true }).getByText('Cash').click();
+  await page.locator('div').filter({ hasText: /^Enter Amount$/ }).first().click();
+  await page.getByLabel('Enter Amount').fill('10');
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Pay Fees' }).click();
+});
+
+test('test for Unassign Transport', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Unassign Transport' }).click();
+  await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thSelect Current Course$/ }).first().click();
+  await page.getByLabel('class-4th', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
+  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstSelect Collection$/ }).first().click();
+  await page.getByLabel('first', { exact: true }).click();
+  await page.getByRole('button', { name: 'View Student List' }).click();
+  await page.getByText('test', { exact: true }).click();
+  await page.getByRole('gridcell', { name: 'Unassign' }).click();
+});
 
 
 
@@ -166,6 +217,26 @@ test('test for deleting Collection', async ({ page }) => {
 
 
 
+test('test for viewing Class Batch Wise Report', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Class Batch Wise Report' }).click();
+  await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thSelect Current Course$/ }).first().click();
+  await page.getByLabel('class-4th', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
+  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstSelect Collection$/ }).first().click();
+  await page.getByLabel('first', { exact: true }).click();
+  await page.getByRole('button', { name: 'View Student List' }).click();
+      await expect(page.getByText('test', { exact: true })).toBeVisible();
+});
+
+
 test('test for editing and deleting a route', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.locator('.group > div > .inline-flex').first().click();
@@ -186,25 +257,6 @@ test('test for editing and deleting a route', async ({ page }) => {
   await page.getByLabel('new market').getByRole('button', { name: 'Delete' }).click();
 await expect(page.getByText('new market')).not.toBeVisible();
 });
-
-
-
-// test('test for deleting registered Vehicle', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(7)').first().click();
-//   await page.getByRole('link', { name: 'Vehicle' }).click();
-//   page.once('dialog', dialog => {
-//     console.log(`Dialog message: ${dialog.message()}`);
-//     dialog.accept().catch(() => {});
-//   });
-//   await page.getByRole('button', { name: 'Delete' }).click();
-// });
-
 
 
 
