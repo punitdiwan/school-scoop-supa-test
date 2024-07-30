@@ -135,68 +135,6 @@ test('test for student addmission1', async ({ page }) => {
 
 
 
-
-
-test('test for assigning student marks', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(6)').first().click();
-  await page.getByRole('link', { name: 'Assign Marks' }).click();
-  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
-  await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
-  await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
-  await page.getByRole('button', { name: 'Assign' }).first().click();
-  await page.locator('.h-full > .relative > .inline-flex').first().click();
-  // await page.locator('[id="react-aria8152304818-\\:ro\\:"]').fill('80');
-  await page.getByRole('main').locator('div').filter({ hasText: 'Assign MarksAcadamic Year:-' }).nth(2).click();
-  await page.getByRole('button', { name: 'Submit Marks' }).click();
-  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
-  await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
-  await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
-  await page.getByRole('button', { name: 'Assign' }).nth(1).click();
-  await page.locator('.h-full > .relative > .inline-flex').first().click();
-  await page.locator('.h-full > .relative').first().click();
-  // await page.locator('[id="react-aria8152304818-\\:r1e\\:"]').fill('85');
-  await page.getByRole('button', { name: 'Submit Marks' }).click();
-  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
-  await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
-  await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
-  await page.getByRole('button', { name: 'Assign' }).nth(2).click();
-  await page.locator('.h-full > .relative > .inline-flex').first().click();
-  // await page.locator('[id="react-aria8152304818-\\:r24\\:"]').fill('88');
-  await page.getByRole('button', { name: 'Submit Marks' }).click();
-});
-
-
-
-
-test('test ', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Manage Fees' }).first().click();
-  await page.getByRole('link', { name: 'Fees Category' }).click();
-  await page.getByPlaceholder('Enter Category Name').click();
-  await page.getByPlaceholder('Enter Category Name').click();
-  await page.getByPlaceholder('Enter Category Name').fill('first');
-  await page.getByLabel('class-4th-A-2024').click();
-  await page.getByPlaceholder('Enter Category Description').click();
-  await page.getByPlaceholder('Enter Category Description').fill('first fee category');
-  await page.getByRole('button', { name: 'Create Category' }).click();
-    await expect(page.getByText('Added New Fee Category!')).toBeVisible();
-  // await page.getByRole('main').locator('div').filter({ hasText: /^Added New Fee Category!$/ }).nth(2).click();
-});
-
-
-
-
 test('test', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
