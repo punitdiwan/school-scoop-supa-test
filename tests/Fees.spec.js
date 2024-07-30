@@ -139,17 +139,17 @@ test.describe('test for transportation ', () => {
 
 
     test('test for Discounts Report', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.getByRole('link', { name: 'Manage Fees' }).first().click();
-    await page.getByRole('link', { name: 'Reports' }).click();
-    await page.getByRole('link', { name: 'Discounts Report' }).click();
-    await page.getByRole('rowheader', { name: 'class-4th-A-' }).click();
-    await page.getByText('Total Collections :').click();
+        await page.goto('https://testschool.launchmysite.in/');
+        await page.getByPlaceholder('Enter your Email').click();
+        await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+        await page.getByPlaceholder('Enter your password').click();
+        await page.getByPlaceholder('Enter your password').fill('test@123');
+        await page.getByRole('button', { name: 'Sign In' }).click();
+        await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+        await page.getByRole('link', { name: 'Reports' }).click();
+        await page.getByRole('link', { name: 'Discounts Report' }).click();
+        await page.getByRole('rowheader', { name: 'class-4th-A-' }).click();
+        await page.getByText('Total Collections :').click();
     });
   
         

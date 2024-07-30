@@ -29,7 +29,7 @@ test.describe('test for manage exam ', () => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(6)').first().click();
   await page.getByRole('link', { name: 'Manage Exam Group' }).click();
-  await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.getByLabel('Class-4th-A-').check();
   await page.getByPlaceholder('ex: QUARTERLY').click();
   await page.getByPlaceholder('ex: QUARTERLY').press('CapsLock');
@@ -83,7 +83,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Assign Marks' }).click();
-    await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
     await page.getByRole('button', { name: 'Assign' }).first().click();
@@ -91,7 +91,7 @@ test.describe('test for manage exam ', () => {
     // await page.locator('[id="react-aria8152304818-\\:ro\\:"]').fill('80');
     await page.getByRole('main').locator('div').filter({ hasText: 'Assign MarksAcadamic Year:-' }).nth(2).click();
     await page.getByRole('button', { name: 'Submit Marks' }).click();
-    await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
     await page.getByRole('button', { name: 'Assign' }).nth(1).click();
@@ -99,7 +99,7 @@ test.describe('test for manage exam ', () => {
     await page.locator('.h-full > .relative').first().click();
     // await page.locator('[id="react-aria8152304818-\\:r1e\\:"]').fill('85');
     await page.getByRole('button', { name: 'Submit Marks' }).click();
-    await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
     await page.getByRole('button', { name: 'Assign' }).nth(2).click();
@@ -121,21 +121,21 @@ test.describe('test for manage exam ', () => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(6)').first().click();
   await page.getByRole('link', { name: 'Assign Marks' }).click();
-  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
   await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
   await page.getByRole('button', { name: 'Edit' }).first().click();
   // await page.getByRole('gridcell', { name: '80' }).locator('div').nth(3).click();
   // await page.locator('[id="react-aria9560458396-\\:ro\\:"]').fill('80');
   await page.getByRole('button', { name: 'Submit Marks' }).click();
-  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
   await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
   await page.getByRole('button', { name: 'Edit' }).nth(1).click();
   // await page.getByRole('gridcell', { name: '85' }).locator('div').nth(3).click();
   // await page.locator('[id="react-aria9560458396-\\:r1e\\:"]').fill('85');
   await page.getByRole('button', { name: 'Submit Marks' }).click();
-  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Class \* Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
   await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL,Final');
   await page.getByRole('button', { name: 'Edit' }).nth(2).click();
@@ -155,7 +155,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Exam Report Before Publish' }).click();
-    await page.locator('div').filter({ hasText: /^Select Classclass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
+    await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
     await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,class-4th-A-2024');
     await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL-undefined');
     await expect(page.getByText('test')).toBeVisible();
@@ -171,7 +171,7 @@ test.describe('test for manage exam ', () => {
   await page.getByPlaceholder('Enter your password').press('Enter');
   await page.locator('div:nth-child(6)').first().click();
   await page.getByRole('link', { name: 'Exam Report For School' }).click();
-  await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024,');
   await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL-Final');
   await page.locator('div').filter({ hasText: /^Student \* SelectTest$/ }).getByRole('combobox').selectOption('AwFawVj3nW0X-Test');
@@ -192,7 +192,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Assign Weightage' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Final').locator('div').nth(3).click();
     // await page.locator('[id="react-aria4011860540-\\:rh\\:"]').fill('100');
@@ -210,7 +210,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Publish Weightage Report' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByRole('button', { name: 'Publish Report' }).click();
   });
@@ -227,7 +227,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'View Weightage Report' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024,');
     await page.locator('div').filter({ hasText: /^Student \* SelectTest$/ }).getByRole('combobox').selectOption('AwFawVj3nW0X-Test');
     await page.getByText('100').click();
@@ -248,22 +248,13 @@ test.describe('test for manage exam ', () => {
       await page.getByRole('button', { name: 'Sign In' }).click();
       await page.locator('div:nth-child(6)').first().click();
       await page.getByRole('link', { name: 'Generate Admit Card' }).click();
-      await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+      await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
       await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
       await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('QGSXaI3UxRPL-Final');
       await page.locator('label').filter({ hasText: 'All Student' }).locator('span').first().click();
       await page.getByRole('button', { name: 'View Report' }).click();
   });
   
-
-
-
-
-
-
-
-
-
 
 
 });

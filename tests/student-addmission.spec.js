@@ -75,32 +75,30 @@ test('test for view all student ', async ({ page }) => {
 
 
 
-  // test('test for viewing siblings', async ({ page }) => {
-  //   await page.goto('https://testschool.launchmysite.in/');
-  //   await page.getByPlaceholder('Enter your Email').click();
-  //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  //   await page.getByPlaceholder('Enter your password').click();
-  //   await page.getByPlaceholder('Enter your password').fill('test@123');
-  //   await page.getByRole('button', { name: 'Sign In' }).click();
-  //   await page.locator('.mt-4 > div > .grid > div').first().click();
-  //   await page.getByRole('link', { name: 'View All Siblings' }).click();
-  //   await page.goto('https://testschool.launchmysite.in/students/view_all_siblings');
-  //   await expect(page.getByText('test@gmail.com')).toBeVisible();
-  // });
-
+  test('test for viewing siblings', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Students' }).first().click();
+    await page.getByRole('link', { name: 'View All Siblings' }).click();
+    await expect(page.getByText('Testfather')).toBeVisible();
+  });
 
 
 
   test('test for printing Character Certificate', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
-    await page.locator('.group > div > .inline-flex').first().click();
+    await page.getByPlaceholder('Enter your Email').click();
     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your Email').press('Enter');
+    await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByPlaceholder('Enter your password').press('Enter');
-    await page.locator('.mt-4 > div > .grid > div').first().click();
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Students' }).first().click();
     await page.getByRole('link', { name: 'Character Certificate' }).click();
-    await page.locator('div').filter({ hasText: /^Select OptionClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ');
+    await page.locator('div').filter({ hasText: /^Select OptionClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ');
     await page.locator('div').filter({ hasText: /^Select OptionClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF');
     await page.locator('div').filter({ hasText: /^Select OptionTest$/ }).getByRole('combobox').selectOption('AwFawVj3nW0X');
     const page1Promise = page.waitForEvent('popup');
@@ -120,7 +118,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('.mt-4 > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'Student Identity Card' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Select Student(s)').click();
     await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
@@ -144,7 +142,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('.mt-4 > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'Student Identity Card' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Select Student(s)').click();
     await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
@@ -169,7 +167,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('.mt-4 > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'Student Identity Card' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Select Student(s)').click();
     await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
@@ -194,7 +192,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('.mt-4 > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'Student Identity Card' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Select Student(s)').click();
     await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
@@ -220,7 +218,7 @@ test('test for view all student ', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('.mt-4 > div > .grid > div').first().click();
   await page.getByRole('link', { name: 'Student Identity Card' }).click();
-  await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
   await page.getByLabel('Select Student(s)').click();
   await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
@@ -242,7 +240,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('.mt-4 > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'Student Identity Card' }).click();
-    await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Select Student(s)').click();
     await page.getByLabel('All Students', { exact: true }).click();
@@ -290,7 +288,7 @@ test('test for view all student ', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('.mt-4 > div > .grid > div').first().click();
   await page.getByRole('link', { name: 'Generete Student Roll Number' }).click();
-  await page.locator('div').filter({ hasText: /^Select ClassClass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
+  await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
   await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024,');
   await page.getByPlaceholder('Enter Prifix').click();
   await page.getByPlaceholder('Enter Prifix').press('CapsLock');
@@ -312,7 +310,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(3) > div > .grid > div').first().click();
     await page.getByRole('link', { name: 'Attendance Register' }).click();
-    await page.locator('div').filter({ hasText: /^Select Classclass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
+    await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
     await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,class-4th-A-2024,OhgdO6SybcWn');
     await page.getByRole('button', { name: 'View Students' }).click();
     await expect(page.getByText('test')).toBeVisible();
@@ -336,7 +334,7 @@ test('test for Attendance Report', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(3) > div > .grid > div').first().click();
   await page.getByRole('link', { name: 'Attendance Report' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classclass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
+  await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
   await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,01-01-2024');
   await expect(page.getByText('test')).toBeVisible();
   const page1Promise = page.waitForEvent('popup');
