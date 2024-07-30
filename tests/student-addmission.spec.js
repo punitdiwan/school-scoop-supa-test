@@ -317,7 +317,7 @@ test('test for view all student ', async ({ page }) => {
     await page.getByLabel('Select Month:').selectOption('5');
     await page.getByText('Select Year:').click();
     await page.getByRole('button', { name: 'View Students' }).click();
-    await expect(page.getByText('test')).toBeVisible();
+    await expect(page.getByRole('cell', { name: 'test' })).toBeVisible();
   });
   
   
