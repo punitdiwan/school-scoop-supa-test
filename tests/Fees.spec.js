@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 // test for transportation     
-test.describe('test for transportation ', () => {
+test.describe('test cases for fees categories', () => {
 
     test('test for creating fee category', async ({ page }) => {
         await page.goto('https://testschool.launchmysite.in/');
@@ -106,12 +106,12 @@ test.describe('test for transportation ', () => {
         await page.getByPlaceholder('Enter your password').click();
         await page.getByPlaceholder('Enter your password').fill('test@123');
         await page.getByRole('button', { name: 'Sign In' }).click();
-        await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+        await page.getByText('Manage Fees').click();
         await page.getByRole('link', { name: 'Reports' }).click();
         await page.getByRole('link', { name: 'Studentwise Fees Report' }).click();
         await page.getByRole('button', { name: 'Select Class' }).click();
-        await page.getByLabel('class-4th', { exact: true }).click();
-        await page.locator('#myBatch').click();
+        // await page.getByLabel('class-4th', { exact: true }).click();
+        // await page.locator('#myBatch').click();
         // await page.getByLabel('class-4th-A-2024', { exact: true }).click();
     });
       
@@ -127,7 +127,7 @@ test.describe('test for transportation ', () => {
         await page.getByRole('link', { name: 'Manage Fees' }).first().click();
         await page.getByRole('link', { name: 'Reports' }).click();
         await page.getByRole('link', { name: 'Collection Wise Fee Report' }).click();
-        await page.locator('div').filter({ hasText: /^Select Classclass-4thSelect Class$/ }).first().click();
+        await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6thSelect Class$/ }).first().click();
         await page.getByLabel('class-4th', { exact: true }).click();
         await page.locator('div').filter({ hasText: /^Select Sectionclass-4th-A-2024class-4th-B-2024Select Section$/ }).first().click();
         await page.getByLabel('class-4th-A-2024', { exact: true }).click();

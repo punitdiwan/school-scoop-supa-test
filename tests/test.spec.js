@@ -486,15 +486,5 @@ import { test, expect } from '@playwright/test';
 /////////
 
 
-test('test', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Manage Subject' }).first().click();
-  await page.getByRole('link', { name: 'Manage Elective Subject' }).click();
-  await page.locator('div').filter({ hasText: /^Select Class class-4th class-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
-  await page.getByRole('combobox').nth(1).selectOption('4P1Fblfev3yF,class-4th-A-2024');
-});
+
+

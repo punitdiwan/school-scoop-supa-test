@@ -117,7 +117,7 @@ test.describe('test for employee addmission ', () => {
 
       
 
-    test('test for View All Employees', async ({ page }) => {
+  test('test for View All Employees', async ({ page }) => {
       await page.goto('https://testschool.launchmysite.in/');
       await page.locator('.group > div > .inline-flex').first().click();
       await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -127,7 +127,7 @@ test.describe('test for employee addmission ', () => {
       await page.locator('.mt-4 > div > .grid > div:nth-child(2)').first().click();
       await page.getByRole('link', { name: 'View All Employees' }).click();
       await expect(page.getByText('test')).toBeVisible();
-      });
+  });
 
 
   test('test for deleting employee category', async ({ page }) => {
@@ -147,6 +147,8 @@ test.describe('test for employee addmission ', () => {
     await page.getByRole('button', { name: 'Delete' }).nth(1).click();
   });
 
+
+  
   test('test for editing employee department', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
@@ -176,7 +178,7 @@ test.describe('test for employee addmission ', () => {
     await page.getByRole('button', { name: 'Edit' }).nth(1).click();
     await page.locator('div').filter({ hasText: /^Name\*$/ }).locator('div').nth(3).click();
     await page.getByRole('button', { name: 'Update' }).click();
-    await page.getByText('Updated successfully').nth(4).click();
+    await expect(page.getByRole('main').getByText('Updated successfully').first()).toBeVisible();
   });
 
 

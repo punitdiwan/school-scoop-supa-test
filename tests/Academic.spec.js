@@ -23,39 +23,35 @@ test.describe.serial('test for academic year creation and deletion ', () => {
   });
 
 
-    test('test for academic year creation', async ({ page }) => {
-      await page.goto('https://testschool.launchmysite.in/');
-      await page.getByPlaceholder('Enter your Email').click();
-      await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-      await page.getByPlaceholder('Enter your password').click();
-      await page.getByPlaceholder('Enter your password').fill('test@123');
-      await page.getByRole('button', { name: 'Sign In' }).click();
-      await page.locator('div:nth-child(8)').click();
-      await page.getByTestId('start-year').fill('2025');
-      await page.getByTestId('end-year').fill('2026');
-      await page.getByRole('button', { name: 'Create' }).click();
-      await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible();
-      });
+  test('test for academic year creation', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Academic Year' }).first().click();
+    await page.getByTestId('start-year').click();
+    await page.getByTestId('start-year').fill('2025');
+    await page.getByTestId('end-year').click();
+    await page.getByTestId('end-year').fill('2026');
+    await page.getByRole('button', { name: 'Create' }).click();
+    await expect(page.getByText('AY-2025-2026')).toBeVisible();
+  });
 
 
-
-
-
-
-
-      test('test for deleting academic year ', async ({ page }) => {
-        await page.goto('https://testschool.launchmysite.in/');
-        await page.getByPlaceholder('Enter your Email').click();
-        await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-        await page.getByPlaceholder('Enter your password').click();
-        await page.getByPlaceholder('Enter your password').fill('test@123');
-        await page.getByRole('button', { name: 'Sign In' }).click();
-        await page.locator('div:nth-child(8)').click();
-        await page.getByText('AY-2025-2026').first().click();
-        await page.getByLabel('AY-2025-2026').getByText('Delete').click();
-        await expect(page.getByText('AY-2025-2026')).not.toBeVisible();
+  test('test for deleting academic year ', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Academic Year' }).first().click();
+    await page.getByLabel('AY-2025-2026').getByText('Delete').click();
+    await expect(page.getByText('AY-2025-2026')).not.toBeVisible();
       
-      });  
+  });  
 
 
     
@@ -72,11 +68,13 @@ test.describe.serial('test for academic year creation and deletion ', () => {
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('div:nth-child(8)').click();
+    await page.getByRole('link', { name: 'Academic Year' }).first().click();
+    await page.getByTestId('start-year').click();
     await page.getByTestId('start-year').fill('2026');
+    await page.getByTestId('end-year').click();
     await page.getByTestId('end-year').fill('2027');
     await page.getByRole('button', { name: 'Create' }).click();
-    await expect(page.getByText('Academic Year Created Successfully!')).toBeVisible();
+    await expect(page.getByText('AY-2026-2027')).toBeVisible();
     });
 
 
@@ -87,8 +85,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
       await page.getByPlaceholder('Enter your password').click();
       await page.getByPlaceholder('Enter your password').fill('test@123');
       await page.getByRole('button', { name: 'Sign In' }).click();
-      await page.locator('div:nth-child(8)').click();
-      await page.getByText('AY-2026-2027').click();
+      await page.getByRole('link', { name: 'Academic Year' }).first().click();
       await page.getByLabel('AY-2026-2027').getByText('Delete').click();
       await expect(page.getByText('AY-2026-2027')).not.toBeVisible();
     
@@ -112,11 +109,11 @@ test.describe.serial('test for class and section ', () => {
     await page.getByLabel('Breadcrumbs').getByText('Home').click();
     await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
     await page.getByRole('link', { name: 'Classs Teacher' }).click();
-    await page.locator('div').filter({ hasText: /^Select Classclass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
+    await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
     await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,class-4th-A-2024');
     await page.getByText('No Teacher Assigned').click();
     await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
-      await expect(page.getByText('Assign Class Teacher')).not.toBeVisible();
+    await expect(page.getByText('Assign Class Teacher')).not.toBeVisible();
   });
 
 
@@ -129,8 +126,8 @@ test('test for assign class teacher2', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
   await page.getByRole('link', { name: 'Classs Teacher' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classclass-4th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
-    await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,class-4th-A-2024');
+  await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,class-4th');
+  await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,class-4th-A-2024');
   await page.getByRole('combobox').nth(2).selectOption('rUCfBpXTlyxU');
   await page.getByLabel('test5').getByText('Assign Class Teacher').click();
   await expect(page.getByText('Successfully assignd teacher')).toBeVisible()
