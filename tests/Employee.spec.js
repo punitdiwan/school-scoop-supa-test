@@ -74,7 +74,7 @@ test.describe('test for employee addmission ', () => {
     await page.getByLabel('Class Teacher', { exact: true }).click();
     await page.getByText('Submit').click();
     await page.goto('https://testschool.launchmysite.in/employee/view_all_employee');
-    // await expect(page.getByText('test')).toBeVisible();
+    await expect(page.getByText('test')).toBeVisible();
 
   });
   
@@ -137,14 +137,14 @@ test.describe('test for employee addmission ', () => {
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('div:nth-child(2) > div:nth-child(4)').first().click();
+    await page.getByRole('link', { name: 'HR Management' }).first().click();
     await page.getByRole('link', { name: 'Manage Employee Category' }).click();
     await page.getByRole('heading', { name: 'second division' }).first().click();
     page.once('dialog', dialog => {
       console.log(`Dialog message: ${dialog.message()}`);
       dialog.accept().catch(() => {});
     });
-    await page.getByRole('button', { name: 'Delete' }).nth(1).click();
+    await page.getByRole('button', { name: 'Delete' }).first().click();
   });
 
 
@@ -219,17 +219,12 @@ test.describe.serial('test for event creation ', () => {
     await page.getByPlaceholder('Enter your description').fill('leave');
     await page.getByTestId('start-date').fill('2024-01-01');
     await page.getByTestId('end-date').fill('2024-01-01');
-  
-  
     await page.getByTestId('start-date').inputValue();
     // console.log('Start Date:', startDateValue);
-  
     await page.getByTestId('end-date').inputValue();
     // console.log('End Date:', endDateValue); 
-  
     await page.getByRole('button', { name: 'Submit' }).click();
-      await expect(page.getByText('Successfully Added Events')).toBeVisible();
-      
+    await expect(page.getByText('Successfully Added Events')).toBeVisible();
     await page.locator('text=holiday2').isVisible();
   });
   

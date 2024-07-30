@@ -8,15 +8,16 @@ test.describe('test cases for fees categories', () => {
         await page.getByPlaceholder('Enter your Email').fill('test@example.com');
         await page.getByPlaceholder('Enter your password').click();
         await page.getByPlaceholder('Enter your password').fill('test@123');
-        await page.getByRole('button', { name: 'Sign In' }).click();
+        page.getByRole('button', { name: 'Sign In' }).click();
         await page.getByRole('link', { name: 'Manage Fees' }).first().click();
         await page.getByRole('link', { name: 'Fees Category' }).click();
         await page.getByPlaceholder('Enter Category Name').click();
-        await page.getByPlaceholder('Enter Category Name').fill('second');
+        await page.getByPlaceholder('Enter Category Name').fill('second category');
         await page.getByPlaceholder('Enter Category Description').click();
-        await page.getByPlaceholder('Enter Category Description').fill('second description');
-        await page.locator('label').filter({ hasText: 'Select All' }).locator('svg').click();
-        // await page.getByRole('button', { name: 'Create Category' }).click();
+        await page.getByPlaceholder('Enter Category Description').fill('second category description');
+        await page.getByLabel('class-6th-A-').click();
+        await page.getByRole('button', { name: 'Create Category' }).click();
+        await page.getByRole('main').getByText('Added New Fee Category!').click();
     });
 
 
@@ -98,6 +99,23 @@ test.describe('test cases for fees categories', () => {
         await expect(page.getByText('first fee').first()).toBeVisible();
     });  
 
+
+    test('test for view all fee collections ', async ({ page }) => {
+        await page.goto('https://testschool.launchmysite.in/');
+        await page.getByPlaceholder('Enter your Email').click();
+        await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+        await page.getByPlaceholder('Enter your password').click();
+        await page.getByPlaceholder('Enter your password').fill('test@123');
+        await page.getByRole('button', { name: 'Sign In' }).click();
+        await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+        await page.getByRole('link', { name: 'View All Fee Collection' }).click();
+        await page.getByText('Class*Classclass-4thclass-').click();
+        await page.getByLabel('Class', { exact: true }).click();
+        await page.getByLabel('class-4th', { exact: true }).click();
+        await page.getByLabel(',', { exact: true }).click();
+        await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+        await expect(page.getByText('first feecollection')).toBeVisible();
+    });
 
     test('test for student wise fee report', async ({ page }) => {
         await page.goto('https://testschool.launchmysite.in/');
