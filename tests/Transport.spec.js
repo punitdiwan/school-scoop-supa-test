@@ -197,7 +197,7 @@ test('test for viewing Class Batch Wise Report', async ({ page }) => {
   await page.getByLabel('class-4th', { exact: true }).click();
   await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect CollectionSelect Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).click();
   await page.getByRole('button', { name: 'View Student List' }).click();
 });
