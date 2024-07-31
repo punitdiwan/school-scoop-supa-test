@@ -70,6 +70,8 @@ test.describe('test cases for fees categories', () => {
         await page.locator('label').filter({ hasText: 'Is Refundable' }).locator('svg').click();
         await page.getByRole('button', { name: 'Create One Time Fees' }).click();
         await expect(page.getByText('OneTime fees Created')).toBeVisible();
+        await page.goto('https://testschool.launchmysite.in/manage_fees/ViewAllOneTime?classId=vpcYXc5qHJwJ&batchId=Bk3sEOf01ai1');
+        await expect(page.getByText('8000').first()).toBeVisible();
     }); 
     
     test('test for transaction category', async ({ page }) => {
