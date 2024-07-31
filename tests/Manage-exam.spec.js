@@ -195,7 +195,7 @@ test.describe('test for manage exam ', () => {
     await page.locator('div').filter({ hasText: /^Select ClassClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ,Class-4th');
     await page.locator('div').filter({ hasText: /^SelectClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF,Class-4th-A-2024');
     await page.getByLabel('Final').locator('div').nth(3).click();
-    // await page.locator('[id="react-aria4011860540-\\:rh\\:"]').fill('100');
+    await page.getByTestId('assign-marks').fill('100');
     await page.getByRole('button', { name: 'Submit' }).click();
   });
   
