@@ -111,7 +111,6 @@ test('test for creating Transport Fees Collection', async ({ page }) => {
 
 
 
-
 test('test for transport fee payment', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
@@ -125,7 +124,7 @@ test('test for transport fee payment', async ({ page }) => {
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
   await page.getByText('test', { exact: true }).click();
   await page.getByRole('link', { name: 'Pay Fees' }).click();
-  await page.locator('div').filter({ hasText: /^Select a CollectionfirstsecondSelect a Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select a CollectionfirstsecondsecondSelect a Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).click();
   await page.locator('div').filter({ hasText: /^Select Payment ModeCashUPIOnlineDDChequeSelect Payment Mode$/ }).first().click();
   // await page.getByLabel('Cash', { exact: true }).click();
@@ -154,7 +153,7 @@ test('test for Unassign Transport', async ({ page }) => {
   await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
   await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-').click();
-  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondSelect Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).getByText('first').click();
   await page.getByRole('button', { name: 'View Student List' }).click();
   // await page.getByRole('gridcell', { name: 'Unassign' }).click();
@@ -212,11 +211,10 @@ test('test for deleting a fee collection', async ({ page }) => {
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Transport' }).first().click();
   await page.getByRole('link', { name: 'View All Collection' }).click();
   await page.getByText('Select Section :Sectionclass-').click();
-  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await page.getByText('second').click();
+  await page.getByLabel('class-4th-B-2024', { exact: true }).getByText('class-4th-B-').click();
   page.once('dialog', dialog => {
     console.log(`Dialog message: ${dialog.message()}`);
     dialog.accept().catch(() => {});
@@ -235,16 +233,17 @@ test('test for viewing Class Batch Wise Report', async ({ page }) => {
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Transport' }).first().click();
   await page.getByRole('link', { name: 'Class Batch Wise Report' }).click();
   await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thclass-6thSelect Current Course$/ }).first().click();
   await page.getByLabel('class-4th', { exact: true }).click();
   await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondSelect Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).click();
   await page.getByRole('button', { name: 'View Student List' }).click();
 });
+
 
 
 test('test for editing and deleting a route', async ({ page }) => {
