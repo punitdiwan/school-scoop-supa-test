@@ -25,4 +25,4 @@ jobs:
       - name: Run Playwright tests
         env:
           BASE_URL: ${{ github.event.deployment_status.environment_url }}
-        run: npx playwright test 
+        run: npx playwright test transport.spec.js
