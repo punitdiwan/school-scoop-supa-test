@@ -215,12 +215,16 @@ test('test for viewing Class Batch Wise Report', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.getByRole('link', { name: 'Transport' }).first().click();
   await page.getByRole('link', { name: 'Class Batch Wise Report' }).click();
-  await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thclass-6thSelect Current Course$/ }).first().click();
-  await page.getByLabel('class-4th', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
-  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select CollectionfirstSelect CollectionSelect Collection$/ }).first().click();
-  await page.getByLabel('first', { exact: true }).click();
+  await page.getByLabel('Select Current Course').first().selectOption('class-4th');
+  // await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thclass-6thSelect Current Course$/ }).first().click();
+  // await page.getByLabel('class-4th', { exact: true }).click();
+
+  // await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
+  // await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+  await page.getByLabel('Select Current Batch').first().selectOption('class-4th-A-2024');
+  // await page.locator('div').filter({ hasText: /^Select CollectionfirstSelect CollectionSelect Collection$/ }).first().click();
+  // await page.getByLabel('first', { exact: true }).click();
+  await page.getByLabel('Select Collection').first().selectOption('first');
   await page.getByRole('button', { name: 'View Student List' }).click();
 });
 
