@@ -416,5 +416,43 @@ test('test for student addmission1', async ({ page }) => {
 // });
 
 
+test('test for creating a route', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Route', exact: true }).click();
+  await page.getByLabel('Enter a Destination').click();
+  await page.getByLabel('Enter a Destination').fill('new market');
+  await page.locator('div').filter({ hasText: /^Stop Covered\*Enter Stop Covered$/ }).locator('div').nth(4).click();
+  await page.getByLabel('Enter Stop Covered').fill('5');
+  await page.locator('div').filter({ hasText: /^Cost \* Enter a cost$/ }).locator('div').nth(4).click();
+  await page.getByLabel('Enter a cost').fill('500');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await expect(page.getByText('new market')).toBeVisible();
+});
 
 
+
+
+test('test', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Transport' }).first().click();
+  await page.getByRole('link', { name: 'Route', exact: true }).click();
+  await page.getByText('new market').click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByLabel('new market').getByRole('button', { name: 'Delete' }).click();
+  await page.getByRole('main').getByText('Successfully Delete Route').click();
+    await expect(page.getByText('new market')).not.toBeVisible();
+});
