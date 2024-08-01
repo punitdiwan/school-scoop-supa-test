@@ -101,11 +101,14 @@ test('test for transport fee payment', async ({ page }) => {
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
   await page.getByText('test', { exact: true }).click();
   await page.getByRole('link', { name: 'Pay Fees' }).click();
-  await page.locator('div').filter({ hasText: /^Select a CollectionfirstSelect a Collection$/ }).first().click();
-  await page.getByLabel('first', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select Payment ModeCashUPIOnlineDDChequeSelect Payment Mode$/ }).first().click();
+  await page.getByLabel('Select a Collection').selectOption('first');
+  //await page.locator('div').filter({ hasText: /^Select a CollectionfirstSelect a Collection$/ }).first().click();
+  //await page.getByLabel('first', { exact: true }).click();
+
+  //await page.locator('div').filter({ hasText: /^Select Payment ModeCashUPIOnlineDDChequeSelect Payment Mode$/ }).first().click();
+  await page.getByLabel('Select Payment Mode').first().selectOption('Cash');
   // await page.getByLabel('Cash', { exact: true }).click();
-  await page.getByLabel('Enter Amount').click();
+  //await page.getByLabel('Enter Amount').click();
   await page.getByLabel('Enter Amount').fill('10');
   page.once('dialog', dialog => {
     console.log(`Dialog message: ${dialog.message()}`);
