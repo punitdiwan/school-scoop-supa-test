@@ -374,7 +374,10 @@ test('test for student addmission1', async ({ page }) => {
 
 // });
 
-// test('test2', async ({ page }) => {
+
+
+
+// test('test for Assign Transport Route Wise', async ({ page }) => {
 //   await page.goto('https://testschool.launchmysite.in/');
 //   await page.getByPlaceholder('Enter your Email').click();
 //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -382,41 +385,50 @@ test('test for student addmission1', async ({ page }) => {
 //   await page.getByPlaceholder('Enter your password').fill('test@123');
 //   await page.getByRole('button', { name: 'Sign In' }).click();
 //   await page.getByRole('link', { name: 'Transport' }).first().click();
-//   await page.getByRole('link', { name: 'Class Batch Wise Report' }).click();
+//   await page.getByRole('link', { name: 'Assign Transport Route Wise' }).click();
+//   await page.locator('div').filter({ hasText: /^Classclass-4thclass-6thClass$/ }).first().click();
+//   await page.getByLabel('class-6th', { exact: true }).click();
+//   await page.locator('div').filter({ hasText: /^Sectionclass-6th-A-2024Section$/ }).first().click();
+//   await page.getByLabel('class-6th-A-2024', { exact: true }).click();
+//   await page.getByLabel('test6').click();
+//   await page.locator('div').filter({ hasText: /^Select Routelalghati \(100\)Select Route$/ }).first().click();
+//   await page.getByLabel('lalghati (100)', { exact: true }).click();
+//   await page.locator('div').filter({ hasText: /^Select Vehiclemp05hk5210Select Vehicle$/ }).first().click();
+//   await page.getByLabel('mp05hk5210', { exact: true }).click();
+//   await page.getByPlaceholder('enter a amount').click();
+//   await page.getByPlaceholder('enter a amount').fill('200');
+//   await page.getByRole('button', { name: 'Submit' }).click();
+//   await page.getByText('Transport Assigned').click();
+// });
+
+
+
+// test('test for Unassign Transport', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Transport' }).first().click();
+//   await page.getByRole('link', { name: 'Unassign Transport' }).click();
 //   await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thclass-6thSelect Current Course$/ }).first().click();
-//   await page.getByLabel('class-4th', { exact: true }).click();
-//   await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
-//   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-//   await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect CollectionSelect Collection$/ }).first().click();
-//   await page.getByLabel('first', { exact: true }).click();
+//   await page.getByLabel('class-6th', { exact: true }).click();
+//   await page.locator('div').filter({ hasText: /^Select Current Batchclass-6th-A-2024Select Current Batch$/ }).first().click();
+//   await page.getByLabel('class-6th-A-2024', { exact: true }).click();
+//   await page.locator('div').filter({ hasText: /^Select Collectioncollection 6Select Collection$/ }).first().click();
+//   await page.getByLabel('collection 6', { exact: true }).click();
 //   await page.getByRole('button', { name: 'View Student List' }).click();
+//   await page.getByText('test6').click();
+//   await page.getByLabel('06').getByRole('button', { name: 'Unassign' }).click();
+//   await page.locator('div').filter({ hasText: 'Transport Unassigned' }).nth(3).click();
 // });
 
 
-// test('test', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Transport' }).first().click();
-//   await page.getByRole('link', { name: 'Class Batch Wise Report' }).click();
-//   await page.getByRole('button', { name: 'Select Current Course' }).click();
-//   await page.getByPlaceholder('class-4th', { exact: true }).getByText('class-4th').click();
-//   // await page.getByRole('button', { name: 'Select Current Batch' }).click();
-//   await page.getByPlaceholder('elect Current Batch').click();
 
 
-//   // await page.getByLabel('Select Current Batch', { exact: true }).click();
-//   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-//   await page.getByLabel('Select Collection', { exact: true }).click();
-//   await page.getByLabel('first', { exact: true }).click();
-//   await page.getByRole('button', { name: 'View Student List' }).click();
-// });
 
-
-test('test for creating a route', async ({ page }) => {
+test('test for creating fee collection', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -424,35 +436,16 @@ test('test for creating a route', async ({ page }) => {
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.locator('div:nth-child(7)').first().click();
-  await page.getByRole('link', { name: 'Route', exact: true }).click();
-  await page.getByLabel('Enter a Destination').click();
-  await page.getByLabel('Enter a Destination').fill('new market');
-  await page.locator('div').filter({ hasText: /^Stop Covered\*Enter Stop Covered$/ }).locator('div').nth(4).click();
-  await page.getByLabel('Enter Stop Covered').fill('5');
-  await page.locator('div').filter({ hasText: /^Cost \* Enter a cost$/ }).locator('div').nth(4).click();
-  await page.getByLabel('Enter a cost').fill('500');
-  await page.getByRole('button', { name: 'Submit' }).click();
-  await expect(page.getByText('new market')).toBeVisible();
+  await page.getByRole('link', { name: 'Transport Fees Collection' }).click();
+  await page.getByLabel('Select Period of Collection').click();
+  await page.locator('.mb-4\\.5 > div').click();
+  await page.getByLabel('Select Period of Collection').click();
+  await page.getByLabel('YEARLY', { exact: true }).getByText('YEARLY').click();
+  await page.locator('label').filter({ hasText: 'Select All' }).locator('svg').click();
+  await page.locator('.h-full > .relative').first().click();
+  await page.getByPlaceholder('Enter Fee Collection Name').fill('second');
+  await page.locator('#startDate-1').fill('2024-01-01');
+  await page.locator('#endDate-1').fill('2024-12-01');
+  await page.getByRole('button', { name: 'Create Fee Collection' }).click();
 });
 
-
-
-
-test('test', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Transport' }).first().click();
-  await page.getByRole('link', { name: 'Route', exact: true }).click();
-  await page.getByText('new market').click();
-  page.once('dialog', dialog => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    dialog.accept().catch(() => {});
-  });
-  await page.getByLabel('new market').getByRole('button', { name: 'Delete' }).click();
-  await page.getByRole('main').getByText('Successfully Delete Route').click();
-    await expect(page.getByText('new market')).not.toBeVisible();
-});

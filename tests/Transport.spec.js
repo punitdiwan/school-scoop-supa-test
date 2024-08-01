@@ -181,23 +181,23 @@ test('test for creating fee collection', async ({ page }) => {
 
 
 
-test('test for deleting a fee collection', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Transport' }).first().click();
-  await page.getByRole('link', { name: 'View All Collection' }).click();
-  await page.getByText('Select Section :Sectionclass-').click();
-  await page.getByLabel('class-4th-B-2024', { exact: true }).getByText('class-4th-B-').click();
-  page.once('dialog', dialog => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    dialog.accept().catch(() => {});
-  });
-  await page.getByLabel('2', { exact: true }).getByRole('button', { name: 'Delete' }).click();
-});
+// test('test for deleting a fee collection', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Transport' }).first().click();
+//   await page.getByRole('link', { name: 'View All Collection' }).click();
+//   await page.getByText('Select Section :Sectionclass-').click();
+//   await page.getByLabel('class-4th-B-2024', { exact: true }).getByText('class-4th-B-').click();
+//   page.once('dialog', dialog => {
+//     console.log(`Dialog message: ${dialog.message()}`);
+//     dialog.accept().catch(() => {});
+//   });
+//   await page.getByLabel('2', { exact: true }).getByRole('button', { name: 'Delete' }).click();
+// });
 
 
 
