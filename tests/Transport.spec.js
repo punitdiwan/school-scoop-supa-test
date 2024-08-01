@@ -82,7 +82,7 @@ test('test for transport fee payment', async ({ page }) => {
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
   await page.getByText('test', { exact: true }).click();
   await page.getByRole('link', { name: 'Pay Fees' }).click();
-  await page.locator('div').filter({ hasText: /^Select a CollectionfirstsecondsecondSelect a Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select a CollectionfirstSelect a Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).click();
   await page.locator('div').filter({ hasText: /^Select Payment ModeCashUPIOnlineDDChequeSelect Payment Mode$/ }).first().click();
   // await page.getByLabel('Cash', { exact: true }).click();
@@ -111,7 +111,7 @@ test('test for Unassign Transport', async ({ page }) => {
   await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
   await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-').click();
-  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstSelect Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).getByText('first').click();
   await page.getByRole('button', { name: 'View Student List' }).click();
   // await page.getByRole('gridcell', { name: 'Unassign' }).click();
@@ -197,7 +197,7 @@ test('test for viewing Class Batch Wise Report', async ({ page }) => {
   await page.getByLabel('class-4th', { exact: true }).click();
   await page.locator('div').filter({ hasText: /^Select Current Batchclass-4th-A-2024class-4th-B-2024Select Current Batch$/ }).first().click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select CollectionfirstsecondsecondSelect CollectionSelect Collection$/ }).first().click();
+  await page.locator('div').filter({ hasText: /^Select CollectionfirstSelect CollectionSelect Collection$/ }).first().click();
   await page.getByLabel('first', { exact: true }).click();
   await page.getByRole('button', { name: 'View Student List' }).click();
 });
