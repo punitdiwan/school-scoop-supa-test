@@ -159,7 +159,7 @@ test('test for View All Collection', async ({ page }) => {
   await page.getByRole('link', { name: 'View All Collection' }).click();
   await page.getByText('Select Section :Sectionclass-4th-A-2024').click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await expect(page.getByText('first')).toBeVisible();
+  await expect(page.getByText('6/30/2024', {exact:true})).toBeVisible();
 });
 
 
