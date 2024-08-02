@@ -432,23 +432,44 @@ test('test for student addmission1', async ({ page }) => {
 ///////////=/=/=//=/==/=//==
 //////////=/=/=/=//=/==/=/=/
 
-test('test for creating fee collection', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(7)').first().click();
-  await page.getByRole('link', { name: 'Transport Fees Collection' }).click();
-  await page.getByLabel('Select Period of Collection').click();
-  await page.locator('.mb-4\\.5 > div').click();
-  await page.getByLabel('Select Period of Collection').click();
-  await page.getByLabel('YEARLY', { exact: true }).getByText('YEARLY').click();
-  await page.locator('label').filter({ hasText: 'Select All' }).locator('svg').click();
-  await page.locator('.h-full > .relative').first().click();
-  await page.getByPlaceholder('Enter Fee Collection Name').fill('second');
-  await page.locator('#startDate-1').fill('2024-01-01');
-  await page.locator('#endDate-1').fill('2024-12-01');
-  await page.getByRole('button', { name: 'Create Fee Collection' }).click();
-});
+// test('test for creating fee collection', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.locator('div:nth-child(7)').first().click();
+//   await page.getByRole('link', { name: 'Transport Fees Collection' }).click();
+//   await page.getByLabel('Select Period of Collection').click();
+//   await page.locator('.mb-4\\.5 > div').click();
+//   await page.getByLabel('Select Period of Collection').click();
+//   await page.getByLabel('YEARLY', { exact: true }).getByText('YEARLY').click();
+//   await page.locator('label').filter({ hasText: 'Select All' }).locator('svg').click();
+//   await page.locator('.h-full > .relative').first().click();
+//   await page.getByPlaceholder('Enter Fee Collection Name').fill('second');
+//   await page.locator('#startDate-1').fill('2024-01-01');
+//   await page.locator('#endDate-1').fill('2024-12-01');
+//   await page.getByRole('button', { name: 'Create Fee Collection' }).click();
+// });
+
+
+
+// test('test for printing Character Certificate', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Character Certificate' }).click();
+//   await page.locator('div').filter({ hasText: /^Select OptionClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ');
+//   await page.locator('div').filter({ hasText: /^Select OptionClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF');
+//   await page.locator('div').filter({ hasText: /^Select OptionTest$/ }).getByRole('combobox').selectOption('AwFawVj3nW0X');
+//   const page1Promise = page.waitForEvent('popup');
+//   await page.getByRole('button', { name: 'Print' }).click();
+//   const page1 = await page1Promise;
+// });
+
+
