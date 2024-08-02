@@ -173,7 +173,7 @@ test('test for creating fee collection', async ({ page }) => {
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.locator('div:nth-child(7)').first().click();
+  await page.getByRole('link', { name: 'Transport' }).first().click();
   await page.getByRole('link', { name: 'Transport Fees Collection' }).click();
   await page.getByLabel('Select Period of Collection').click();
   await page.locator('.mb-4\\.5 > div').click();
