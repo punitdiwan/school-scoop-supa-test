@@ -425,8 +425,12 @@ test('test for student addmission1', async ({ page }) => {
 // });
 
 
-
-
+///////////=/=/=//=/==/=//==
+//////////=/=/=/=//=/==/=/=/
+///////////=/=/=//=/==/=//==
+//////////=/=/=/=//=/==/=/=/
+///////////=/=/=//=/==/=//==
+//////////=/=/=/=//=/==/=/=/
 
 test('test for creating fee collection', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
@@ -448,4 +452,3 @@ test('test for creating fee collection', async ({ page }) => {
   await page.locator('#endDate-1').fill('2024-12-01');
   await page.getByRole('button', { name: 'Create Fee Collection' }).click();
 });
-
