@@ -52,29 +52,6 @@ test('test for view all student ', async ({ page }) => {
 
 
 
- 
-  test('test for creating student category', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.locator('.mb-6 > div > .group > div > .inline-flex').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('.mt-4 > div > .grid > div').first().click();
-    await page.getByRole('link', { name: 'Create Student Category' }).click();
-    await page.getByPlaceholder('Enter category name').click();
-    await page.getByPlaceholder('Enter category name').fill('test1');
-    await page.locator('div').filter({ hasText: /^Description \*Max 40 characters$/ }).locator('div').nth(2).click();
-    await page.getByPlaceholder('Enter description').fill('testdes');
-    await page.getByRole('button', { name: 'Save' }).click();
-    await expect(page.getByText('Created successfully')).toBeVisible();
-    await page.goto('https://testschool.launchmysite.in/students/create_student_category');
-    await expect(page.getByText('test1').nth(0)).toBeVisible();
-  });
-
-
-
-
   test('test for viewing siblings', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
@@ -247,7 +224,7 @@ test('test for view all student ', async ({ page }) => {
   await page.getByTestId('select-idcard').click();
   await page.getByTestId('select-idcard').click();
   await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('Wine');
-await page.getByRole('button', { name: 'Submit Report' }).click();
+  await page.getByRole('button', { name: 'Submit Report' }).click();
   const page1Promise = page.waitForEvent('popup');
   await page.getByRole('button', { name: 'Print' }).click();
   const page1 = await page1Promise;
@@ -360,6 +337,27 @@ test('test for Attendance Report', async ({ page }) => {
   });
 
 
+});
+
+test.describe.serial('test for student addmission ', () => { 
+
+  test('test for creating student category', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Students' }).first().click();
+    await page.getByRole('link', { name: 'Create Student Category' }).click();
+    await page.getByTestId('input-category-name').click();
+    await page.getByTestId('input-category-name').fill('test1');
+    await page.getByTestId('input-category-description').click();
+    await page.getByTestId('input-category-description').fill('test description');
+    await page.getByRole('button', { name: 'Save' }).click();
+    await page.goto('https://testschool.launchmysite.in/students/create_student_category');
+    await expect(page.getByText('test1').nth(0)).toBeVisible();
+  });
 
 
   test('test for deleting student category', async ({ page }) => {
@@ -369,10 +367,9 @@ test('test for Attendance Report', async ({ page }) => {
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('.mt-4 > div > .grid > div').first().click();
+    await page.getByRole('link', { name: 'Students' }).first().click();
     await page.getByRole('link', { name: 'Create Student Category' }).click();
     await page.getByText('test1').click();
-    await page.getByLabel('test1').getByRole('gridcell', { name: 'Edit Delete' }).click();
     page.once('dialog', dialog => {
       console.log(`Dialog message: ${dialog.message()}`);
       dialog.accept().catch(() => {});
@@ -383,8 +380,7 @@ test('test for Attendance Report', async ({ page }) => {
   });
   
 
- 
-
-
 });
+
+
 

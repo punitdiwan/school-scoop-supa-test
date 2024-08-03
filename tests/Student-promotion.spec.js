@@ -96,8 +96,9 @@ test.describe('test for student promotion ', () => {
   
   
   
-  
-//   test('test for Download TC', async ({ page }) => {
+
+
+// test('test for Download TC', async ({ page }) => {
 //     await page.goto('https://testschool.launchmysite.in/');
 //     await page.getByPlaceholder('Enter your Email').click();
 //     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -106,17 +107,15 @@ test.describe('test for student promotion ', () => {
 //     await page.getByRole('button', { name: 'Sign In' }).click();
 //     await page.getByRole('link', { name: 'Promotion' }).first().click();
 //     await page.getByRole('link', { name: 'Download TC' }).click();
-//     await page.getByLabel('Select Academic Year').click();
+//     await page.getByTestId('select-academiv-year').click();
 //     await page.getByLabel('AY-2024-2025', { exact: true }).click();
-//     await page.getByLabel('Select a Class').click();
+//     await page.getByTestId('select-class').click();
 //     await page.getByLabel('class-6th', { exact: true }).click();
-//     await page.getByLabel('Select a Section').click();
+//     await page.getByTestId('select-batch').click();
 //     await page.getByLabel('class-6th-A-2024', { exact: true }).click();
-//     await page.getByText('Test5').click();
 //     const page1Promise = page.waitForEvent('popup');
-//     await page.getByRole('button', { name: 'Print' }).click();
+//     await page.getByLabel('Test6').getByRole('button', { name: 'Print' }).click();
 //     const page1 = await page1Promise;
 //   });
-
 
 });
