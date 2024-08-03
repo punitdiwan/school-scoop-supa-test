@@ -12,27 +12,27 @@ import { test, expect } from '@playwright/test';
 // // // test for student admissions
 
 
-// test('test for student addmission1', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Students' }).first().click();
-//   await page.getByRole('link', { name: 'Student Admissions' }).click();
-//   await page.getByPlaceholder('Enter Admission No').click();
-//   await page.getByPlaceholder('Enter Admission No').fill('02');
-//   await page.getByPlaceholder('Enter your Full name').click();
-//   await page.getByPlaceholder('Enter your Full name').fill('test2');
-//   await page.getByTestId('date-birth').fill('2002-02-02');
-//   await page.locator("[name='student_category_id']").selectOption('common');
-//   await page.locator("[name='caste_name']").selectOption('General');
-//   await page.locator("[name='classs']").selectOption('class-4th');
-//   await page.getByTestId('Section').click();
-//   // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
-//   await page.getByRole('button', { name: 'Submit' }).click();
-// });
+test('test for student addmission1', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Students' }).first().click();
+  await page.getByRole('link', { name: 'Student Admissions' }).click();
+  await page.getByPlaceholder('Enter Admission No').click();
+  await page.getByPlaceholder('Enter Admission No').fill('02');
+  await page.getByPlaceholder('Enter your Full name').click();
+  await page.getByPlaceholder('Enter your Full name').fill('test2');
+  await page.getByTestId('date-birth').fill('2002-02-02');
+  await page.locator("[name='student_category_id']").selectOption('common');
+  await page.locator("[name='caste_name']").selectOption('General');
+  await page.locator("[name='classs']").selectOption('class-4th');
+  await page.getByTestId('Section').click();
+  // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
+  await page.getByRole('button', { name: 'Submit' }).click();
+});
 
 // // // // // ===-=-=-=-==-=-=-=-=
 //     await expect(page.getByText('Created')).toBeVisible();
