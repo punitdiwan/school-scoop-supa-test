@@ -14,7 +14,7 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+    await page.getByRole('link', { name: 'Class And Section' }).first().click();
     await page.getByRole('link', { name: 'Create Class And Section' }).click();
     await page.locator('input[name="class-5thChecked"]').check();
     await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
@@ -37,7 +37,7 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByPlaceholder('Enter your password').press('Enter');
-    await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+    await page.getByRole('link', { name: 'Class And Section' }).first().click();
     await page.getByRole('link', { name: 'Manage Class' }).click();
     await page.getByLabel('class-5th').getByRole('link', { name: 'Edit' }).click();
     await page.locator('input[name="code"]').click();
@@ -55,7 +55,7 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
 
-    await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+    await page.getByRole('link', { name: 'Class And Section' }).first().click();
     await page.getByRole('link', { name: 'Manage Class' }).click();
     await page.getByText('class-5th').click();
     await page.getByLabel('class-5th').getByRole('link', { name: 'View Section' }).click();
@@ -86,7 +86,7 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
 
-    await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
+    await page.getByRole('link', { name: 'Class And Section' }).first().click();
     await page.getByRole('link', { name: 'Manage Class' }).click();
     await page.getByRole('rowheader', { name: 'class-5th' }).click();
     page.once('dialog', dialog => {
