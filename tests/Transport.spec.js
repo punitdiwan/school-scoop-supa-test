@@ -88,7 +88,7 @@ test('test for creating Transport Fees Collection ', async ({ page }) => {
 
 
 
-test('test for transport fee payment 5', async ({ page }) => {
+test('test for transport fee payment ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -120,7 +120,7 @@ test('test for transport fee payment 5', async ({ page }) => {
 
 
 
-test('test for Unassign Transport 6', async ({ page }) => {
+test('test for Unassign Transport ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -153,7 +153,7 @@ test('test for Unassign Transport 6', async ({ page }) => {
 
 
 
-test('test for View All Collection 7', async ({ page }) => {
+test('test for View All Collection ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -166,30 +166,6 @@ test('test for View All Collection 7', async ({ page }) => {
   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
   await expect(page.getByText('6/30/2024', {exact:true})).toBeVisible();
 });
-
-
-
-
-
-// test('test for deleting a fee collection', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Transport' }).first().click();
-//   await page.getByRole('link', { name: 'View All Collection' }).click();
-//   await page.getByText('Select Section :Sectionclass-').click();
-//   await page.getByLabel('class-4th-B-2024', { exact: true }).getByText('class-4th-B-').click();
-//   page.once('dialog', dialog => {
-//     console.log(`Dialog message: ${dialog.message()}`);
-//     dialog.accept().catch(() => {});
-//   });
-//   await page.getByLabel('2', { exact: true }).getByRole('button', { name: 'Delete' }).click();
-// });
-
-
 
 
 
@@ -218,9 +194,35 @@ test('test for View All Collection 7', async ({ page }) => {
 //   await page.getByRole('button', { name: 'View Student List' }).click();
 // });
 
+
+test('test  for deleting a transport fee collection', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Transport' }).first().click();
+  await page.getByRole('link', { name: 'View All Collection' }).click();
+  await page.getByText('Select Section :Sectionclass-').click();
+  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+  await page.getByText('first-collection').click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByLabel('2', { exact: true }).getByRole('button', { name: 'Delete' }).click();
+  await page.getByLabel('3').getByText('second-collection').click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
+  });
+  await page.getByLabel('3', { exact: true }).getByRole('button', { name: 'Delete' }).click();
 });
 
-test('test for Route Wise Report 9', async ({ page }) => {
+});
+
+test('test for Route Wise Report', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.locator('.group > div > .inline-flex').first().click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -239,7 +241,7 @@ test('test for Route Wise Report 9', async ({ page }) => {
 test.describe.serial('test for transportation ', () => {
 
  
-test('test for Registration of Vehicle 10', async ({ page }) => {
+test('test for Registration of Vehicle ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -259,7 +261,7 @@ test('test for Registration of Vehicle 10', async ({ page }) => {
 });
 
 
-test('test for deleting Registration of Vehicle 11', async ({ page }) => {
+test('test for deleting Registration of Vehicle ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');

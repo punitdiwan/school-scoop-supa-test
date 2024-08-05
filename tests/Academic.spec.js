@@ -53,7 +53,23 @@ test.describe.serial('test for academic year creation and deletion ', () => {
       
   });  
 
-
+  test('test for update school detail', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'School Details' }).first().click();
+    await page.getByPlaceholder('YYYY').click();
+    await page.getByPlaceholder('YYYY').fill('2002');
+    await page.getByRole('button', { name: 'update' }).click();
+    await page.getByLabel('CBSE,').click();
+    await page.getByLabel('CBSE', { exact: true }).click();
+    await page.getByLabel(',', { exact: true }).click();
+    await page.getByLabel('CBSE', { exact: true }).getByText('CBSE').click();
+    await page.getByRole('button', { name: 'update' }).click();
+  });
     
 
 });
