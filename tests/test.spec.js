@@ -184,28 +184,5 @@ test('test for student addmission1', async ({ page }) => {
 // /// /// /// /// 
 // //// /// //// 
 //// / / // /  /
-// test('test for Unassign Transport 6', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Transport' }).first().click();
-//   await page.getByRole('link', { name: 'Unassign Transport' }).click();
-//   //await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thclass-6thSelect Current Course$/ }).first().click();
-//   //await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
-//   await page.getByLabel('Select Current Course').first().selectOption('class-4th');
 
-  
-//     await page.waitForResponse(res => res.status() === 200) 
-//     await page.getByLabel('Select Current Batch').first().selectOption('class-4th-A-2024');
-  
-//   await page.waitForResponse(res => res.status() === 200) 
-//   await page.getByLabel('Select Collection').first().selectOption('first');
-
-
-//    await page.getByRole('button', { name: 'View Student List' }).click();
-//    //await page.getByRole('gridcell', { name: 'Unassign' }).click();
-// });
 

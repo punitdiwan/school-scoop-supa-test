@@ -320,6 +320,32 @@ test.describe('test for manage exam ', () => {
     const page1 = await page1Promise;
   });
 
-
+  test('test for preview of all template marksheet', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Manage Exam' }).first().click();
+    await page.getByRole('link', { name: 'Manage Weightage Template' }).click();
+    await page.getByText('Template 1').click();
+    const page1Promise = page.waitForEvent('popup');
+    await page.getByLabel('Template 1').getByRole('button', { name: 'Preview' }).click();
+    const page1 = await page1Promise;
+    await page.getByText('Template 2').click();
+    const page2Promise = page.waitForEvent('popup');
+    await page.getByLabel('Template 2').getByRole('button', { name: 'Preview' }).click();
+    const page2 = await page2Promise;
+    await page.getByText('Template 4').click();
+    const page3Promise = page.waitForEvent('popup');
+    await page.getByLabel('Template 4').getByRole('button', { name: 'Preview' }).click();
+    const page3 = await page3Promise;
+    await page.getByText('Template 6').click();
+    const page4Promise = page.waitForEvent('popup');
+    await page.locator('tr').filter({ hasText: 'Template 6Preview-' }).getByRole('button').click();
+    const page4 = await page4Promise;
+  });
+  
 
 });
