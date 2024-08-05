@@ -76,7 +76,7 @@ test.describe('test for employee addmission ', () => {
     await page.waitForLoadState('networkidle');
     await page.goto('https://testschool.launchmysite.in/employee/view_all_employee');
     await page.waitForSelector('text=Test', { exact: true });
-    await expect(page.getByText('Test', { exact: true })).toBeVisible();
+    await expect(page.getByText('test@gmail.com', { exact: true })).toBeVisible();
 
   });
   
