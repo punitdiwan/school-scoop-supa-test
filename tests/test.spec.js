@@ -159,6 +159,26 @@ test('test for student addmission1', async ({ page }) => {
 //// ///// ////
  //// ///// / /
 
-
+//  test('test', async ({ page }) => {
+//    await page.goto('https://testschool.launchmysite.in/');
+//    await page.getByPlaceholder('Enter your Email').click();
+//    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//    await page.getByPlaceholder('Enter your password').click();
+//    await page.getByPlaceholder('Enter your password').fill('test@123');
+//    await page.getByRole('button', { name: 'Sign In' }).click();
+//    await page.getByRole('link', { name: 'Promotion' }).first().click();
+//    await page.getByRole('link', { name: 'Download TC' }).click();
+//    await page.getByTestId('select-academiv-year').click();
+//    await page.getByLabel('AY-2024-2025', { exact: true }).getByText('AY-2024-').click();
+//    await page.getByTestId('select-class').click();
+//    await page.getByLabel('class-6th', { exact: true }).getByText('class-6th').click();
+//    await page.getByTestId('select-batch').click();
+//    await page.getByTestId('select-batch').selectOption('class-6th-A-2024');
+//   //  await page.getByLabel('class-6th-A-2024', { exact: true }).getByText('class-6th-A-2024').click();
+//    await page.getByText('Test6').click();
+//    const page1Promise = page.waitForEvent('popup');
+//    await page.getByLabel('Test6').getByRole('button', { name: 'Print' }).click();
+//    const page1 = await page1Promise;
+//  });
 
 
