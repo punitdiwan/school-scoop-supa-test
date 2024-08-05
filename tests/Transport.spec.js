@@ -131,13 +131,18 @@ test('test for Unassign Transport 6', async ({ page }) => {
   await page.getByRole('link', { name: 'Unassign Transport' }).click();
   //await page.locator('div').filter({ hasText: /^Select Current Courseclass-4thclass-6thSelect Current Course$/ }).first().click();
   //await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
+  await page.waitForLoadState('networkidle');
+  await page.waitForSelector('text=class-4th', { exact: true });
   await page.getByLabel('Select Current Course').first().selectOption('class-4th');
 
-  
     await page.waitForResponse(res => res.status() === 200) 
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('text=class-4th-A-2024', { exact: true });
     await page.getByLabel('Select Current Batch').first().selectOption('class-4th-A-2024');
   
   await page.waitForResponse(res => res.status() === 200) 
+  await page.waitForLoadState('networkidle');
+  await page.waitForSelector('text=first', { exact: true });
   await page.getByLabel('Select Collection').first().selectOption('first');
 
 
