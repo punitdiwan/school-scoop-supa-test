@@ -113,8 +113,10 @@ test('test for creating Elective Subject', async ({ page }) => {
   await page.getByRole('button', { name: 'Add' }).click();
 });
 
+});
 
 
+test.describe.serial('test for managing subjects ', () => {
 
 test('test for Assign elective Subject To Students', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
@@ -128,13 +130,36 @@ test('test for Assign elective Subject To Students', async ({ page }) => {
   await page.getByTestId('select-class').selectOption('P63FiTHZYVl7,class-6th');
   await page.getByTestId('select-batch').selectOption('EWYvDK0YxC8Z,class-6th-A-2024');
   await page.getByTestId('select-group').selectOption('class-6th-A-2024-electivesub,elective sub');
-  await page.getByTestId('select-elective-sub').selectOption('MthEC9A862ej,bio');
-  await page.locator('tr').filter({ hasText: 'test3test3' }).locator('svg').click();
+  await page.getByTestId('select-elective-sub').selectOption('e5fmmT5Tmvre,phy');
+  await page.getByText('test3').click();
+  await page.locator('tr').filter({ hasText: 'test33' }).getByRole('rowheader').locator('span').click();
   await page.getByRole('button', { name: 'Assign', exact: true }).click();
-  await page.getByTestId('select-elective-sub').selectOption('39MbkgrM25w8,phy');
+  await page.getByTestId('select-elective-sub').selectOption('fCS0dlRgsUFl,Bio');
   await page.locator('tr').filter({ hasText: 'test44' }).getByRole('rowheader').locator('span').click();
   await page.getByRole('button', { name: 'Assign', exact: true }).click();
 });
+
+// test('test for unAssign Elective Subject', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Manage Subject' }).first().click();
+//   await page.getByRole('link', { name: 'Assign Elective Subject' }).click();
+//   await page.getByTestId('select-class').selectOption('P63FiTHZYVl7,class-6th');
+//   await page.getByTestId('select-batch').selectOption('EWYvDK0YxC8Z,class-6th-A-2024');
+//   await page.getByTestId('select-group').selectOption('class-6th-A-2024-electivesub,elective sub');
+//   await page.getByTestId('select-elective-sub').selectOption('e5fmmT5Tmvre,phy');
+//   await page.getByText('test3').click();
+//   await page.getByLabel('Assign Student collection table', { exact: true }).locator('label').click();
+//   await page.getByRole('button', { name: 'Un-Assign' }).click();
+//   await page.getByTestId('select-elective-sub').selectOption('fCS0dlRgsUFl,Bio');
+//   await page.getByText('test4').click();
+//   await page.getByLabel('Assign Student collection table', { exact: true }).locator('label').click();
+//   await page.getByRole('button', { name: 'Un-Assign' }).click();
+// });
 
 
 });
