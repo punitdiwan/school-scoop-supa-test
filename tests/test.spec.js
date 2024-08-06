@@ -12,27 +12,27 @@ import { test, expect } from '@playwright/test';
 // // // test for student admissions
 
 
-// test('test for student addmission1', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Students' }).first().click();
-//   await page.getByRole('link', { name: 'Student Admissions' }).click();
-//   await page.getByPlaceholder('Enter Admission No').click();
-//   await page.getByPlaceholder('Enter Admission No').fill('02');
-//   await page.getByPlaceholder('Enter your Full name').click();
-//   await page.getByPlaceholder('Enter your Full name').fill('test2');
-//   await page.getByTestId('date-birth').fill('2002-02-02');
-//   await page.locator("[name='student_category_id']").selectOption('common');
-//   await page.locator("[name='caste_name']").selectOption('General');
-//   await page.locator("[name='classs']").selectOption('class-4th');
-//   await page.getByTestId('Section').click();
-//   // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
-//   await page.getByRole('button', { name: 'Submit' }).click();
-// });
+test('test for student addmission1', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Students' }).first().click();
+  await page.getByRole('link', { name: 'Student Admissions' }).click();
+  await page.getByPlaceholder('Enter Admission No').click();
+  await page.getByPlaceholder('Enter Admission No').fill('02');
+  await page.getByPlaceholder('Enter your Full name').click();
+  await page.getByPlaceholder('Enter your Full name').fill('test2');
+  await page.getByTestId('date-birth').fill('2002-02-02');
+  await page.locator("[name='student_category_id']").selectOption('common');
+  await page.locator("[name='caste_name']").selectOption('General');
+  await page.locator("[name='classs']").selectOption('class-4th');
+  await page.getByTestId('Section').click();
+  // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
+  await page.getByRole('button', { name: 'Submit' }).click();
+});
 
 // // // // // ===-=-=-=-==-=-=-=-=
 //     await expect(page.getByText('Created')).toBeVisible();
@@ -178,23 +178,3 @@ import { test, expect } from '@playwright/test';
 //   await page.getByRole('link', { name: 'ViewStudentList' }).click();
 //   await page.getByRole('button', { name: 'Print' }).click();
 // });
-
-test('test for Collection wise fee report', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Manage Fees' }).first().click();
-  await page.getByRole('link', { name: 'Reports' }).click();
-  await page.getByRole('link', { name: 'Collection Wise Fee Report' }).click();
-  await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6thSelect Class$/ }).first().click();
-  await page.getByLabel('class-4th', { exact: true }).click();
-  await page.locator('div').filter({ hasText: /^Select Sectionclass-4th-A-2024class-4th-B-2024Select Section$/ }).first().click();
-  await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-  await page.locator('.rounded-sm > div:nth-child(3) > div:nth-child(2)').click();
-  await page.getByLabel('first feecollection', { exact: true }).first().click();
-  await page.getByRole('button', { name: 'ViewStudentList' }).click();
-  await page.getByText('test', { exact: true }).click();
-});
