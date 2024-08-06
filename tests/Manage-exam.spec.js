@@ -349,3 +349,44 @@ test.describe('test for manage exam ', () => {
   
 
 });
+
+
+
+test.describe.serial('test for creating and deleting exam group ', () => {
+
+
+  test('test for creating exam group(6)', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Manage Exam' }).first().click();
+    await page.getByRole('link', { name: 'Manage Exam Group' }).click();
+    await page.getByTestId('select-class').selectOption('P63FiTHZYVl7,Class-6th');
+    await page.getByTestId('select-group').click();
+    await page.getByTestId('select-group').fill('halfyearly');
+    await page.getByTestId('select-batch').check();
+    await page.getByTestId('select-examtype').selectOption('Marks');
+    await page.getByRole('button', { name: 'Add Group' }).click();
+    await page.getByRole('main').locator('div').filter({ hasText: /^Successfully Added Group\(s\)$/ }).nth(2).click();
+  });
+  
+  
+  
+  test('test for deleting exam group', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Manage Exam' }).first().click();
+    await page.getByRole('link', { name: 'Manage Exam Group' }).click();
+    await page.getByLabel('halfyearly').getByText('Marks').click();
+    await page.getByLabel('halfyearly').getByRole('button', { name: 'Delete' }).click();
+    await page.getByRole('main').getByText('Exam Group Detele Success').click();
+  });
+
+});
