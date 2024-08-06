@@ -137,25 +137,32 @@ test.describe('test cases for fees categories', () => {
       
 
 
-    test('test for Collection wise fee report', async ({ page }) => {
+    test('test for Collection Wise Fee Report', async ({ page }) => {
         await page.goto('https://testschool.launchmysite.in/');
         await page.getByPlaceholder('Enter your Email').click();
         await page.getByPlaceholder('Enter your Email').fill('test@example.com');
         await page.getByPlaceholder('Enter your password').click();
         await page.getByPlaceholder('Enter your password').fill('test@123');
         await page.getByRole('button', { name: 'Sign In' }).click();
-        await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+          await page.getByRole('link', { name: 'Manage Fees' }).first().click();
         await page.getByRole('link', { name: 'Reports' }).click();
         await page.getByRole('link', { name: 'Collection Wise Fee Report' }).click();
-        await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6thSelect Class$/ }).first().click();
-        await page.getByLabel('class-4th', { exact: true }).click();
-        await page.locator('div').filter({ hasText: /^Select Sectionclass-4th-A-2024class-4th-B-2024Select Section$/ }).first().click();
-        await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-        await page.locator('.rounded-sm > div:nth-child(3) > div:nth-child(2)').click();
-        await page.getByLabel('first feecollection', { exact: true }).first().click();
-        await page.getByRole('button', { name: 'ViewStudentList' }).click();
+          await page.waitForLoadState('networkidle');
+        await page.getByTestId('select-class').click();
+        await page.waitForSelector('li:has-text("class-4th")', { state: 'visible' });
+        await page.locator('li:has-text("class-4th")').click();
+        await page.getByTestId('select-batch').click();
+        await page.waitForSelector('li:has-text("class-4th-A-2024")', { state: 'visible' });
+        await page.locator('li:has-text("class-4th-A-2024")').click();
+        await page.getByTestId('select-collection').click();
+        await page.waitForSelector('li:has-text("first feecollection")', { state: 'visible' });
+        await page.locator('li:has-text("first feecollection")').click();
+        await page.getByRole('link', { name: 'ViewStudentList' }).click();
+        await page.waitForSelector('text=test', { exact: true });
         await page.getByText('test', { exact: true }).click();
-    });
+        await page.getByRole('button', { name: 'Print' }).click();
+      });
+      
 
 
     test('test for Discounts Report', async ({ page }) => {

@@ -12,27 +12,27 @@ import { test, expect } from '@playwright/test';
 // // // test for student admissions
 
 
-test('test for student addmission1', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Students' }).first().click();
-  await page.getByRole('link', { name: 'Student Admissions' }).click();
-  await page.getByPlaceholder('Enter Admission No').click();
-  await page.getByPlaceholder('Enter Admission No').fill('02');
-  await page.getByPlaceholder('Enter your Full name').click();
-  await page.getByPlaceholder('Enter your Full name').fill('test2');
-  await page.getByTestId('date-birth').fill('2002-02-02');
-  await page.locator("[name='student_category_id']").selectOption('common');
-  await page.locator("[name='caste_name']").selectOption('General');
-  await page.locator("[name='classs']").selectOption('class-4th');
-  await page.getByTestId('Section').click();
-  // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
-  await page.getByRole('button', { name: 'Submit' }).click();
-});
+// test('test for student addmission1', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Admissions' }).click();
+//   await page.getByPlaceholder('Enter Admission No').click();
+//   await page.getByPlaceholder('Enter Admission No').fill('02');
+//   await page.getByPlaceholder('Enter your Full name').click();
+//   await page.getByPlaceholder('Enter your Full name').fill('test2');
+//   await page.getByTestId('date-birth').fill('2002-02-02');
+//   await page.locator("[name='student_category_id']").selectOption('common');
+//   await page.locator("[name='caste_name']").selectOption('General');
+//   await page.locator("[name='classs']").selectOption('class-4th');
+//   await page.getByTestId('Section').click();
+//   // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
+//   await page.getByRole('button', { name: 'Submit' }).click();
+// });
 
 // // // // // ===-=-=-=-==-=-=-=-=
 //     await expect(page.getByText('Created')).toBeVisible();
@@ -138,43 +138,3 @@ test('test for student addmission1', async ({ page }) => {
 //// ///// ////
 // /// /// /// /// 
 // //// /// //// 
-
-// test('test2 Character Certificate', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Students' }).first().click();
-//   await page.getByRole('link', { name: 'Character Certificate' }).click();
-//   await page.getByTestId('select-class').getByRole('combobox').selectOption('vpcYXc5qHJwJ');
-//   await page.getByTestId('select-batch').getByRole('combobox').selectOption('4P1Fblfev3yF');
-//   await page.getByTestId('select-student').getByRole('combobox').selectOption('AwFawVj3nW0X');
-//   const page1Promise = page.waitForEvent('popup');
-//   await page.getByRole('button', { name: 'Print' }).click();
-//   const page1 = await page1Promise;
-// });
-
-
-
-
-// test('test', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Manage Fees' }).first().click();
-//   await page.getByRole('link', { name: 'Reports' }).click();
-//   await page.getByRole('link', { name: 'Collection Wise Fee Report' }).click();
-//   await page.getByTestId('select-class').click();
-//   await page.getByText('Select Section', { exact: true }).getByText('class-4th').click();
-//   await page.getByTestId('select-batch').click();
-//   await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-').click();
-//   await page.getByTestId('select-collection').click();
-//   await page.getByLabel('first feecollection', { exact: true }).getByText('first feecollection').click();
-//   await page.getByRole('link', { name: 'ViewStudentList' }).click();
-//   await page.getByRole('button', { name: 'Print' }).click();
-// });
