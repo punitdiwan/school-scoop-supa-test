@@ -120,6 +120,7 @@ test('test for transport fee payment ', async ({ page }) => {
 
 
 
+
 test('test for Unassign Transport ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
@@ -133,22 +134,26 @@ test('test for Unassign Transport ', async ({ page }) => {
   //await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
   await page.waitForLoadState('networkidle');
   await page.waitForSelector('text=class-4th', { exact: true });
+  await page.getByTestId('select-class').click();
   await page.getByLabel('Select Current Course').first().selectOption('class-4th');
 
-    await page.waitForResponse(res => res.status() === 200) 
+    await page.waitForResponse(res => res.status() === 200); 
     await page.waitForLoadState('networkidle');
-    await page.waitForSelector('text=class-4th-A-2024', { exact: true });
+    await page.getByTestId('select-batch').click();
+    // await page.waitForSelector('text=class-4th-A-2024', { exact: true });
     await page.getByLabel('Select Current Batch').first().selectOption('class-4th-A-2024');
   
-  await page.waitForResponse(res => res.status() === 200) 
+  await page.waitForResponse(res => res.status() === 200);
   await page.waitForLoadState('networkidle');
   await page.waitForSelector('text=first', { exact: true });
+  await page.getByTestId('select-collection').click();
   await page.getByLabel('Select Collection').first().selectOption('first');
 
 
    await page.getByRole('button', { name: 'View Student List' }).click();
    //await page.getByRole('gridcell', { name: 'Unassign' }).click();
 });
+
 
 
 

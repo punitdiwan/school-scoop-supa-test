@@ -75,9 +75,9 @@ test('test for view all student ', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.getByRole('link', { name: 'Students' }).first().click();
     await page.getByRole('link', { name: 'Character Certificate' }).click();
-    await page.locator('div').filter({ hasText: /^Select OptionClass-4thClass-6th$/ }).getByRole('combobox').selectOption('vpcYXc5qHJwJ');
-    await page.locator('div').filter({ hasText: /^Select OptionClass-4th-A-2024Class-4th-B-2024$/ }).getByRole('combobox').selectOption('4P1Fblfev3yF');
-    await page.locator('div').filter({ hasText: /^Select OptionTest$/ }).getByRole('combobox').selectOption('AwFawVj3nW0X');
+    await page.getByTestId('select-class').getByRole('combobox').selectOption('vpcYXc5qHJwJ');
+    await page.getByTestId('select-batch').getByRole('combobox').selectOption('4P1Fblfev3yF');
+    await page.getByTestId('select-student').getByRole('combobox').selectOption('AwFawVj3nW0X');
     const page1Promise = page.waitForEvent('popup');
     await page.getByRole('button', { name: 'Print' }).click();
     const page1 = await page1Promise;
