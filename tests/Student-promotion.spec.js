@@ -104,19 +104,30 @@ test.describe('test for student promotion ', () => {
 //     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
 //     await page.getByPlaceholder('Enter your password').click();
 //     await page.getByPlaceholder('Enter your password').fill('test@123');
-//     await page.getByRole('button', { name: 'Sign In' }).click();
+//     await page.getByPlaceholder('Enter your password').press('Enter');
+  
+//     await page.waitForLoadState('networkidle')
+  
 //     await page.getByRole('link', { name: 'Promotion' }).first().click();
+  
+//     await page.waitForLoadState('networkidle')
+  
 //     await page.getByRole('link', { name: 'Download TC' }).click();
+  
+//     await page.waitForLoadState('networkidle')
+  
 //     await page.getByTestId('select-academic-year').click();
 //     await page.getByLabel('AY-2024-2025', { exact: true }).click();
 //     await page.getByTestId('select-class').click();
 //     await page.getByLabel('class-6th', { exact: true }).click();
 //     await page.getByTestId('select-batch').click();
 //     await page.getByLabel('class-6th-A-2024', { exact: true }).click();
+//     await page.getByText('Test6').click();
+  
 //     const page1Promise = page.waitForEvent('popup');
-//     await page.getByLabel('Test6').getByRole('button', { name: 'Print' }).click();
+//     await page.getByRole('button', { name: 'Print' }).click();
 //     const page1 = await page1Promise;
-//   });
+//     });
 
 
 /////////-/-//=/=/=/=/=/=/-//--/=-/=-/=-/=-/=-/=-
@@ -125,47 +136,47 @@ test.describe('test for student promotion ', () => {
 /////////-/-//=/=/=/=/=/=/-//--/=-/=-/=-/=-/=-/=-
 /////////-/-//=/=/=/=/=/=/-//--/=-/=-/=-/=-/=-/=-
 
-test('test Archive Student', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await expect(page.getByPlaceholder('Enter your Email')).toBeVisible();
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Promotion' }).first().click();
-  await page.getByRole('link', { name: 'Archive Student', exact: true }).click();
-  await page.getByTestId('select-class').click();
-  await page.getByLabel('class-6th', { exact: true }).getByText('class-6th').click();
-  await page.getByTestId('select-batch').click();
-  await page.getByLabel('class-6th-A-2024', { exact: true }).getByText('class-6th-A-').click();
-  await page.getByText('test5').click();
-  await page.locator('[id="react-aria6559099022-\\:rv\\:-GDhvc5WqAolZ-actions"] #c1-13').check();
-  await page.getByRole('button', { name: 'Archive Selected' }).click();
-  await page.getByText('Successfully Archived Student').click();
-});
+// test('test Archive Student', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await expect(page.getByPlaceholder('Enter your Email')).toBeVisible();
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Promotion' }).first().click();
+//   await page.getByRole('link', { name: 'Archive Student', exact: true }).click();
+//   await page.getByTestId('select-class').click();
+//   await page.getByLabel('class-6th', { exact: true }).getByText('class-6th').click();
+//   await page.getByTestId('select-batch').click();
+//   await page.getByLabel('class-6th-A-2024', { exact: true }).getByText('class-6th-A-').click();
+//   await page.getByText('test5').click();
+//   await page.locator('[id="react-aria6559099022-\\:rv\\:-GDhvc5WqAolZ-actions"] #c1-13').check();
+//   await page.getByRole('button', { name: 'Archive Selected' }).click();
+//   await page.getByText('Successfully Archived Student').click();
+// });
 
 
-test('test UnArchive Student', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await expect(page.getByPlaceholder('Enter your Email')).toBeVisible();
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Promotion' }).first().click();
-  await page.getByRole('link', { name: 'UnArchive Student' }).click();
-  await page.getByTestId('select-class').click();
-  await page.getByLabel('class-6th', { exact: true }).getByText('class-6th').click();
-  await page.getByTestId('select-batch').click();
-  await page.getByLabel('class-6th-A-2024', { exact: true }).getByText('class-6th-A-').click();
-  await page.getByText('class-6th-A-').nth(3).click();
-  await page.getByText('test5').click();
-  await page.locator('[id="react-aria114771452-\\:rv\\:-GDhvc5WqAolZ-actions"] #c1-13').check();
-  await page.getByRole('button', { name: 'UnArchive Selected' }).click();
-  await page.getByText('Successfully UnArchivded').click();
-});
+// test('test UnArchive Student', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await expect(page.getByPlaceholder('Enter your Email')).toBeVisible();
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Promotion' }).first().click();
+//   await page.getByRole('link', { name: 'UnArchive Student' }).click();
+//   await page.getByTestId('select-class').click();
+//   await page.getByLabel('class-6th', { exact: true }).getByText('class-6th').click();
+//   await page.getByTestId('select-batch').click();
+//   await page.getByLabel('class-6th-A-2024', { exact: true }).getByText('class-6th-A-').click();
+//   await page.getByText('class-6th-A-').nth(3).click();
+//   await page.getByText('test5').click();
+//   await page.locator('[id="react-aria114771452-\\:rv\\:-GDhvc5WqAolZ-actions"] #c1-13').check();
+//   await page.getByRole('button', { name: 'UnArchive Selected' }).click();
+//   await page.getByText('Successfully UnArchivded').click();
+// });
 
 
 

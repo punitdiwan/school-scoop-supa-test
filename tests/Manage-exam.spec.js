@@ -348,6 +348,45 @@ test.describe('test for manage exam ', () => {
   });
   
 
+  test('test for assign marksheet template 4', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Manage Exam' }).first().click();
+    await page.getByRole('link', { name: 'Manage Weightage Template' }).click();
+    await page.getByRole('button', { name: 'Assign Template' }).click();
+    await page.locator('div').filter({ hasText: /^Class Listclass-4thclass-6thClass ListSelect a Class$/ }).first().click();
+    await page.getByLabel('class-4th', { exact: true }).click();
+    await page.locator('div').filter({ hasText: /^Section Listclass-4th-A-2024class-4th-B-2024Section ListSelect a Section$/ }).first().click();
+    await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+    await page.getByLabel('Manage Template').locator('div').filter({ hasText: 'Template NameTemplate 1Template 2Template 4Template 6Template NameSelect a' }).nth(2).click();
+    await page.locator("[name='template_name']").selectOption('Template 4');
+    await page.getByRole('button', { name: 'Submit' }).click();
+  });
+
+
+  test('test for assign marksheet template 6', async ({ page }) => {
+    await page.goto('https://testschool.launchmysite.in/');
+    await page.getByPlaceholder('Enter your Email').click();
+    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your password').click();
+    await page.getByPlaceholder('Enter your password').fill('test@123');
+    await page.getByRole('button', { name: 'Sign In' }).click();
+    await page.getByRole('link', { name: 'Manage Exam' }).first().click();
+    await page.getByRole('link', { name: 'Manage Weightage Template' }).click();
+    await page.getByRole('button', { name: 'Assign Template' }).click();
+    await page.locator('div').filter({ hasText: /^Class Listclass-4thclass-6thClass ListSelect a Class$/ }).first().click();
+    await page.getByLabel('class-4th', { exact: true }).click();
+    await page.locator('div').filter({ hasText: /^Section Listclass-4th-A-2024class-4th-B-2024Section ListSelect a Section$/ }).first().click();
+    await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+    await page.getByLabel('Manage Template').locator('div').filter({ hasText: 'Template NameTemplate 1Template 2Template 4Template 6Template NameSelect a' }).nth(2).click();
+    await page.locator("[name='template_name']").selectOption('Template 6');
+    await page.getByRole('button', { name: 'Submit' }).click();
+  });
+
 });
 
 
