@@ -31,7 +31,7 @@ test.describe('test for student addmission ', () => {
 
   
 
-test('test for view all student ', async ({ page }) => {
+test('test for view all student by class ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
@@ -47,6 +47,69 @@ test('test for view all student ', async ({ page }) => {
     await expect(page.getByText('Test')).toBeVisible();
   await page.getByRole('link', { name: 'View profile' }).click();
   await expect(page.getByText('class :class-4th')).toBeVisible();
+});
+
+
+
+test('test for view student by contact number', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Students' }).first().click();
+  await page.getByRole('link', { name: 'View All Student' }).click();
+  await page.getByPlaceholder('fullname or admission no. or').click();
+  await page.getByPlaceholder('fullname or admission no. or').fill('1231231231');
+  await expect(page.getByText('Test')).toBeVisible();
+});
+
+
+test('test for view student by name', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Students' }).first().click();
+  await page.getByRole('link', { name: 'View All Student' }).click();
+  await page.getByPlaceholder('fullname or admission no. or').click();
+  await page.getByPlaceholder('fullname or admission no. or').fill('test');
+  await expect(page.getByText('Test')).toBeVisible();
+});
+
+
+test('test for view student by addmission number', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Students' }).first().click();
+  await page.getByRole('link', { name: 'View All Student' }).click();
+  await page.getByPlaceholder('fullname or admission no. or').click();
+  await page.getByPlaceholder('fullname or admission no. or').fill('01');
+  await expect(page.getByText('Test')).toBeVisible();
+});
+
+test('test for printing pdf of view all student', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByPlaceholder('Enter your password').press('Enter');
+  await page.getByText('Students', { exact: true }).click();
+  await page.getByRole('link', { name: 'View All Student' }).click();
+  await page.getByPlaceholder('fullname or admission no. or').click();
+  await page.getByPlaceholder('fullname or admission no. or').fill('01');
+  await expect(page.getByText('Test')).toBeVisible();
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'PDF' }).click();
+  const download = await downloadPromise;
 });
 
 

@@ -215,17 +215,20 @@ test('test for student addmission1', async ({ page }) => {
 
 // test('test', async ({ page }) => {
 //   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
 //   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
 //   await page.getByPlaceholder('Enter your password').fill('test@123');
 //   await page.getByRole('button', { name: 'Sign In' }).click();
 //   await page.getByRole('link', { name: 'Manage Exam' }).first().click();
 //   await page.getByRole('link', { name: 'Manage Weightage Template' }).click();
 //   await page.getByRole('button', { name: 'Assign Template' }).click();
-//   await page.getByTestId('select-class').click();
-//   await page.getByLabel('class-4th', { exact: true }).click();
-//   await page.getByTestId('select-batches').click();
-//   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
-//   await page.getByTestId('select-temp-name').click();
-//   await page.getByRole('option', { name: 'Template 4' }).click();
+//   await page.getByTestId('select-class').getByText('class-4th').click();
+//   // await page.getByLabel('class-4th', { exact: true }).click();
+//   await page.getByTestId('select-batches').getByText('class-4th-A-2024').click();
+//   // await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+//   await page.getByTestId('select-temp-name').getByText('Template 4').click();
+//   // await page.getByRole('option', { name: 'Template 4' }).click();
 //   await page.getByRole('button', { name: 'Submit' }).click();
+//   // await page.getByRole('main').getByText('Successfully Assign Template').click();
 // });
