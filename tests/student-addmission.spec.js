@@ -50,6 +50,45 @@ test('test for view all student ', async ({ page }) => {
 });
 
 
+test('test for viewing fee history for a student ', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').press('Enter');
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByPlaceholder('Enter your password').press('Enter');
+  await page.locator('.mt-4 > div > .grid > div').first().click();
+  await page.getByRole('link', { name: 'View All Student' }).click();
+  await page.getByText('My Class*Class Listclass-').click();
+  await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
+  await page.getByText('Section*Section Listclass-4th').click();
+  await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-2024').click();
+    await expect(page.getByText('Test')).toBeVisible();
+  await page.getByRole('link', { name: 'View profile' }).click();
+  await page.getByRole('button', { name: 'View Receipt' }).click();
+  await page.getByRole('heading', { name: 'Transaction History' }).click();
+});
+
+
+
+
+test('test for print a student detail ', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').press('Enter');
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByPlaceholder('Enter your password').press('Enter');
+  await page.locator('.mt-4 > div > .grid > div').first().click();
+  await page.getByRole('link', { name: 'View All Student' }).click();
+  await page.getByText('My Class*Class Listclass-').click();
+  await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
+  await page.getByText('Section*Section Listclass-4th').click();
+  await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-2024').click();
+    await expect(page.getByText('Test')).toBeVisible();
+  await page.getByRole('link', { name: 'View profile' }).click();
+    await page.getByRole('button', { name: 'Print' }).click();
+});
 
 
   test('test for viewing siblings', async ({ page }) => {
