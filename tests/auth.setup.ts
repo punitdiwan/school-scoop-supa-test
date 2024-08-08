@@ -2,7 +2,7 @@
 
 // const authFile = 'playwright/.auth/user.json';
 
-// setup('authenticate', async ({ page }) => {
+// setup('authenticate', async ({ page }) => {       
 
 //   await page.goto('https://testschool.launchmysite.in/');
 //   await page.getByPlaceholder('Enter your Email').click();
