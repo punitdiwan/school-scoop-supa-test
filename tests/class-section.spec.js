@@ -18,7 +18,7 @@ test.describe('test for creating class and section and deleting it ', () => {
     await page.getByRole('link', { name: 'Create Class And Section' }).click();
     await page.locator('input[name="class-5thChecked"]').check();
     await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
-    await page.getByTestId('start-date').fill('2024-01-01');
+    await page.getByTestId('start-date').fill('2024-06-01');
     await page.locator("[name='academic_year']").selectOption('AY-2024-2025');
     await page.locator("[name='medium']").selectOption('English');
       
@@ -95,6 +95,7 @@ test.describe('test for creating class and section and deleting it ', () => {
     });
     await page.getByLabel('class-5th').getByText('Delete').click();
     await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
+      await page.waitForLoadState('networkidle');
     await expect(page.getByText('class-5th')).not.toBeVisible();
   });
 });
