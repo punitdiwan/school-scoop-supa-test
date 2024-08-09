@@ -1,230 +1,63 @@
-import { test, expect } from '@playwright/test';
 
-// test('has title', async ({ page }) => {
-//   await page.goto('http://localhost:3001/');
+const { test, expect } = require('@playwright/test');
+const fs = require('fs');
+const path = require('path');
+const pdfParse = require('pdf-parse');
 
-//   // Expect a title "to contain" a substring.
-//   await expect(page).toHaveTitle(/React/);
-// });
+// Paths to the pre-downloaded PDF files
+const pdfFiles = [
+  path.resolve(__dirname, 'Downloads/marksheet1.pdf'),
+  path.resolve(__dirname, 'Downloads/123.pdf'),
+  path.resolve(__dirname, 'Downloads/id card 2.pdf')
+];
 
-// // test('has word', async ({ page }) => {
-// //   await page.goto('http://localhost:3001/');
+test('parse pre-downloaded PDFs', async () => {
+  for (const pdfFilePath of pdfFiles) {
+    // Check if the file exists
+    if (!fs.existsSync(pdfFilePath)) {
+      throw new Error(`File not found: ${pdfFilePath}`);
+    }
 
-// //   // Expect a title "to contain" a substring.
-// //   await expect(page).toHaveTitle(/Add React to your page/);
-// // });
+    // Read the pre-downloaded PDF file
+    const pdfData = fs.readFileSync(pdfFilePath);
 
-// test('get started link', async ({ page }) => {
-//   await page.goto('http://localhost:3001/');
+    // Parse the PDF
+    try {
+      const parsedData = await pdfParse(pdfData);
+      console.log(`PDF Content (${path.basename(pdfFilePath)}):`, parsedData.text);
+    } catch (error) {
+      console.error(`Error parsing PDF (${path.basename(pdfFilePath)}):`, error);
+    }
+  }
 
-//   // Click the get started link.
-//   await page.getByRole('link', { name: 'Learn React' }).click();
-
-//   // Expects page to have a heading with the name of Installation.
-//   // await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-//   // await expect(page.getByRole('heading', { name: 'Go full-stack with a framework' })).toBeVisible();
- 
-
-// });
-
-
-// test('Fill out the contact form', async ({ page }) => {
-//   // Go to the website
-//   await page.goto('https://www.alayzalifescience.com/Contactus');
-//   // await page.getByText('Contactus').click();
-
-//   // Wait for the "Contact Us" form to be visible
-//   await page.waitForSelector('form');
-
-//   // Fill out the form
-//   await page.getByLabel('Your Name').fill('John');
-//   await page.getByLabel('Your Number').fill('john.doe@example.com');
-//   await page.getByLabel('Your Email').fill('9874561230');
-//   await page.getByLabel('Your Message').fill('Hello, this is a test message.');
-  
-//   // await page.fill('input[name="email"]', 'john.doe@example.com');
-
-//   // Submit the form
-//   await page.click('button[type="SUBMIT"]');
-//   await page.getByText('Appointment Booked!');
-//   // await expect(page.getByText('Appointment Booked!')).toBeVisible();
-// });
+  const allParsedTexts = pdfFiles.map(pdfFilePath => fs.readFileSync(pdfFilePath));
+  const foundCertificate = allParsedTexts.some(text => text.includes('Akshay'));
+  expect(foundCertificate).toBeTruthy();
+});
 
 
 
 
 
 
-
-// test case for completing contact us form, complete
-// test('contact us form of drumangsite', async ({ page }) => {
-//   await page.goto('https://drumang.launchmysite.in/');
-//   await page.getByRole('link', { name: 'CONTACT US' }).click();
-//   await page.getByLabel('Your Name').click();
-//   await page.getByLabel('Your Name').fill('test1');
-//   await page.getByLabel('Your Email').click();
-//   await page.getByLabel('Your Email').fill('test1@gmail.com');
-//   await page.getByLabel('Your Email').press('Tab');
-//   await page.getByLabel('Your Number').fill('1234678801');
-//   await page.getByLabel('Select Date').fill('2024-07-18');
-//   await page.getByLabel('Your Message').click();
-//   await page.getByLabel('Your Message').fill('hi there');
-//   await page.getByRole('button', { name: 'Submit' }).click();
-//   await page.getByText('Appointment Booked!').click();
-// });
-
-
-// test case for printing exam report for school    complete
-// test('Exam Report For School', async ({ page }) => {
-//   await page.goto('https://demoschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('demoschool@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('Password@321');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByText('Manage Exam').click();
-//   await page.getByRole('link', { name: 'Exam Report For School' }).click();
-//   await page.getByRole('combobox').first().selectOption('HhOLTrq6neQ7,Class-11th');
-//   await page.locator('div').filter({ hasText: /^SelectClass-11th-A-2024$/ }).getByRole('combobox').selectOption('v91ZNOGn46Wo,Class-11th-A-2024,');
-//   await page.locator('div').filter({ hasText: /^Group \* SelectFinal$/ }).getByRole('combobox').selectOption('GSmkFzBs0ltR-Final');
-//   await page.getByRole('combobox').nth(3).selectOption('z6AZjOPXrzNY-Anurag');
-//   const page1Promise = page.waitForEvent('popup');
-//   await page.getByRole('button', { name: 'Print' }).click();
-//   const page1 = await page1Promise;
-//   await page1.goto('about:blank');
-// });
-
-
-
-
-
-test('test for student admissions1', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.locator('.group > div > .inline-flex').first().click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.locator('.mt-4 > div > .grid > div').first().click();
-    await page.getByRole('link', { name: 'Student Admissions' }).click();
-    await page.getByPlaceholder('Enter Admission No').click();
-    await page.getByPlaceholder('Enter Admission No').fill('06');
-    await page.locator('div').filter({ hasText: /^Full name\*$/ }).locator('div').nth(3).click();
-    await page.getByPlaceholder('Enter your Full name').fill('test6');
-    await page.locator('div').filter({ hasText: /^D\.O\.B\.\*$/ }).locator('div').nth(3).click();
-    // await page.locator('[id="react-aria615390900-\\:ru\\:"]').fill('2000-01-01');
-    await page.getByLabel('Select Category').click();
-    // await page.getByLabel('common', { exact: true }).click();  
-    await page.getByLabel('Select Caste').click();
-    // await page.getByLabel('General', { exact: true }).click();
-    await page.getByLabel('Select a Class').click();
-    // await page.getByLabel('nursery', { exact: true }).click();
-    await page.getByLabel('Select a Section').click();
-    // await page.getByLabel('nursery-A-2024', { exact: true }).click();
-    await page.getByRole('button', { name: 'Submit' }).click();
-    // const element = await expect(page.getByText('Student Created!')).toBeVisible();
-  });
-
-
-
-
-
-
-/////////////////////////////-------------------===========--------
-
-// test('test for creating a batch', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-//   await page.getByRole('link', { name: 'Manage Class' }).click();
-//   await page.getByText('nursery').click();
-//   await page.getByRole('link', { name: 'View Section (1)' }).click();
-//   await page.getByRole('button', { name: 'Add New Section' }).click();
-//   await page.getByPlaceholder('Enter section name').click();
-//   await page.getByPlaceholder('Enter section name').press('CapsLock');
-//   await page.getByPlaceholder('Enter section name').fill('C');
-//   await page.getByPlaceholder('Enter section name').press('CapsLock');
-//   await page.getByPlaceholder('Enter start date').fill('2024-01-01');
-//   await page.getByText('EndDate').click();
-//   await page.getByPlaceholder('Enter end date').fill('2025-01-01');;
-//   await page.getByLabel('Select Academic Year').click();
-//   await page.getByLabel('AY-2025-2026', { exact: true }).press('ArrowDown');
-//   await page.getByLabel('AY-2024-2025', { exact: true }).press('Enter');
-//   await page.getByRole('button', { name: 'Add' }).click();
-//   await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class')
-//   await expect(page.getByText('View Section (3)')).toBeVisible();
-// });
-
-
-
-
-
-// test('test for deleting batches', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-//   await page.getByRole('link', { name: 'Manage Class' }).click();
-//   await page.getByText('nursery').click();
-//   await page.getByRole('link', { name: 'View Section (3)' }).click();
-//   await page.getByRole('cell', { name: 'C-' }).click();
-//   await page.getByRole('row', { name: 'Row Actions C-2024 01-01-2024' }).getByLabel('Row Actions').click();
-//   page.once('dialog', dialog => {
-//     console.log(`Dialog message: ${dialog.message()}`);
-//     dialog.accept().catch(() => {});
-//   });
-//   await page.getByRole('menuitem', { name: 'Delete' }).click();
-//   await page.getByRole('cell', { name: 'B-' }).click();
-//   await page.getByRole('row', { name: 'Row Actions B-2024 01-01-2024' }).getByLabel('Row Actions').click();
-//   page.once('dialog', dialog => {
-//     console.log(`Dialog message: ${dialog.message()}`);
-//     dialog.accept().catch(() => {});
-//   });
-//   await page.getByRole('menuitem', { name: 'Delete' }).click();
-//   await page.getByRole('main').locator('div').filter({ hasText: /^Deleted Successfully!$/ }).nth(2).click();
-//   await page.getByRole('cell', { name: 'A-' }).click();
-//   await page.getByLabel('Row Actions').click();
-//   page.once('dialog', dialog => {
-//     console.log(`Dialog message: ${dialog.message()}`);
-//     dialog.accept().catch(() => {});
-//   });
-//   await page.getByRole('menuitem', { name: 'Delete' }).click();
-//   await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class')
-//   await expect(page.getByText('View Section (0)')).toBeVisible();
-// });
-
-
-
-
-
-
-
-// test('test for deleting a class', async ({ page }) => {
-//   await page.goto('https://testschool.launchmysite.in/');
-//   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
-//   await page.getByPlaceholder('Enter your password').click();
-//   await page.getByPlaceholder('Enter your password').fill('test@123');
-//   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.locator('div:nth-child(2) > div:nth-child(3)').first().click();
-//   await page.getByRole('link', { name: 'Manage Class' }).click();
-//   await page.getByText('nursery').click();
-//   page.once('dialog', dialog => {
-//     console.log(`Dialog message: ${dialog.message()}`);
-//     dialog.dismiss().catch(() => {});
-//   });
-//   await page.getByText('Delete').click();
-//   await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
-//   await expect(page.getByText('nursery')).not.toBeVisible();
-// });
-
-
-
-
+test('test for student addmission1', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Students' }).first().click();
+  await page.getByRole('link', { name: 'Student Admissions' }).click();
+  await page.getByPlaceholder('Enter Admission No').click();
+  await page.getByPlaceholder('Enter Admission No').fill('02');
+  await page.getByPlaceholder('Enter your Full name').click();
+  await page.getByPlaceholder('Enter your Full name').fill('test2');
+  await page.getByTestId('date-birth').fill('2002-02-02');
+  await page.locator("[name='student_category_id']").selectOption('common');
+  await page.locator("[name='caste_name']").selectOption('General');
+  await page.locator("[name='classs']").selectOption('class-5th');
+  await page.getByTestId('Section').click();
+  // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
+  await page.getByRole('button', { name: 'Submit' }).click();
+});

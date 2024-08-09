@@ -7,7 +7,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
   test('test for creating employee category ', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -43,7 +43,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
   test('test for deleting academic year ', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -56,7 +56,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
   test('test for update school detail', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -80,7 +80,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
   test('test for academic year creation2', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -97,7 +97,7 @@ test.describe.serial('test for academic year creation and deletion ', () => {
     test('test for deleting academic year2 ', async ({ page }) => {
       await page.goto('https://testschool.launchmysite.in/');
       await page.getByPlaceholder('Enter your Email').click();
-      await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+      await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
       await page.getByPlaceholder('Enter your password').click();
       await page.getByPlaceholder('Enter your password').fill('test@123');
       await page.getByRole('button', { name: 'Sign In' }).click();
@@ -116,7 +116,7 @@ test.describe.serial('test for class and section ', () => {
   test('test for assign class teacher', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByPlaceholder('Enter your password').press('Enter');
@@ -136,7 +136,7 @@ test.describe.serial('test for class and section ', () => {
 test('test for assign class teacher2', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
