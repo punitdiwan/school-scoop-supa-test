@@ -32,9 +32,9 @@ test.describe.serial('test for academic year creation and deletion ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.getByRole('link', { name: 'Academic Year' }).first().click();
     await page.getByTestId('start-year').click();
-    await page.getByTestId('start-year').fill('2024');
+    await page.getByTestId('start-year').fill('2025');
     await page.getByTestId('end-year').click();
-    await page.getByTestId('end-year').fill('2025');
+    await page.getByTestId('end-year').fill('2026');
     await page.getByRole('button', { name: 'Create' }).click();
     await expect(page.getByText('AY-2024-2025')).toBeVisible();
   });
