@@ -29,7 +29,7 @@ test.describe('test for manage exam ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.locator('div:nth-child(6)').first().click();
     await page.getByRole('link', { name: 'Manage Exam Group' }).click();
-    await page.getByTestId('select-class').selectOption('vpcYXc5qHJwJ,Class-4th');
+    await page.getByTestId('select-class').selectOption('Class-4th');
     await page.getByLabel('Class-4th-A-').check();
     await page.getByPlaceholder('ex: QUARTERLY').click();
     await page.getByPlaceholder('ex: QUARTERLY').press('CapsLock');

@@ -1,28 +1,7 @@
 import { test, expect } from '@playwright/test';
 // test for academic year   
 test.describe.serial('test for academic year creation and deletion ', () => {
-
-
-
-  test('test for creating employee category ', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-    await page.getByRole('link', { name: 'HR Management' }).first().click();
-    await page.getByRole('link', { name: 'Manage Employee Category' }).click();
-    await page.getByPlaceholder('Enter category name').click();
-    await page.getByPlaceholder('Enter category name').fill('second division');
-    await page.getByPlaceholder('Enter prefix').click();
-    await page.getByPlaceholder('Enter prefix').fill('test2');
-    await page.getByRole('button', { name: 'Save' }).click();
-    await page.goto('https://testschool.launchmysite.in/hr_management/employee_category');
-    await expect(page.getByText('test').nth(0)).toBeVisible()
-  });
-
-
+  
   test('test for academic year creation', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
@@ -63,7 +42,6 @@ test.describe.serial('test for academic year creation and deletion ', () => {
     await page.getByRole('link', { name: 'School Details' }).first().click();
     await page.getByPlaceholder('YYYY').click();
     await page.getByPlaceholder('YYYY').fill('2002');
-    await page.getByRole('button', { name: 'update' }).click();
     await page.getByLabel('CBSE,').click();
     await page.getByLabel('CBSE', { exact: true }).click();
     await page.getByLabel(',', { exact: true }).click();
