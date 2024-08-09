@@ -96,3 +96,112 @@ test('test for student addmission1', async ({ page }) => {
 //   // await page.getByRole('button', { name: 'Archive Selected' }).click();
 //   // await page.getByText('Successfully Archived Student').click();
 // });
+
+
+
+
+// const path = require('path');
+// const fs = require('fs');
+// const pdfParse = require('pdf-parse');
+
+// test('test for PDF download after waiting for Test1 text', async ({ page }) => {
+//   // Go to the page and perform the necessary actions
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'View All Student' }).click();
+  
+//   // Fill the admission number
+//   await page.getByPlaceholder('fullname or admission no. or').click();
+//   await page.getByPlaceholder('fullname or admission no. or').fill('01');
+  
+//   // await page.waitForTimeout(4000); // Wait for 3 seconds
+//   // await expect(page.getByText('Test1')).toBeVisible();
+  
+//   // Setup download folder
+//   const downloadPath = path.resolve(__dirname, 'Downloads'); // Ensure 'Downloads' folder exists or create it
+//   if (!fs.existsSync(downloadPath)) {
+//     fs.mkdirSync(downloadPath);
+//   }
+
+//   // Listen for the download event
+//   const [download] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'PDF' }).click()
+//   ]);
+
+//   // Save the downloaded PDF to the specified folder
+//   const downloadFilePath = path.join(downloadPath, 'student-report.pdf');
+//   await download.saveAs(downloadFilePath);
+
+//   // Verify the file was downloaded and saved correctly
+//   expect(fs.existsSync(downloadFilePath)).toBe(true);
+
+//   // Read and parse the PDF
+//   try {
+//     const pdfData = fs.readFileSync(downloadFilePath);
+//     const parsedData = await pdfParse(pdfData);
+//     console.log(`PDF Content:`, parsedData.text);
+//   } catch (error) {
+//     console.error(`Error parsing PDF:`, error);
+//   }
+// });
+
+
+
+//// ///
+//////////
+////////
+//////
+
+// const path = require('path');
+// const fs = require('fs');
+// const pdfParse = require('pdf-parse');
+
+// test('test for PDF download', async ({ page }) => {
+//   // Go to the page and perform the necessary actions
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'View All Student' }).click();
+//   await page.getByPlaceholder('fullname or admission no. or').click();
+//   await page.getByPlaceholder('fullname or admission no. or').fill('01');
+//   // Assuming clicking on a student is necessary; uncomment if needed
+//   // await page.getByText('Test1').click();
+
+//   // Setup download folder
+//   const downloadPath = path.resolve(__dirname, 'Downloads'); // Ensure 'Downloads' folder exists or create it
+//   if (!fs.existsSync(downloadPath)) {
+//     fs.mkdirSync(downloadPath);
+//   }
+
+//   // Listen for the download event
+//   const [download] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'PDF' }).click()
+//   ]);
+
+//   // Save the downloaded PDF to the specified folder
+//   const downloadFilePath = path.join(downloadPath, 'student-report.pdf');
+//   await download.saveAs(downloadFilePath);
+
+//   // Verify the file was downloaded and saved correctly
+//   expect(fs.existsSync(downloadFilePath)).toBe(true);
+
+//   // Read and parse the PDF
+//   try {
+//     const pdfData = fs.readFileSync(downloadFilePath);
+//     const parsedData = await pdfParse(pdfData);
+//     console.log(`PDF Content:`, parsedData.text);
+//   } catch (error) {
+//     console.error(`Error parsing PDF:`, error);
+//   }
+// });
