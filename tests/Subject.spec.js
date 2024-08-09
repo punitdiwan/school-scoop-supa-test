@@ -8,7 +8,7 @@ test.describe('test for managing subjects ', () => {
 test('test for creating subject', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -51,7 +51,7 @@ test('test for creating subject', async ({ page }) => {
 test('test for deleting major subjects', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -77,7 +77,7 @@ test('test for deleting major subjects', async ({ page }) => {
 test('test Copy Subjects From Another', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -101,7 +101,7 @@ test('test Copy Subjects From Another', async ({ page }) => {
 test('test  adding group to subjects', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -122,7 +122,7 @@ test('test  adding group to subjects', async ({ page }) => {
 test('test for creating Elective Subject', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -144,7 +144,7 @@ test.describe.serial('test for managing subjects ', () => {
 test('test for Assign elective Subject To Students', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -165,7 +165,7 @@ test('test for Assign elective Subject To Students', async ({ page }) => {
 // test('test for unAssign Elective Subject', async ({ page }) => {
 //   await page.goto('https://testschool.launchmysite.in/');
 //   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //   await page.getByPlaceholder('Enter your password').click();
 //   await page.getByPlaceholder('Enter your password').fill('test@123');
 //   await page.getByRole('button', { name: 'Sign In' }).click();

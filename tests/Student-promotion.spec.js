@@ -7,7 +7,7 @@ test.describe('test for student promotion ', () => {
 // test('test for graduating a student', async ({ page }) => {
 //     await page.goto('https://testschool.launchmysite.in/');
 //     await page.locator('.group > div > .inline-flex').first().click();
-//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //     await page.getByPlaceholder('Enter your password').click();
 //     await page.getByPlaceholder('Enter your password').fill('test@123');
 //     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -28,7 +28,7 @@ test.describe('test for student promotion ', () => {
 //   test('test for archive a student', async ({ page }) => {
 //     await page.goto('https://testschool.launchmysite.in/');
 //     await page.getByPlaceholder('Enter your Email').click();
-//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //     await page.getByPlaceholder('Enter your password').click();
 //     await page.getByPlaceholder('Enter your password').fill('test@123');
 //     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -49,7 +49,7 @@ test.describe('test for student promotion ', () => {
 //   test('test for UnArchive Student', async ({ page }) => {
 //     await page.goto('https://testschool.launchmysite.in/');
 //     await page.getByPlaceholder('Enter your Email').click();
-//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //     await page.getByPlaceholder('Enter your password').click();
 //     await page.getByPlaceholder('Enter your password').fill('test@123');
 //     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -70,7 +70,7 @@ test.describe('test for student promotion ', () => {
 //   test('test for Generate TC', async ({ page }) => {
 //     await page.goto('https://testschool.launchmysite.in/');
 //     await page.getByPlaceholder('Enter your Email').click();
-//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //     await page.getByPlaceholder('Enter your password').click();
 //     await page.getByPlaceholder('Enter your password').fill('test@123');
 //     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -101,7 +101,7 @@ test.describe('test for student promotion ', () => {
 // test('test for Download TC', async ({ page }) => {
 //     await page.goto('https://testschool.launchmysite.in/');
 //     await page.getByPlaceholder('Enter your Email').click();
-//     await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//     await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //     await page.getByPlaceholder('Enter your password').click();
 //     await page.getByPlaceholder('Enter your password').fill('test@123');
 //     await page.getByPlaceholder('Enter your password').press('Enter');
@@ -140,7 +140,7 @@ test.describe('test for student promotion ', () => {
 //   await page.goto('https://testschool.launchmysite.in/');
 //   await expect(page.getByPlaceholder('Enter your Email')).toBeVisible();
 //   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //   await page.getByPlaceholder('Enter your password').click();
 //   await page.getByPlaceholder('Enter your password').fill('test@123');
 //   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -161,7 +161,7 @@ test.describe('test for student promotion ', () => {
 //   await page.goto('https://testschool.launchmysite.in/');
 //   await expect(page.getByPlaceholder('Enter your Email')).toBeVisible();
 //   await page.getByPlaceholder('Enter your Email').click();
-//   await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //   await page.getByPlaceholder('Enter your password').click();
 //   await page.getByPlaceholder('Enter your password').fill('test@123');
 //   await page.getByRole('button', { name: 'Sign In' }).click();

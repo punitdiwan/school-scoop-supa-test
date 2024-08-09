@@ -8,7 +8,7 @@ test.describe('test for student addmission ', () => {
   test('test for student addmission', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -21,9 +21,9 @@ test.describe('test for student addmission ', () => {
     await page.getByTestId('date-birth').fill('2002-02-02');
     await page.locator("[name='student_category_id']").selectOption('common');
     await page.locator("[name='caste_name']").selectOption('General');
-    await page.locator("[name='classs']").selectOption('class-4th');
+    await page.locator("[name='classs']").selectOption('class-5th');
     await page.getByTestId('Section').click();
-    // await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-4th-A-2024');
+    await page.locator("[name='batches']").selectOption('4P1Fblfev3yF, class-5th-A-2024');
     await page.getByRole('button', { name: 'Submit' }).click();
   });
 
@@ -34,7 +34,7 @@ test.describe('test for student addmission ', () => {
 test('test for view all student by class ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your Email').press('Enter');
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByPlaceholder('Enter your password').press('Enter');
@@ -54,7 +54,7 @@ test('test for view all student by class ', async ({ page }) => {
 test('test for view student by contact number', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -69,7 +69,7 @@ test('test for view student by contact number', async ({ page }) => {
 test('test for view student by name', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -84,7 +84,7 @@ test('test for view student by name', async ({ page }) => {
 test('test for view student by addmission number', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -98,7 +98,7 @@ test('test for view student by addmission number', async ({ page }) => {
 test('test for printing pdf of view all student', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByPlaceholder('Enter your password').press('Enter');
@@ -116,7 +116,7 @@ test('test for printing pdf of view all student', async ({ page }) => {
 test('test for viewing fee history for a student ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your Email').press('Enter');
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByPlaceholder('Enter your password').press('Enter');
@@ -138,7 +138,7 @@ test('test for viewing fee history for a student ', async ({ page }) => {
 test('test for print a student detail ', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your Email').press('Enter');
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByPlaceholder('Enter your password').press('Enter');
@@ -157,7 +157,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for viewing siblings', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -171,7 +171,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for printing Character Certificate', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -191,7 +191,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for id card (wine)', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -215,7 +215,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for id card (Indigo)', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -240,7 +240,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for id card (Grassy)', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -265,7 +265,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for id card (Sky)', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -291,7 +291,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for id card (newtemp)', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -313,7 +313,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for student id card (all)', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -362,7 +362,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for generating student roll number', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -384,7 +384,7 @@ test('test for print a student detail ', async ({ page }) => {
   test('test for Attendance Register', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.locator('.group > div > .inline-flex').first().click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -408,7 +408,7 @@ test('test for print a student detail ', async ({ page }) => {
 test('test for Attendance Report', async ({ page }) => {
   await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
@@ -428,7 +428,7 @@ test('test for Attendance Report', async ({ page }) => {
   test('test for View All Student', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
@@ -465,7 +465,7 @@ test.describe.serial('test for student addmission ', () => {
   test('test for deleting student category', async ({ page }) => {
     await page.goto('https://testschool.launchmysite.in/');
     await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('test@example.com');
+    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
     await page.getByPlaceholder('Enter your password').click();
     await page.getByPlaceholder('Enter your password').fill('test@123');
     await page.getByRole('button', { name: 'Sign In' }).click();
