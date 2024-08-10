@@ -75,28 +75,24 @@ test.describe('test for creating class and section and deleting it ', () => {
 
 
 
-
-
-
-  test('test for deleting a class ', async ({ page }) => {
-    await page.goto('https://testschool.launchmysite.in/');
-    await page.getByPlaceholder('Enter your Email').click();
-    await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
-    await page.getByPlaceholder('Enter your password').click();
-    await page.getByPlaceholder('Enter your password').fill('test@123');
-    await page.getByRole('button', { name: 'Sign In' }).click();
-
-    await page.getByRole('link', { name: 'Class And Section' }).first().click();
-    await page.getByRole('link', { name: 'Manage Class' }).click();
-    await page.getByRole('rowheader', { name: 'class-5th' }).click();
-    page.once('dialog', dialog => {
-      console.log(`Dialog message: ${dialog.message()}`);
-      dialog.accept().catch(() => { });
-    });
-    await page.getByLabel('class-5th').getByText('Delete').click();
-    await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
-      await page.waitForLoadState('networkidle');
-    await expect(page.getByText('class-5th')).not.toBeVisible();
+test('test for deleting a class', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Class And Section' }).first().click();
+  await page.getByRole('link', { name: 'Manage Class' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.accept().catch(() => {});
   });
+  await page.getByLabel('class-5th').getByText('Delete').click();
+  await page.getByRole('main').getByText('Class Deleted Successfully!').click();
+  await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
+  await expect(page.getByText('class-5th')).not.toBeVisible();
+});
+
 });
 

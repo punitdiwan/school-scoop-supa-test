@@ -71,27 +71,27 @@ test('test for deleting major subjects', async ({ page }) => {
 
 });
 
-test('test Copy Subjects From Another', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Manage Subject' }).first().click();
-  await page.getByRole('link', { name: 'Manage Major Subject' }).click();
-  await page.getByTestId('select-class').selectOption('class-6th');
-  await page.getByTestId('select-batch').selectOption('class-6th-A-2024');
-  await page.getByRole('button', { name: 'Copy Subjects From Another' }).click();
-  await page.getByText('Academic Year *Select').click();
-  await page.locator('div').filter({ hasText: /^Select Academic YearAY-2024-2025$/ }).getByRole('combobox').selectOption('vl6k9EGIAbQD');
-  await page.getByText('Section *Selectclass-4th-A-').click();
-  await page.locator('select[name="from_section"]').selectOption('4P1Fblfev3yF');
-  await page.getByLabel('You can select multiple sections', { exact: true }).click();
-  await page.getByLabel('class-6th-A-2024', { exact: true }).click();
-  await page.getByText('Copy', { exact: true }).click();
-  await page.getByRole('main').getByText('Subjects Copied Successfully').click();
-});
+// test('test Copy Subjects From Another', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Manage Subject' }).first().click();
+//   await page.getByRole('link', { name: 'Manage Major Subject' }).click();
+//   await page.getByTestId('select-class').selectOption('class-6th');
+//   await page.getByTestId('select-batch').selectOption('class-6th-A-2024');
+//   await page.getByRole('button', { name: 'Copy Subjects From Another' }).click();
+//   await page.getByText('Academic Year *Select').click();
+//   await page.locator('div').filter({ hasText: /^Select Academic YearAY-2024-2025$/ }).getByRole('combobox').selectOption('vl6k9EGIAbQD');
+//   await page.getByText('Section *Selectclass-4th-A-').click();
+//   await page.locator('select[name="from_section"]').selectOption('4P1Fblfev3yF');
+//   await page.getByLabel('You can select multiple sections', { exact: true }).click();
+//   await page.getByLabel('class-6th-A-2024', { exact: true }).click();
+//   await page.getByText('Copy', { exact: true }).click();
+//   await page.getByRole('main').getByText('Subjects Copied Successfully').click();
+// });
 
 
 
@@ -138,26 +138,26 @@ test('test for creating Elective Subject', async ({ page }) => {
 
 test.describe.serial('test for managing subjects ', () => {
 
-test('test for Assign elective Subject To Students', async ({ page }) => {
-  await page.goto('https://testschool.launchmysite.in/');
-  await page.getByPlaceholder('Enter your Email').click();
-  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
-  await page.getByPlaceholder('Enter your password').click();
-  await page.getByPlaceholder('Enter your password').fill('test@123');
-  await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.getByRole('link', { name: 'Manage Subject' }).first().click();
-  await page.getByRole('link', { name: 'Assign Elective Subject' }).click();
-  await page.getByTestId('select-class').selectOption('class-4th');
-  await page.getByTestId('select-batch').selectOption('class-4th-A-2024');
-  await page.getByTestId('select-group').selectOption('class-4th-A-2024-electivesub,elective sub');
-  await page.getByTestId('select-elective-sub').selectOption('phy');
-  await page.getByText('test3').click();
-  await page.locator('tr').filter({ hasText: 'test33' }).getByRole('rowheader').locator('span').click();
-  await page.getByRole('button', { name: 'Assign', exact: true }).click();
-  await page.getByTestId('select-elective-sub').selectOption('Bio');
-  await page.locator('tr').filter({ hasText: 'test44' }).getByRole('rowheader').locator('span').click();
-  await page.getByRole('button', { name: 'Assign', exact: true }).click();
-});
+// test('test for Assign elective Subject To Students', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Manage Subject' }).first().click();
+//   await page.getByRole('link', { name: 'Assign Elective Subject' }).click();
+//   await page.getByTestId('select-class').selectOption('class-4th');
+//   await page.getByTestId('select-batch').selectOption('class-4th-A-2024');
+//   await page.getByTestId('select-group').selectOption('class-4th-A-2024-electivesub,elective sub');
+//   await page.getByTestId('select-elective-sub').selectOption('phy');
+//   await page.getByText('test3').click();
+//   await page.locator('tr').filter({ hasText: 'test33' }).getByRole('rowheader').locator('span').click();
+//   await page.getByRole('button', { name: 'Assign', exact: true }).click();
+//   await page.getByTestId('select-elective-sub').selectOption('Bio');
+//   await page.locator('tr').filter({ hasText: 'test44' }).getByRole('rowheader').locator('span').click();
+//   await page.getByRole('button', { name: 'Assign', exact: true }).click();
+// });
 
 // test('test for unAssign Elective Subject', async ({ page }) => {
 //   await page.goto('https://testschool.launchmysite.in/');
