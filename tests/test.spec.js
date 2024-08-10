@@ -79,84 +79,363 @@ import { test, expect } from '@playwright/test';
 // });
 
 
+ 
 
 
-// test('test for class creation', async ({ page }) => {
-    
+// test('test', async ({ page }) => {
 //   await page.goto('https://testschool.launchmysite.in/');
 //   await page.getByPlaceholder('Enter your Email').click();
 //   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
 //   await page.getByPlaceholder('Enter your password').click();
 //   await page.getByPlaceholder('Enter your password').fill('test@123');
 //   await page.getByRole('button', { name: 'Sign In' }).click();
-//   await page.getByRole('link', { name: 'Class And Section' }).first().click();
-//   await page.getByRole('link', { name: 'Create Class And Section' }).click();
-//   await page.locator('input[name="class-5thChecked"]').check();
-//   await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
-//   await page.getByTestId('start-date').fill('2024-06-01');
-//   // await page.locator("[name='academic_year']").selectOption('AY-2024-2025');
-//   await page.getByTestId('academic-year').click();
-//   await page.locator("[name='academic_year']").selectOption('AY-2024-2025');
+  
+//   // Navigate to Student Admissions
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Admissions' }).click();
+  
+//   // Fill in the form
+//   await page.getByPlaceholder('Enter Admission No').click();
+//   await page.getByPlaceholder('Enter Admission No').fill('03');
+//   await page.getByPlaceholder('Enter your Full name').click();
+//   await page.getByPlaceholder('Enter your Full name').fill('test3');
+//   await page.getByTestId('date-birth').fill('2003-03-01');
 
+//   // Interact with the 'Select Category' dropdown
+//   await page.getByLabel('Select Category').click();  // Open the dropdown
+//   // await expect(page.getByText('common')).toBeVisible();  // Ensure the option is visible
+//   // await page.getByRole('option', { name: 'common' }).click(); // Click the specific option by its name
+//   // await page.waitForSelector('option[value="fFK2aF97vxKv"]', { state: 'visible' });  // Adjust selector if needed
+//   // await page.locator('option[value="fFK2aF97vxKv"]').click(); // Dire
+//   await page.waitForSelector('option[value="fFK2aF97vxKv"]', { state: 'visible', timeout: 10000 });
 
-//   await page.getByTestId('select-medium').click();
-//   await page.getByLabel('English', { exact: true }).click();    
-//   await page.getByRole('button', { name: 'Save' }).click();
-//   await page.waitForTimeout(2000);
-//   await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
-//   await expect(page.getByText('class-5th')).toBeVisible();
+//   // Click the 'common' option by its value
+//   await page.locator('option[value="fFK2aF97vxKv"]').click();
 
+//   // Interact with 'Select Caste' dropdown
+//   await page.getByLabel('Select Caste').click();
+//   await page.getByRole('option', { name: 'General' }).click();  // Click the "General" option
+
+//   // Select class and section
+//   await page.getByTestId('select-class').click();
+//   await page.getByLabel('class-4th', { exact: true }).click();
+//   await page.getByTestId('Section').click();
+//   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+
+//   // Submit the form
+//   await page.getByRole('button', { name: 'Submit' }).click();
+  
+//   // Verify the success message
+//   await expect(page.getByText('Student Created!')).toBeVisible();
 // });
 
 
-test('test for class creation', async ({ page }) => {
-  // Navigate to the login page
-  await page.goto('https://testschool.launchmysite.in/');
 
-  // Login
+//  // // // // // student creation
+
+// test('test2', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+
+//   // Login
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+
+//   // Navigate to Student Admissions
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Admissions' }).click();
+
+//   // Fill in the Admission No and other details
+//   await page.getByTestId('inpul-admissionno').fill('02');
+//   await page.getByPlaceholder('Enter your Full name').fill('test2');
+//   await page.getByTestId('date-birth').fill('2002-02-01');
+
+//   // Select Category
+//   await page.getByTestId('select-category').click();  // Open the dropdown
+//   await page.getByRole('option', { name: 'common' }).click();  // Select 'common'
+//   await page.locator('option[value="common"]').click();  // Select 'common' by its value attribute
+//  await page.getByTestId('select-category').click();  // Open the dropdown
+//   await page.waitForSelector('div[data-option]', { state: 'visible' });
+//   // Select 'common' by visible text
+//   await page.locator('text=common').click();
+
+
+
+
+//   // Select Caste
+//   await page.getByTestId('select-caste').click();
+//   await page.getByRole('option', { name: 'General' }).click();  // Select 'General'
+
+//   // Select Class
+//   await page.getByTestId('select-class').click();
+//   await page.getByRole('option', { name: 'class-4th' }).click();  // Select 'class-4th'
+//   const options = await page.locator('div[data-option]').allTextContents();
+//   console.log('Available options:', options);
+//   // Select Section
+//   await page.getByTestId('Section').click();
+//   await page.getByRole('option', { name: 'class-4th-A-2024' }).click();  // Select 'class-4th-A-2024'
+
+//   // Submit the form
+//   await page.getByRole('button', { name: 'Submit' }).click();
+
+//   // Verify the success message
+//   await expect(page.getByText('Student Created!')).toBeVisible();
+// });
+
+
+// test('test1', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Admissions' }).click();
+//   await page.getByTestId('inpul-admissionno').click();
+//   await page.getByTestId('inpul-admissionno').fill('02');
+//   await page.getByPlaceholder('Enter your Full name').click();
+//   await page.getByPlaceholder('Enter your Full name').fill('test2');
+//   await page.getByTestId('date-birth').fill('2002-02-01');
+//   await page.getByText('Student Discount Category*CategorycommonCategorySelect Category').click();
+//     const options = await page.locator('div[data-option]').allTextContents();
+//   console.log('Available options:', options);
+//   await page.getByLabel('common', { exact: true }).click();
+//   await page.getByText('Caste *CasteGeneralOBCSCSTCasteSelect Caste').click();
+//   await page.getByLabel('General', { exact: true }).click();
+//   await page.getByText('ClassClassclass-4thclass-').click();
+//   await page.getByLabel('class-4th', { exact: true }).click();
+//   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Submit' }).click();
+//   await expect(page.getByText('Student Created!')).toBeVisible();
+// });
+
+
+// await page.getByText('Section *Selectclass-4th-A-').click();
+// await page.locator('select[name="from_section"]').selectOption('4P1Fblfev3yF');
+
+
+// test('test Student Admissions', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+
+//   // Sign in
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+
+//   // Wait for navigation to complete
+
+//   // Navigate to Student Admissions
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Admissions' }).click();
+
+//   // Fill out the form
+//   await page.getByTestId('inpul-admissionno').fill('02');
+//   await page.getByPlaceholder('Enter your Full name').fill('test2');
+//   await page.getByTestId('date-birth').fill('2002-02-01');
+
+//   await page.getByTestId('select-category').click();
+//   await page.locator("[name='student_category_id']").selectOption('common');
+//   // await page.getByPlaceholder('Category', { exact: true }).click();
+//   // await page.getByLabel('Category', { exact: true }).click();
+  
+
+//   await page.getByTestId('select-caste').click();
+//   await page.getByLabel('General', { exact: true }).click();
+//   await page.locator("[name='classs']").selectOption('class-4th');
+//   await page.locator("[name='batches']").selectOption('class-4th-A-2024');
+
+//   // await page.getByTestId('select-class').click();
+//   // await page.getByLabel('class-4th', { exact: true }).click();
+
+//   await page.getByTestId('Section').click();
+//   await page.getByLabel('class-4th-A-2024', { exact: true }).click();
+
+//   // Submit the form
+//   await page.getByRole('button', { name: 'Submit' }).click();
+
+//   // Wait for the success message
+//   const successMessage = await page.getByRole('main').getByText('Student Created!');
+//   await expect(successMessage).toBeVisible();
+// });
+
+
+
+// test('test for student addmission', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Admissions' }).click();
+//   await page.getByPlaceholder('Enter Admission No').click();
+//   await page.getByPlaceholder('Enter Admission No').fill('02');
+//   await page.getByPlaceholder('Enter your Full name').click();
+//   await page.getByPlaceholder('Enter your Full name').fill('test2');
+//   await page.getByTestId('date-birth').fill('2002-02-02');
+//   await page.locator("[name='student_category_id']").selectOption('common');
+//   await page.locator("[name='caste_name']").selectOption('General');
+//   await page.locator("[name='classs']").selectOption('class-5th');
+//   await page.getByTestId('Section').click();
+
+//   await page.evaluate(() => window.scrollBy(0, 100));
+//   const batchesLocator = page.locator("[name='batches']");
+//   await batchesLocator.click({ position: { x: 10, y: 10 } });
+//   // await page.waitForSelector("[name='batches']", { state: 'visible' });
+//   // await page.locator("[name='batches']").click();
+  
+//   // Select the batch
+//   await page.getByText('class-4th-A-2024').click();
+
+//   // await page.locator("[name='batches']").click();
+//   // await page.getByText('class-4th-A-2024').click();
+//   await page.getByRole('button', { name: 'Submit' }).click();
+//   await expect(page.getByText('Student Created!')).toBeVisible();
+// });
+
+// // //not working
+// test('test for creating fee collection', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+//   await page.getByRole('link', { name: 'Fee Particular' }).click();
+//   await page.getByTestId('select-category').click();
+//   await page.getByLabel('tution fee', { exact: true }).getByText('tution fee').click();
+//   await page.getByTestId('input-particular').click();
+//   await page.getByTestId('input-particular').fill('tution fee particular2');
+//   await page.getByTestId('input-description').click();
+//   await page.getByTestId('input-description').fill('tution fee particular2 description');
+//   await page.getByTestId('input-amount').click();
+//   await page.getByTestId('input-amount').fill('10000');
+//   await page.getByRole('button', { name: 'Create Fee Particular' }).click();
+//   await page.getByRole('main').getByText('Particular Created').click();
+// });
+
+
+
+
+
+
+// test('test Fees Collection', async ({ page }) => {
+//   await page.goto('https://testschool.launchmysite.in/');
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+//   await page.getByRole('link', { name: 'Fees Collection' }).click();
+//   await page.getByTestId('select-category').click();
+//   await page.getByLabel('tution fee', { exact: true }).click();
+//   await page.getByTestId('select-period').click();
+//   await page.getByLabel('YEARLY', { exact: true }).click();
+//   await page.locator('label').filter({ hasText: 'Select All' }).click();
+//   await page.getByTestId('input-collection-name').click();
+//   await page.getByTestId('input-collection-name').fill('tution fee collection');
+//   await page.locator('#startDate-1').fill('2024-06-01');
+//   await page.locator('#endDate-1').fill('2025-05-01');
+//   await page.getByRole('button', { name: 'Create Fee Collection' }).click();
+//   await page.getByRole('main').getByText('Created Successfully!').click();
+// });
+
+
+
+
+test('test Submit Fees', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
   await page.getByPlaceholder('Enter your Email').click();
   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
   await page.getByPlaceholder('Enter your password').click();
   await page.getByPlaceholder('Enter your password').fill('test@123');
   await page.getByRole('button', { name: 'Sign In' }).click();
-
-  // Navigate to Create Class And Section page
-  await page.getByRole('link', { name: 'Class And Section' }).first().click();
-  await page.getByRole('link', { name: 'Create Class And Section' }).click();
-
-  // Select class and section
-  await page.locator('input[name="class-5thChecked"]').check();
-  await page.locator('div').filter({ hasText: /^class-5thABCD$/ }).getByRole('checkbox').nth(1).check();
-
-  // Set start date
-  await page.getByTestId('start-date').fill('2024-06-01');
-
-  // Open and select the academic year
-  await page.getByTestId('academic-year').click();
-  // Ensure the dropdown is visible
-  await page.waitForSelector('select[name="academic_year"]', { state: 'visible' });
-  // Wait for options to load
-  await page.waitForTimeout(1000); // Adjust if needed
-
-  // Select the option by value or text
-  await page.locator('select[name="academic_year"]').selectOption({ value: 'u3PWWbgXjkF8' });
-  // or
-  // await page.locator('select[name="academic_year"]').selectOption({ label: 'AY-2024-2025' });
-
-  // Select medium
-  await page.getByTestId('select-medium').click();
-  await page.getByLabel('English', { exact: true }).click();
-
-  // Save the form
-  await page.getByRole('button', { name: 'Save' }).click();
-  
-  // Wait and verify class creation
-  await page.waitForTimeout(2000); // Adjust if needed
-  await page.goto('https://testschool.launchmysite.in/class_and_section/manage-class');
-  await expect(page.getByText('class-5th')).toBeVisible();
+  await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+  await page.getByRole('link', { name: 'Submit Fees' }).click();
+  await page.getByTestId('select-class').click();
+  await page.getByRole('option', { name: 'class-4th' }).click();
+  await page.getByTestId('select-batches').click();
+  await page.getByTestId('select-batches').click();
+  await page.getByRole('option', { name: 'class-4th-A-' }).click();
+  await page.getByText('Test1').click();
+  await page.getByRole('link', { name: 'Pay Fees' }).click();
+  await page.getByText('Test1').click();
+  await page.getByRole('cell', { name: 'tution fee collection' }).click();
+  await page.getByRole('row', { name: 'tution fee collection 01/05/' }).locator('svg').first().click();
+  await page.locator('[id="react-aria8882332687-\\:r46\\:"]').click();
+  await page.locator('[id="react-aria8882332687-\\:r46\\:"]').fill('100');
+  await page.getByLabel('Example static collection').locator('div').nth(2).click();
+  await page.locator('[id="react-aria8882332687-\\:r34\\:"]').fill('2024-08-10');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByText('Fees paid successfully').click();
 });
 
 
 
 
 
+test('test Transaction History', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+  await page.getByRole('link', { name: 'Transaction History' }).click();
+  await page.getByLabel('Select a Transaction Category').click();
+  await page.getByLabel('Fees', { exact: true }).click();
+  await page.getByLabel('Select a Transactions').click();
+  await page.getByLabel('All', { exact: true }).click();
+  await page.locator('[id="react-aria4426909028-\\:rv\\:"]').fill('2024-08-09');
+  await page.locator('[id="react-aria4426909028-\\:r14\\:"]').fill('2024-08-10');
+  await page.getByRole('button', { name: 'Find Transaction' }).click();
+  await page.getByText('test1').click();
+  await page.getByText('tution fee collection').click();
+  await page.getByLabel('Example table with custom').getByText('Cash').click();
+});
+
+
+
+
+
+test('test Transactions Category', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+  await page.getByRole('link', { name: 'Transactions Category' }).click();
+  await page.getByText('Fees', { exact: true }).click();
+  await page.getByText('Yes').click();
+});
+
+
+
+
+test('test Revert Transactions', async ({ page }) => {
+  await page.goto('https://testschool.launchmysite.in/');
+  await page.getByPlaceholder('Enter your Email').click();
+  await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+  await page.getByPlaceholder('Enter your password').click();
+  await page.getByPlaceholder('Enter your password').fill('test@123');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+  await page.getByRole('link', { name: 'Revert Transactions' }).click();
+  await page.locator('div').filter({ hasText: /^From Date$/ }).locator('div').nth(2).click();
+  await page.locator('[id="react-aria7671691597-\\:rf\\:"]').fill('2024-08-11');
+  await page.locator('[id="react-aria7671691597-\\:rk\\:"]').fill('2024-08-20');
+  await page.getByRole('button', { name: 'Find All Transaction' }).click();
+  await page.getByText('test1').click();
+  await page.getByRole('button', { name: 'Revert' }).click();
+  await page.getByPlaceholder('Enter a Revert Reason').click();
+  await page.getByPlaceholder('Enter a Revert Reason').fill('revert');
+  await page.getByRole('button', { name: 'Revert' }).click();
+  await page.getByText('Transaction Reverted').click();
+});

@@ -205,3 +205,62 @@ test('test for student addmission1', async ({ page }) => {
 //     console.error(`Error parsing PDF:`, error);
 //   }
 // });
+
+
+
+
+
+
+// const path = require('path');
+// const fs = require('fs');
+
+// test('Download page from print preview', async ({ page }) => {
+//   // Create a directory for downloads if it doesn't exist
+//   const downloadDir = path.join(__dirname, 'Downloads');
+//   if (!fs.existsSync(downloadDir)) {
+//     fs.mkdirSync(downloadDir);
+//   }
+
+//   // Navigate to the page
+//   await page.goto('https://testschool.launchmysite.in/');
+
+//   // Perform actions to reach print preview
+//   await page.getByPlaceholder('Enter your Email').click();
+//   await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+//   await page.getByPlaceholder('Enter your password').click();
+//   await page.getByPlaceholder('Enter your password').fill('test@123');
+//   await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.getByRole('link', { name: 'Students' }).first().click();
+//   await page.getByRole('link', { name: 'Student Identity Card' }).click();
+//   await page.getByTestId('select-class').selectOption('1NPSHbFN5Zfn,Class-4th');
+//   await page.getByTestId('select-batch').selectOption('NOnCHmqIv50R,Class-4th-A-2024');
+//   await page.getByTestId('select-student').click();
+//   await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
+//   await page.getByTestId('select-idcard').click();
+//   await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('Wine');
+  
+//   // Click Submit Report to trigger print preview
+//   await page.getByRole('button', { name: 'Submit Report' }).click();
+//   console.log('Clicked Submit Report button');
+
+//   // Wait for print preview to open in a new page
+//   const [newPage] = await Promise.all([
+//     page.waitForEvent('popup', { timeout: 60000 }), // Adjust timeout as needed
+//     page.getByRole('button', { name: 'Print' }).click()
+//   ]);
+
+//   console.log('Print preview opened');
+
+//   // Wait for the download event
+//   const [download] = await Promise.all([
+//     // newPage.waitForEvent('download', { timeout: 60000 }),
+//     newPage.getByRole('button', { name: 'save' }).click()
+//   ]);
+
+//   // Save the downloaded file
+//   const filePath = path.join(downloadDir, 'id_card.pdf'); // Adjust the filename as needed
+//   await download.saveAs(filePath);
+
+//   console.log(`File saved to ${filePath}`);
+// });
+

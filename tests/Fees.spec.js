@@ -12,12 +12,12 @@ test.describe('test cases for fees categories', () => {
     //     await page.getByRole('link', { name: 'Manage Fees' }).first().click();
     //     await page.getByRole('link', { name: 'Fees Category' }).click();
     //     await page.getByPlaceholder('Enter Category Name').click();
-    //     await page.getByPlaceholder('Enter Category Name').fill('second category');
+    //     await page.getByPlaceholder('Enter Category Name').fill('tution fee');
     //     await page.getByPlaceholder('Enter Category Description').click();
-    //     await page.getByPlaceholder('Enter Category Description').fill('second category description');
-    //     await page.getByLabel('class-6th-A-').click();
+    //     await page.getByPlaceholder('Enter Category Description').fill('tution fee description');
+    //     await page.getByLabel('class-4th-A-').click();
     //     await page.getByRole('button', { name: 'Create Category' }).click();
-    //     await page.getByRole('main').getByText('Added New Fee Category!').click();
+    //     await expect(page.getByText('Added New Fee Category!').first()).toBeVisible();
     // });
 
 
