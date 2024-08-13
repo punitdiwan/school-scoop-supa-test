@@ -107,12 +107,9 @@ test.describe.serial('test for class and section ', () => {
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.getByRole('link', { name: 'Class And Section' }).first().click();
     await page.getByRole('link', { name: 'Classs Teacher' }).click();
-    await page.getByText('Class *Select Classclass-').click();
-    await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('1NPSHbFN5Zfn,class-4th');
-    await page.getByText('Section *Selectclass-4th-A-').click();
-    await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('NOnCHmqIv50R,class-4th-A-2024');
-    await page.getByText('Department *Select').click();
-    await page.locator('div').filter({ hasText: /^Select Departmentemployee departmentemployee departmentemp department$/ }).getByRole('combobox').selectOption('uucRte0y8tUI');
+    await page.getByTestId('select-class').selectOption('1NPSHbFN5Zfn,class-4th');
+    await page.getByTestId('select-section').selectOption('NOnCHmqIv50R,class-4th-A-2024');
+    await page.getByTestId('select-department').selectOption('uucRte0y8tUI');
     await page.getByText('test4').click();
   });
 
@@ -126,12 +123,9 @@ test('test for assign class teacher2', async ({ page }) => {
   await page.getByRole('button', { name: 'Sign In' }).click();
   await page.getByRole('link', { name: 'Class And Section' }).first().click();
   await page.getByRole('link', { name: 'Classs Teacher' }).click();
-  await page.getByText('Class *Select Classclass-').click();
-  await page.locator('div').filter({ hasText: /^Select Classclass-4thclass-6th$/ }).getByRole('combobox').selectOption('1NPSHbFN5Zfn,class-4th');
-  await page.getByText('Section *Selectclass-4th-A-').click();
-  await page.locator('div').filter({ hasText: /^Selectclass-4th-A-2024class-4th-B-2024$/ }).getByRole('combobox').selectOption('NOnCHmqIv50R,class-4th-A-2024');
-  await page.getByText('Department *Select').click();
-  await page.locator('div').filter({ hasText: /^Select Departmentemployee departmentemployee departmentemp department$/ }).getByRole('combobox').selectOption('uucRte0y8tUI');
+  await page.getByTestId('select-class').selectOption('1NPSHbFN5Zfn,class-4th');
+  await page.getByTestId('select-section').selectOption('NOnCHmqIv50R,class-4th-A-2024');
+  await page.getByTestId('select-department').selectOption('uucRte0y8tUI');
   await page.getByLabel('test5').getByText('Assign Class Teacher').click();
 });
 
