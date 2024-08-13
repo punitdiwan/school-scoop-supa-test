@@ -201,14 +201,13 @@ test('test for print a student detail ', async ({ page }) => {
     await page.getByTestId('select-class').selectOption('1NPSHbFN5Zfn,Class-4th');
     await page.getByTestId('select-batch').selectOption('NOnCHmqIv50R,Class-4th-A-2024');
     await page.getByTestId('select-student').click();
-    await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
-    await page.getByTestId('select-idcard').click();
+    await page.getByLabel('All Students', { exact: true }).click();
     await page.getByTestId('select-idcard').click();
     await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('Wine');
     await page.getByRole('button', { name: 'Submit Report' }).click();
-    const page1Promise = page.waitForEvent('popup');
+    const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Print' }).click();
-    const page1 = await page1Promise;
+    const download = await downloadPromise;
   });
 
 
@@ -301,14 +300,13 @@ test('test for print a student detail ', async ({ page }) => {
     await page.getByTestId('select-class').selectOption('1NPSHbFN5Zfn,Class-4th');
     await page.getByTestId('select-batch').selectOption('NOnCHmqIv50R,Class-4th-A-2024');
     await page.getByTestId('select-student').click();
-    await page.getByLabel('All Students', { exact: true }).getByText('All Students').click();
+    await page.getByLabel('All Students', { exact: true }).click();
     await page.getByTestId('select-idcard').click();
-    await page.getByTestId('select-idcard').click();
-    await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('newtemp');
+    await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('Wine');
     await page.getByRole('button', { name: 'Submit Report' }).click();
-    const page1Promise = page.waitForEvent('popup');
+    const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Print' }).click();
-    const page1 = await page1Promise;
+    const download = await downloadPromise;
   });
   
   test('test for student id card (all)', async ({ page }) => {
@@ -328,9 +326,9 @@ test('test for print a student detail ', async ({ page }) => {
   await page.getByTestId('select-idcard').click();
   await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('Wine');
   await page.getByRole('button', { name: 'Submit Report' }).click();
-  const page1Promise = page.waitForEvent('popup');
+  const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Print' }).click();
-  const page1 = await page1Promise;
+  const download = await downloadPromise;
   await page.getByTestId('select-idcard').click();
   await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('Indigo');
   await page.getByRole('button', { name: 'Submit Report' }).click();
@@ -352,9 +350,9 @@ test('test for print a student detail ', async ({ page }) => {
   await page.getByTestId('select-idcard').click();
   await page.getByLabel('ColourWineIndigoGrassySkynewtemp').selectOption('newtemp');
   await page.getByRole('button', { name: 'Submit Report' }).click();
-  const page5Promise = page.waitForEvent('popup');
+  const downloadPromise2 = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Print' }).click();
-  const page5 = await page5Promise;
+  const download2 = await downloadPromise2;
 });
   
 
