@@ -180,7 +180,18 @@ test.describe('test cases for fees categories', () => {
     });
   
         
-
+    test('test Transactions Category', async ({ page }) => {
+        await page.goto('https://testschool.launchmysite.in/');
+        await page.getByPlaceholder('Enter your Email').click();
+        await page.getByPlaceholder('Enter your Email').fill('testschool@example.com');
+        await page.getByPlaceholder('Enter your password').click();
+        await page.getByPlaceholder('Enter your password').fill('test@123');
+        await page.getByRole('button', { name: 'Sign In' }).click();
+        await page.getByRole('link', { name: 'Manage Fees' }).first().click();
+        await page.getByRole('link', { name: 'Transactions Category' }).click();
+        await page.getByText('Fees', { exact: true }).click();
+        await page.getByText('Yes').click();
+      });
 
 
 
