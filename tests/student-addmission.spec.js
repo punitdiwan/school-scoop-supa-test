@@ -21,7 +21,7 @@ test.describe('test for student addmission ', () => {
     await page.getByTestId('date-birth').fill('2002-02-02');
     await page.locator("[name='student_category_id']").selectOption('common');
     await page.locator("[name='caste_name']").selectOption('General');
-    await page.locator("[name='classs']").selectOption('class-5th');
+    await page.locator("[name='classs']").selectOption('class-4th');
     await page.getByTestId('Section').click();
     // await page.locator("[name='batches']").selectOption('NOnCHmqIv50R,Class-4th-A-2024');
     await page.getByRole('button', { name: 'Submit' }).click();
@@ -44,8 +44,8 @@ test('test for view all student by class ', async ({ page }) => {
   await page.getByLabel('class-4th', { exact: true }).getByText('class-4th').click();
   await page.getByText('Section*Section Listclass-4th').click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-2024').click();
-    await expect(page.getByText('Test')).toBeVisible();
-  await page.getByRole('link', { name: 'View profile' }).click();
+  await expect(page.getByText('Test')).toBeVisible();
+  await page.getByRole('link', { name: 'View profile' }).first().click();
   await expect(page.getByText('class :class-4th')).toBeVisible();
 });
 
@@ -128,7 +128,7 @@ test('test for viewing fee history for a student ', async ({ page }) => {
   await page.getByText('Section*Section Listclass-4th').click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-2024').click();
     await expect(page.getByText('Test1')).toBeVisible();
-  await page.getByRole('link', { name: 'View profile' }).click();
+  await page.getByRole('link', { name: 'View profile' }).first().click();
   await page.getByRole('button', { name: 'View Receipt' }).click();
   await page.getByRole('heading', { name: 'Transaction History' }).click();
 });
@@ -150,7 +150,7 @@ test('test for print a student detail ', async ({ page }) => {
   await page.getByText('Section*Section Listclass-4th').click();
   await page.getByLabel('class-4th-A-2024', { exact: true }).getByText('class-4th-A-2024').click();
     await expect(page.getByText('Test1')).toBeVisible();
-  await page.getByRole('link', { name: 'View profile' }).click();
+  await page.getByRole('link', { name: 'View profile' }).first().click();
     await page.getByRole('button', { name: 'Print' }).click();
 });
 
