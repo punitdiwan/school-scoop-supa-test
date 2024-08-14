@@ -15,8 +15,8 @@ test.describe.serial('test for academic year creation and deletion ', () => {
     await page.getByTestId('end-year').click();
     await page.getByTestId('end-year').fill('2026');
     await page.getByRole('button', { name: 'Create' }).click();
-    await expect(page.getByText('AY-2024-2025')).toBeVisible();
-  });
+    await expect(page.getByText('AY-2025-2026')).toBeVisible();
+    });
 
 
   test('test for deleting academic year ', async ({ page }) => {
